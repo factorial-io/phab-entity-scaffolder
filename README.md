@@ -1,5 +1,5 @@
 # phab-entity-scaffolder
-Port of entity-scaffolder for D8 using phabalicious for scaffolding files.
+Port of entity-scaffolder for D8 using phabalicious for scaffolding files and configuration.
 
 ## Installation
 
