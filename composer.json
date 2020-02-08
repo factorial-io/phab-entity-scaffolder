@@ -1,0 +1,12 @@
+{
+    "name": "factorial-io/phab-entity-scaffolder",
+    "description": "Plugins for the phabalicious scaffolder to scaffold drupal 8 configuration",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Stephan Huber",
+            "email": "stephan@factorial.io"
+        }
+    ],
+    "require": {}
+}

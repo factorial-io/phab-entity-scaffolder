@@ -1,0 +1,8 @@
+uuid: gets_replaced
+langcode: en
+status: true
+dependencies:
+  module:
+name: gets_replaces
+label: 'gets replaces'
+effects: []
