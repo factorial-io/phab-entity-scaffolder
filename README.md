@@ -18,7 +18,7 @@ As long as this project is not available at packagist.org, add this repo to your
 
 Then require this project via composer:
 ```shell
-composer require --dev factorial/phab-entity-scaffolder:dev-master
+composer require --dev factorial-io/phab-entity-scaffolder:dev-master
 ```
 This should download the project and install it into vendor.
 
