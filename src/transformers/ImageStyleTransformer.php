@@ -1,6 +1,6 @@
 <?php
 
-namespace Phabalicious\Scaffolder;
+namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
@@ -15,13 +15,16 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
         return 'imagestyles';
     }
 
+    public static function requires() {
+      return "3.4";
+    }
 
     public function __construct()
     {
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile(__DIR__ . '/image.style.template.yml');
     }
 
-    public function transform(TaskContextInterface $context, array $files)
+    public function transform(TaskContextInterface $context, array $files): array
     {
         $results = [];
 
