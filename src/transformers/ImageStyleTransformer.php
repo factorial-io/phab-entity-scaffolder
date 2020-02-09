@@ -15,8 +15,9 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
         return 'imagestyles';
     }
 
-    public static function requires() {
-      return "3.4";
+    public static function requires()
+    {
+        return "3.4";
     }
 
     public function __construct()
