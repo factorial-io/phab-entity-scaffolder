@@ -8,5 +8,8 @@
             "email": "stephan@factorial.io"
         }
     ],
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "factorial-io/phabalicious": "dev-feature/pluggable-scaffolders"
+    }
 }
