@@ -45,7 +45,9 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
     protected function postTransform($results, $existing = []) 
     {
         foreach ($results as $key => &$result) {
-            if ($result['uuid'] === $this::PRESERVE_UUID_IF_AVAILABLE) {
+            // At the moment, UUID is the only key that is 
+            // intended to support self::PRESERVE_IF_AVAILABLE.
+            if ($result['uuid'] === $this::PRESERVE_IF_AVAILABLE) {
                 if (isset($existing[$key]['uuid'])) {
                     $result['uuid'] = $existing[$key]['uuid'];
                 }
