@@ -9,10 +9,10 @@ class BlockContentTypeTransformer extends EntityScaffolderTransformerBase
         return 'block_content.type';
     }
 
-    protected function getTemplateOverrideData() {
+    protected function getTemplateOverrideData($data) {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,
-            'id' => $id,
+            'id' => $data['id'],
             'label' => $data['label'],
         ];
     }

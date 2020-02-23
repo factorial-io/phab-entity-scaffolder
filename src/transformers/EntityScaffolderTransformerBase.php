@@ -45,34 +45,36 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
     protected function postTransform($results, $existing = []) 
     {
         foreach ($results as $key => &$result) {
-            // At the moment, UUID is the only key that is 
-            // intended to support self::PRESERVE_IF_AVAILABLE.
-            if ($result['uuid'] === $this::PRESERVE_IF_AVAILABLE) {
-                if (isset($existing[$key]['uuid'])) {
-                    $result['uuid'] = $existing[$key]['uuid'];
+            if ($result == $this::PRESERVE_IF_AVAILABLE) {
+                $result = '';
+                if (isset($existing[$key])) {
+                    $result = $existing[$key];
                 }
                 else {
-                    $result['uuid'] = Utilities::generateUUID();
+                    // UUID is special, 
+                    // since we can't have it empty.
+                    if ($key == 'uuid') {
+                        $result = Utilities::generateUUID();
+                    }
                 }
-            }
-            
+            }            
         }
     }
 
     public function transform(TaskContextInterface $context, array $files): array
     {
         $results = [];
-
         foreach ($this->iterateOverFiles($context, $files) as $data) {
-            $id = $data['id'];
-            $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-            $results[$this->getTemplateFileName($id)] = $result;
+            $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData($data));
+            $results[$this->getTemplateFileName($data['id'])] = $result;
         }
         $this->postTransform($results);
         return $this->asYamlFiles($results);
     }
 
-    protected function getTemplateOverrideData() {
-        return [];
+    protected function getTemplateOverrideData($data) {
+        return [
+            'uuid' => $this::PRESERVE_IF_AVAILABLE,
+        ];
     }
 }
