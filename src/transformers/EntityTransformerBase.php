@@ -12,8 +12,7 @@ class EntityTransformerBase extends EntityScaffolderTransformerBase
         foreach ($this->iterateOverFiles($context, $files) as $data) {
             $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData($data));
             $results[$this->getTemplateFileName($data['id'])] = $result;
-            $field_configs = $this->transformFields($data);
-            // @TODO Merge $field_configs with $results.
+            $results += $this->transformFields($data);
         }
         $this->postTransform($results);
         return $this->asYamlFiles($results);
@@ -29,7 +28,9 @@ class EntityTransformerBase extends EntityScaffolderTransformerBase
                     $field['weight'] = $weight;
                 }
                 $fieldStorageTransformer = new FieldStorageTransformer($this::ENTITY_NAME, $field, $data);
-                $field_configs = $fieldStorageTransformer->transformDependend($data);
+                $field_configs = $fieldStorageTransformer->transformDependend();
+                $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_NAME, $field, $data);
+                $field_configs += $fieldFieldTransformer->transformDependend();
             }
         }
         return $field_configs;

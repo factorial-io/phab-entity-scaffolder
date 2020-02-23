@@ -20,7 +20,8 @@ class FieldStorageTransformer extends FieldTransformerBase
      */
     public function getConfigName() 
     {
-        return 'field.field.' . $this->entity_type . '.' . $this->parent_data['id'] . '.' . $this->getFieldName();
+        // Format : 'field-storage-{entity_type}-{field_name}'.
+        return 'field.storage.' . $this->entity_type . '.' . $this->getFieldName();
     }
 
     public function transformDependend(): array
