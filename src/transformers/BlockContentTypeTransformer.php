@@ -2,18 +2,18 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-class BlockContentTypeTransformer extends EntityScaffolderTransformerBase
+class BlockContentTypeTransformer extends EntityTransformerBase
 {
+    const ENTITY_NAME = 'block_content';
+
     public static function getName()
     {
-        return 'block_content.type';
+        return self::ENTITY_NAME;
     }
 
-    protected function getTemplateOverrideData($data) {
-        return [
-            'uuid' => $this::PRESERVE_IF_AVAILABLE,
-            'id' => $data['id'],
-            'label' => $data['label'],
-        ];
+    public function getConfigName($id) 
+    {
+        return $this::ENTITY_NAME . '.type.' . $id;
     }
+
 }

@@ -24,22 +24,30 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
 
     public function __construct()
     {
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplate());
+        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
     }
 
-    protected function getTemplate() 
+    protected function getTemplateFile() 
     {
-        return $this->getTemplateDir() . '/' . $this->getTemplateFileName('template');
-    }
-
-    protected function getTemplateFileName($id) 
-    {
-        return $this->getName() . '.' . $id . '.yml';
+        return $this->getTemplateDir() . '/' . $this->getTemplateFileName();
     }
 
     protected function getTemplateDir() 
     {
         return __DIR__ . '/templates';
+    }
+
+    protected function getTemplateFileName() 
+    {
+        return $this->getConfigName('template') . '.yml';
+    }
+
+    /**
+     * Get the Drupal config name.
+     */
+    public function getConfigName($id) 
+    {
+        return $this->getName() . '.' . $id;
     }
 
     protected function postTransform($results, $existing = []) 
