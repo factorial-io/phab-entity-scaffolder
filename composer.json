@@ -13,7 +13,7 @@
         "factorial-io/phabalicious": "dev-feature/pluggable-scaffolders"
     },
     "autoload": {
-        "psr-0": {
+        "psr-4": {
             "Phabalicious\\Scaffolder\\Transformers\\": "src/transformers/"
         }
     }
