@@ -11,5 +11,10 @@
     "require": {},
     "require-dev": {
         "factorial-io/phabalicious": "dev-feature/pluggable-scaffolders"
+    },
+    "autoload": {
+        "psr-0": {
+            "Phabalicious\\Scaffolder\\Transformers\\": "src/transformers/"
+        }
     }
 }
