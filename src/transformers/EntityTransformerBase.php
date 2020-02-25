@@ -25,13 +25,14 @@ abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
         $field_configs = [];
         if (!empty($data['fields'])) {
             $weight = 0;
-            foreach ($data['fields'] as $field) {
+            foreach ($data['fields'] as $key => $field) {
+                $field['id'] = $key;
                 $weight++;
                 if (empty($field['weight'])) {
                     $field['weight'] = $weight;
                 }
                 $fieldStorageTransformer = new FieldStorageTransformer($this::ENTITY_NAME, $field, $data);
-                $field_configs = $fieldStorageTransformer->transformDependend();
+                $field_configs += $fieldStorageTransformer->transformDependend();
                 $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_NAME, $field, $data);
                 $field_configs += $fieldFieldTransformer->transformDependend();
             }

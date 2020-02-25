@@ -25,13 +25,13 @@ class FieldFieldTransformer extends FieldTransformerBase
     public function getConfigName($id = '')
     {
         // Format : 'field-field-{entity_type}-{bundle}-{field_name}'.
-        return 'field.field.' . $this->entity_type . '.' . $this->parent_data['id'] . '.' . $this->getFieldName();
+        return 'field.field.' . $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName();
     }
 
     public function transformDependend(): array
     {
         // TODO check input params.
-        if (empty($this->parent_data['fields'])) {
+        if (empty($this->parent['fields'])) {
             return [];
         }
         $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
@@ -46,7 +46,7 @@ class FieldFieldTransformer extends FieldTransformerBase
             'dependecies' => [
                 'config' => [
                     // Format : '{entity_type}-type-{bundle}'
-                    - $this->entity_type . '.type.' . $this->parent_data['id'],
+                    - $this->entity_type . '.type.' . $this->parent['id'],
                     // Format : 'field-storage-{entity_type}-{field_name}'
                     - 'field.storage.' . $this->entity_type . '.' . $this->getFieldName()
                 ]

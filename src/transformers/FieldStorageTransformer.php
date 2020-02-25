@@ -29,7 +29,7 @@ class FieldStorageTransformer extends FieldTransformerBase
 
     public function transformDependend(): array
     {
-        if (empty($this->parent_data['fields'])) {
+        if (empty($this->parent['fields'])) {
             return [];
         }
         $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
