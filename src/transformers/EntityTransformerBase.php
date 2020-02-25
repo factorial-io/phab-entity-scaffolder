@@ -4,6 +4,7 @@ namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
+use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 
 abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
 {
@@ -17,7 +18,7 @@ abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
             $results[$this->getTemplateFileName($data['id'])] = $result;
             $results += $this->transformFields($data);
         }
-        $this->postTransform($results);
+        $this->placeholderService->postTransform($results);
         return $this->asYamlFiles($results);
     }
 
@@ -63,7 +64,7 @@ abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
             }
         }
 
-        $out['uuid'] = $this::PRESERVE_IF_AVAILABLE;
+        $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
 
         return $out;
     }

@@ -4,6 +4,7 @@ namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
+use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 
 abstract class FieldTransformerBase extends EntityScaffolderTransformerBase
 {
@@ -43,7 +44,7 @@ abstract class FieldTransformerBase extends EntityScaffolderTransformerBase
     protected function getTemplateOverrideData($data=[])
     {
         return [
-            'uuid' => $this::PRESERVE_IF_AVAILABLE,
+            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
         ];
     }
 

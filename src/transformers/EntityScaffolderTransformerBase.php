@@ -4,13 +4,14 @@ namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
+use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 
 abstract class EntityScaffolderTransformerBase extends YamlTransformer implements DataTransformerInterface
 {
 
     protected $template = [];
 
-    const PRESERVE_IF_AVAILABLE = '__PRESERVE__';
+    protected $placeholderService;
 
     public static function getName()
     {
@@ -25,6 +26,7 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
     public function __construct()
     {
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->placeholderService = new PlaceholderService();
     }
 
     protected function getTemplateFile() 
@@ -50,27 +52,6 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
         return $this->getName() . '.' . $id;
     }
 
-    protected function postTransform(&$items, $existing = []) 
-    {
-        foreach ($items as $file => &$results) {
-            foreach($results as $key => &$result) {
-                if ($result == $this::PRESERVE_IF_AVAILABLE) {
-                    $result = '';
-                    if (isset($existing[$file][$key])) {
-                        $result = $existing[$file][$key];
-                    }
-                    else {
-                        // UUID is special, 
-                        // since we can't have it empty.
-                        if ($key == 'uuid') {
-                            $result = Utilities::generateUUID();
-                        }
-                    }
-                }
-            }       
-        }
-    }
-
     public function transform(TaskContextInterface $context, array $files): array
     {
         $results = [];
@@ -78,14 +59,14 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
             $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData($data));
             $results[$this->getTemplateFileName($data['id'])] = $result;
         }
-        $this->postTransform($results);
+        $this->placeholderService->postTransform($results);
         return $this->asYamlFiles($results);
     }
 
     protected function getTemplateOverrideData($data = []) 
     {
         return [
-            'uuid' => $this::PRESERVE_IF_AVAILABLE,
+            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
         ];
     }
 }

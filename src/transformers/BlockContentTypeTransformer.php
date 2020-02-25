@@ -2,6 +2,8 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
+use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+
 class BlockContentTypeTransformer extends EntityTransformerBase
 {
     const ENTITY_NAME = 'block_content';
