@@ -50,22 +50,24 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
         return $this->getName() . '.' . $id;
     }
 
-    protected function postTransform($results, $existing = []) 
+    protected function postTransform(&$items, $existing = []) 
     {
-        foreach ($results as $key => &$result) {
-            if ($result == $this::PRESERVE_IF_AVAILABLE) {
-                $result = '';
-                if (isset($existing[$key])) {
-                    $result = $existing[$key];
-                }
-                else {
-                    // UUID is special, 
-                    // since we can't have it empty.
-                    if ($key == 'uuid') {
-                        $result = Utilities::generateUUID();
+        foreach ($items as $file => &$results) {
+            foreach($results as $key => &$result) {
+                if ($result == $this::PRESERVE_IF_AVAILABLE) {
+                    $result = '';
+                    if (isset($existing[$file][$key])) {
+                        $result = $existing[$file][$key];
+                    }
+                    else {
+                        // UUID is special, 
+                        // since we can't have it empty.
+                        if ($key == 'uuid') {
+                            $result = Utilities::generateUUID();
+                        }
                     }
                 }
-            }            
+            }       
         }
     }
 
