@@ -4,15 +4,17 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use \Symfony\Component\Yaml\Yaml;
 
 abstract class EntityPropertyTransformerBase {
     protected $template = [];
 
     protected $placeholderService;
+    protected $result;
 
     public function __construct()
     {
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->template = Yaml::parseFile($this->getTemplateFile());
         $this->placeholderService = new PlaceholderService();
     }
 
@@ -34,9 +36,9 @@ abstract class EntityPropertyTransformerBase {
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName($id = '')
+    public function getConfigName()
     {
-        return $this->getName() . '.' . $id;
+        return '???';
     }
 
     protected function getTemplateOverrideData($data = []) 
@@ -45,4 +47,13 @@ abstract class EntityPropertyTransformerBase {
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
         ];
     }
+
+    public function getOutput() {
+        return [$this->getConfigName() . '.yml' => $this->result];
+    }
+
+    public function setDependency($category, $config_name) {
+        $this->result['dependencies'][$category][] = $config_name;
+    }
+
 }

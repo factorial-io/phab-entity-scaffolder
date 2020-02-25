@@ -9,11 +9,6 @@ use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 class FieldFieldTransformer extends FieldTransformerBase
 {
 
-    public static function getName()
-    {
-        return 'field_field';
-    }
-
     protected function getTemplateFileName()
     {
         return 'field.field.template.' . $this->data['type'] . '.yml';
@@ -22,7 +17,7 @@ class FieldFieldTransformer extends FieldTransformerBase
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName($id = '')
+    public function getConfigName()
     {
         // Format : 'field-field-{entity_type}-{bundle}-{field_name}'.
         return 'field.field.' . $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName();

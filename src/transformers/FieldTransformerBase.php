@@ -18,7 +18,7 @@ abstract class FieldTransformerBase extends EntityPropertyTransformerBase
         return __DIR__ . '/templates';
     }
 
-    public function __construct($entity_type = '', $data = [], $parent = [])
+    public function __construct($entity_type, $data, $parent)
     {
         $this->entity_type = $entity_type;
         $this->data = $data;

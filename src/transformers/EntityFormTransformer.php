@@ -5,61 +5,57 @@ namespace Phabalicious\Scaffolder\Transformers;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use Phabalicious\Scaffolder\Transformers\FieldFieldTransformer;
 
 class EntityFormTransformer extends FieldTransformerBase
 {
 
-    public static function getName()
-    {
-        return 'entity_form';
-    }
+    protected $view_mode;
 
     protected function getTemplateFileName()
     {
-        return 'field.field.template.' . $this->data['type'] . '.yml';
+        return 'core.entity_form_display.template.yml';
+    }
+
+    public function __construct($entity_type, $data, $view_mode)
+    {
+        $this->entity_type = $entity_type;
+        $this->data = $data;
+        $this->view_mode = $view_mode;
+        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
     }
 
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName($id = '')
+    public function getConfigName()
     {
-        // Format : 'field-field-{entity_type}-{bundle}-{field_name}'.
-        return 'field.field.' . $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName();
+        // Format : 'core-entity_form_display-{entity_type}-{bundle}-{view_mode}'.
+        return 'core.entity_form_display.' . $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode;
     }
 
     public function transformDependend(): array
     {
-        // TODO check input params.
-        if (empty($this->parent['fields'])) {
-            return [];
-        }
-        $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-        $results[$this->getConfigName() . '.yml'] = $result;
-        return $results;
+        return [];
     }
 
     protected function getTemplateOverrideData($data=[])
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
-            'dependecies' => [
-                'config' => [
-                    // Format : '{entity_type}-type-{bundle}'
-                    - $this->entity_type . '.type.' . $this->parent['id'],
-                    // Format : 'field-storage-{entity_type}-{field_name}'
-                    - 'field.storage.' . $this->entity_type . '.' . $this->getFieldName()
-                ]
-            ],
-            // Format : '{entity_type}-{bundle}-{field_name}'
-            'id' => $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName(),
-            'field_name' => $this->getFieldName(),
-            'bundle' => $this->parent['id'],
-            'label' => !empty($this->parent['label']) ? $this->parent['label'] : $this->parent['id'],
-            'description' => !empty($this->parent['description']) ? $this->parent['description'] : '',
-            'entity_type' => $this->entity_type,
-            'required' => !!empty($this->data['required']),
+            // Format : '{entity_type}-{bundle}-{view_mode}'
+            'id' => $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode,
+            'targetEntityType' => $this->entity_type,
+            'mode' => $this->view_mode,
+            'bundle' => $this->data['id'],
         ];
     }
 
+    public function attachField(FieldFieldTransformer $fieldFieldTransformer) {
+        $this->result['dependencies']['config'][] = $fieldFieldTransformer->getConfigName();
+        $this->result['content'][$fieldFieldTransformer->getFieldName()] = [
+            'placeholder'
+        ];
+    }
 }

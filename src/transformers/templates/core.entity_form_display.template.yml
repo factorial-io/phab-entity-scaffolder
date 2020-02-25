@@ -3,11 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.testimonial_box.field_testimonial_box_image
-    - field.field.paragraph.testimonial_box.field_testimonial_box_job_pos
-    - field.field.paragraph.testimonial_box.field_testimonial_box_logo
-    - field.field.paragraph.testimonial_box.field_testimonial_box_name
-    - field.field.paragraph.testimonial_box.field_testimonial_box_text
     - paragraphs.paragraphs_type.testimonial_box
   module:
     - media_library

@@ -9,11 +9,6 @@ use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 class FieldStorageTransformer extends FieldTransformerBase
 {
 
-    public static function getName()
-    {
-        return 'field_storage';
-    }
-
     protected function getTemplateFileName() 
     {
         return 'field.storage.template.' . $this->data['type'] . '.yml';
@@ -22,7 +17,7 @@ class FieldStorageTransformer extends FieldTransformerBase
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName($id = '')
+    public function getConfigName()
     {
         // Format : 'field-storage-{entity_type}-{field_name}'.
         return 'field.storage.' . $this->entity_type . '.' . $this->getFieldName();
