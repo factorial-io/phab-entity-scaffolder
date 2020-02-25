@@ -2,7 +2,12 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-class EntityTransformerBase extends EntityScaffolderTransformerBase
+use Phabalicious\Method\TaskContextInterface;
+use Phabalicious\Utilities\Utilities;
+
+require_once __DIR__ . '/EntityScaffolderTransformerBase.php';
+
+abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
 {
     const ENTITY_NAME = '???';
 
@@ -36,7 +41,8 @@ class EntityTransformerBase extends EntityScaffolderTransformerBase
         return $field_configs;
     }
 
-    protected function getTemplateOverrideData($data) {
+    protected function getTemplateOverrideData($data = []) 
+    {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,
             'id' => $data['id'],

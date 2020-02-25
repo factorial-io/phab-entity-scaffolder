@@ -2,6 +2,11 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
+use Phabalicious\Method\TaskContextInterface;
+use Phabalicious\Utilities\Utilities;
+
+require_once __DIR__ . '/FieldTransformerBase.php';
+
 class FieldStorageTransformer extends FieldTransformerBase
 {
 
@@ -18,7 +23,7 @@ class FieldStorageTransformer extends FieldTransformerBase
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName() 
+    public function getConfigName($id = '')
     {
         // Format : 'field-storage-{entity_type}-{field_name}'.
         return 'field.storage.' . $this->entity_type . '.' . $this->getFieldName();
@@ -34,7 +39,8 @@ class FieldStorageTransformer extends FieldTransformerBase
         return $results;
     }
 
-    protected function getTemplateOverrideData() {
+    protected function getTemplateOverrideData($data=[]) 
+    {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,
             'dependecies' => [

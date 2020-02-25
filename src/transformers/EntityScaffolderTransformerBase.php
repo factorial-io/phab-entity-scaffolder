@@ -45,7 +45,7 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName($id) 
+    public function getConfigName($id = '')
     {
         return $this->getName() . '.' . $id;
     }
@@ -80,7 +80,8 @@ abstract class EntityScaffolderTransformerBase extends YamlTransformer implement
         return $this->asYamlFiles($results);
     }
 
-    protected function getTemplateOverrideData($data) {
+    protected function getTemplateOverrideData($data = []) 
+    {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,
         ];

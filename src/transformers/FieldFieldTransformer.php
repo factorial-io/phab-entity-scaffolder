@@ -2,6 +2,11 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
+use Phabalicious\Method\TaskContextInterface;
+use Phabalicious\Utilities\Utilities;
+
+require_once __DIR__ . '/FieldTransformerBase.php';
+
 class FieldFieldTransformer extends FieldTransformerBase
 {
 
@@ -18,7 +23,7 @@ class FieldFieldTransformer extends FieldTransformerBase
     /**
      * Get the Drupal config name.
      */
-    public function getConfigName() 
+    public function getConfigName($id = '')
     {
         // Format : 'field-field-{entity_type}-{bundle}-{field_name}'.
         return 'field.field.' . $this->entity_type . '.' . $this->parent_data['id'] . '.' . $this->getFieldName();
@@ -26,6 +31,7 @@ class FieldFieldTransformer extends FieldTransformerBase
 
     public function transformDependend(): array
     {
+        // TODO check input params.
         if (empty($this->parent_data['fields'])) {
             return [];
         }
@@ -34,7 +40,8 @@ class FieldFieldTransformer extends FieldTransformerBase
         return $results;
     }
 
-    protected function getTemplateOverrideData() {
+    protected function getTemplateOverrideData($data=[]) 
+    {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,
             'dependecies' => [

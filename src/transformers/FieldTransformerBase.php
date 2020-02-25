@@ -2,14 +2,22 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-class FieldTransformerBase extends EntityScaffolderTransformerBase
+use Phabalicious\Method\TaskContextInterface;
+use Phabalicious\Utilities\Utilities;
+
+require_once __DIR__ . '/EntityScaffolderTransformerBase.php';
+
+abstract class FieldTransformerBase extends EntityScaffolderTransformerBase
 {
     protected $entity_type;
     protected $data;
     protected $parent_data;
 
-    public function __construct($entity_type, $data, $parent_data)
+    public function __construct($entity_type = '', $data = [], $parent_data = [])
     {
+        if (empty($entity_type)) {
+            return;
+        }
         $this->entity_type = $entity_type;
         $this->data = $data;
         $this->parent_data = $parent_data;
@@ -27,14 +35,15 @@ class FieldTransformerBase extends EntityScaffolderTransformerBase
         return [];
     }
 
-    public function transformDependend($fields): array
+    public function transformDependend(): array
     {
         $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData($data));
         $results[$this->getTemplateFileName($data['id'])] = $result;
         return $results;
     }
 
-    protected function getTemplateOverrideData($data) {
+    protected function getTemplateOverrideData($data=[])
+    {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,
         ];

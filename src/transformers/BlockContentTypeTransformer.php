@@ -2,6 +2,8 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
+require_once __DIR__ . '/EntityTransformerBase.php';
+
 class BlockContentTypeTransformer extends EntityTransformerBase
 {
     const ENTITY_NAME = 'block_content';
@@ -11,7 +13,7 @@ class BlockContentTypeTransformer extends EntityTransformerBase
         return self::ENTITY_NAME;
     }
 
-    public function getConfigName($id) 
+    public function getConfigName($id = '') 
     {
         return $this::ENTITY_NAME . '.type.' . $id;
     }
