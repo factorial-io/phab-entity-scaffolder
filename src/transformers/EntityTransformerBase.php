@@ -42,10 +42,32 @@ abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
 
     protected function getTemplateOverrideData($data = []) 
     {
-        return [
-            'uuid' => $this::PRESERVE_IF_AVAILABLE,
-            'id' => $data['id'],
-            'label' => $data['label'],
+        echo "\n\n\n\n\n\n";
+        echo var_export($data);
+        echo "\n\n\n\n\n\n";
+        $out = [];
+
+        $manddatory_keys_map = [
+            'id' => 'id',
+            'label' => 'label',
         ];
+
+        foreach($manddatory_keys_map as $key => $target) {
+            $out[$key] = $data[$target];
+        }
+
+        $optional_keys_map = [
+            'description' => 'description',
+        ];
+
+        foreach($optional_keys_map as $key => $target) {
+            if (isset($data[$target])) {
+                $out[$key] = $data[$target];
+            }
+        }
+
+        $out['uuid'] = $this::PRESERVE_IF_AVAILABLE;
+
+        return $out;
     }
 }
