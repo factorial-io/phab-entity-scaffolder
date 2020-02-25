@@ -5,8 +5,6 @@ namespace Phabalicious\Scaffolder\Transformers;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 
-require_once __DIR__ . '/FieldTransformerBase.php';
-
 class FieldStorageTransformer extends FieldTransformerBase
 {
 

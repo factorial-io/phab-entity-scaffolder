@@ -5,7 +5,6 @@ namespace Phabalicious\Scaffolder\Transformers;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 
-require_once __DIR__ . '/FieldTransformerBase.php';
 
 class FieldFieldTransformer extends FieldTransformerBase
 {
@@ -15,7 +14,7 @@ class FieldFieldTransformer extends FieldTransformerBase
         return 'field_field';
     }
 
-    protected function getTemplateFileName() 
+    protected function getTemplateFileName()
     {
         return 'field.field.template.' . $this->data['type'] . '.yml';
     }
@@ -40,7 +39,7 @@ class FieldFieldTransformer extends FieldTransformerBase
         return $results;
     }
 
-    protected function getTemplateOverrideData($data=[]) 
+    protected function getTemplateOverrideData($data=[])
     {
         return [
             'uuid' => $this::PRESERVE_IF_AVAILABLE,

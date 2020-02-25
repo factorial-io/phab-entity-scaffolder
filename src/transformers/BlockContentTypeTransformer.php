@@ -2,8 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-require_once __DIR__ . '/EntityTransformerBase.php';
-
 class BlockContentTypeTransformer extends EntityTransformerBase
 {
     const ENTITY_NAME = 'block_content';
