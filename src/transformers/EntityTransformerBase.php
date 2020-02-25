@@ -42,9 +42,6 @@ abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
 
     protected function getTemplateOverrideData($data = []) 
     {
-        echo "\n\n\n\n\n\n";
-        echo var_export($data);
-        echo "\n\n\n\n\n\n";
         $out = [];
 
         $manddatory_keys_map = [
