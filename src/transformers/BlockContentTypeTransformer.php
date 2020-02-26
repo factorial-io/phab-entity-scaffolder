@@ -2,20 +2,21 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+require_once __DIR__ . '/Utils/BlockContentEntity.php';
+
+use Phabalicious\Scaffolder\Transformers\Utils\BlockContentEntity;
+use Phabalicious\Scaffolder\Transformers\EntityTransformerBase;
+
 
 class BlockContentTypeTransformer extends EntityTransformerBase
 {
-    const ENTITY_NAME = 'block_content';
-
     public static function getName()
     {
-        return self::ENTITY_NAME;
+        return 'block_content';
     }
 
-    public function getConfigName($id = '') 
+    public function getTransformer($config_service, $placeholder_service, $data)
     {
-        return $this::ENTITY_NAME . '.type.' . $id;
+        return new BlockContentEntity($config_service, $placeholder_service, $data);
     }
-
 }

@@ -2,75 +2,45 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
+require_once __DIR__ . '/Utils/ConfigService.php';
+require_once __DIR__ . '/Utils/PlaceholderService.php';
+require_once __DIR__ . '/Utils/BlockContentEntity.php';
+
+use Phabalicious\Scaffolder\Transformers\Utils\BlockContentEntity;
+use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 
-abstract class EntityTransformerBase extends EntityScaffolderTransformerBase
+abstract class EntityTransformerBase extends YamlTransformer implements DataTransformerInterface
 {
-    const ENTITY_NAME = '???';
+
+    public static function getName()
+    {
+        return '???';
+    }
+
+    public static function requires()
+    {
+        return "3.4";
+    }
 
     public function transform(TaskContextInterface $context, array $files): array
     {
         $results = [];
         foreach ($this->iterateOverFiles($context, $files) as $data) {
-            $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData($data));
-            $results[$this->getTemplateFileName($data['id'])] = $result;
-            $results += $this->transformFields($data);
+            $config_service = new ConfigService();
+            $placeholder_service = new PlaceholderService();
+            $transformer = $this->getTransformer($config_service, $placeholder_service, $data);
+            $results += $transformer->getConfigurations();
         }
-        $this->placeholderService->postTransform($results);
+        $placeholder_service = new PlaceholderService();
+        $placeholder_service->postTransform($results);
         return $this->asYamlFiles($results);
     }
 
-    protected function transformFields($data) {
-        $field_configs = [];
-        if (!empty($data['fields'])) {
-            $weight = 0;
-            $entityFormTransformer = new EntityFormTransformer($this::ENTITY_NAME, $data, 'default');
-            foreach ($data['fields'] as $key => $field) {
-                $field['id'] = $key;
-                $weight++;
-                if (empty($field['weight'])) {
-                    $field['weight'] = $weight;
-                }
-                $fieldStorageTransformer = new FieldStorageTransformer($this::ENTITY_NAME, $field, $data);
-                $field_configs += $fieldStorageTransformer->transformDependend();
-                $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_NAME, $field, $data);
-                $field_configs += $fieldFieldTransformer->transformDependend();
-
-                $entityFormTransformer->attachField($fieldFieldTransformer);
-            }
-            $entityFormTransformer->setDependency('config', $this->getConfigName($data['id']));
-            $field_configs += $entityFormTransformer->getOutput();
-        }
-        return $field_configs;
+    public function getTransformer($config_service, $placeholder_service, $data) {
+        return new BlockContentEntity($config_service, $placeholder_service, $data);
     }
 
-    protected function getTemplateOverrideData($data = []) 
-    {
-        $out = [];
-
-        $manddatory_keys_map = [
-            'id' => 'id',
-            'label' => 'label',
-        ];
-
-        foreach($manddatory_keys_map as $key => $target) {
-            $out[$key] = $data[$target];
-        }
-
-        $optional_keys_map = [
-            'description' => 'description',
-        ];
-
-        foreach($optional_keys_map as $key => $target) {
-            if (isset($data[$target])) {
-                $out[$key] = $data[$target];
-            }
-        }
-
-        $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
-
-        return $out;
-    }
 }
