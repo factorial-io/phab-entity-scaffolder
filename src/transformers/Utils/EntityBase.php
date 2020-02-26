@@ -22,11 +22,6 @@ abstract class EntityBase extends ESBase
         // $this->transformFields();
     }
 
-    public static function getName()
-    {
-        return self::ENTITY_TYPE;
-    }
-
     public function getConfigName() 
     {
         return $this::ENTITY_TYPE . '.type.' . $this->bundle;
