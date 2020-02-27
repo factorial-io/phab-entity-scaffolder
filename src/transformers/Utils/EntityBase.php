@@ -33,7 +33,7 @@ abstract class EntityBase extends ESBase
         }
     }
 
-    public function getConfigName() 
+    public function getConfigName()
     {
         return $this::ENTITY_TYPE . '.type.' . $this->bundle;
     }
@@ -61,10 +61,8 @@ abstract class EntityBase extends ESBase
                     }
                 }
                 $this->configService->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
-                
 
-
-                $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_TYPE, $field, $data);                
+                $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_TYPE, $field, $data);
                 $this->configService->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
 
                 $entityFormTransformer->setDependency('config', $fieldFieldTransformer->getConfigName($data['id']));
@@ -75,7 +73,7 @@ abstract class EntityBase extends ESBase
         return $field_configs;
     }
 
-    protected function getTemplateOverrideData() 
+    protected function getTemplateOverrideData()
     {
         // @TODO Fill $data with existing template data.
         $data = $this->data;
@@ -96,6 +94,10 @@ abstract class EntityBase extends ESBase
             }
         }
         $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
+
+        // @TODO Find a way to preserve the type of the data
+        // after merge.
+        // For example boolean false becomes empty during export.
         return $out;
     }
 }
