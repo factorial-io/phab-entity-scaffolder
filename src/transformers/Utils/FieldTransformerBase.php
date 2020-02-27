@@ -1,6 +1,6 @@
 <?php
 
-namespace Phabalicious\Scaffolder\Transformers;
+namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
@@ -24,25 +24,13 @@ abstract class FieldTransformerBase extends EntityPropertyTransformerBase
         $this->data = $data;
         $this->parent = $parent;
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
+        $this->setConfig($config);
     }
 
     protected function getFieldName() {
         // @TODO Check if field_ prefix can be dropped in D8 too.
         return 'field_' . $this->parent['id'] . '_' . $this->data['id'];
-    }
-
-    public function transformDependend(): array
-    {
-        $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData($this->data));
-        $results[$this->getTemplateFileName($this->data['id'])] = $result;
-        return $results;
-    }
-
-    protected function getTemplateOverrideData($data=[])
-    {
-        return [
-            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
-        ];
     }
 
 }

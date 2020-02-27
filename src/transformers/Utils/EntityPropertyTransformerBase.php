@@ -10,7 +10,7 @@ abstract class EntityPropertyTransformerBase {
     protected $template = [];
 
     protected $placeholderService;
-    protected $result;
+    protected $config;
 
     public function __construct()
     {
@@ -41,19 +41,25 @@ abstract class EntityPropertyTransformerBase {
         return '???';
     }
 
-    protected function getTemplateOverrideData($data = []) 
+    protected function getTemplateOverrideData() 
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
         ];
     }
 
-    public function getOutput() {
-        return [$this->getConfigName() . '.yml' => $this->result];
+    public function getConfig() {
+        return $this->config;
+    }
+
+    public function setConfig($config) {
+        $this->config = $config;
+        return $this;
     }
 
     public function setDependency($category, $config_name) {
-        $this->result['dependencies'][$category][] = $config_name;
+        $this->config['dependencies'][$category][] = $config_name;
+        return $this;
     }
 
 }

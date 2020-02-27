@@ -6,6 +6,7 @@ use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
 
 abstract class ESBase
 {
@@ -48,6 +49,11 @@ abstract class ESBase
     public function getConfigurations() 
     {
         return $this->configService->get();
+    }
+
+    public function getDependencies()
+    {
+        return [];
     }
 
 }

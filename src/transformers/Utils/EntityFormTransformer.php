@@ -1,13 +1,14 @@
 <?php
 
-namespace Phabalicious\Scaffolder\Transformers;
+namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\FieldFieldTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldFieldTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
 
-class EntityFormTransformer extends FieldTransformerBase
+class EntityFormTransformer extends EntityPropertyTransformerBase
 {
 
     protected $view_mode;
@@ -23,7 +24,8 @@ class EntityFormTransformer extends FieldTransformerBase
         $this->data = $data;
         $this->view_mode = $view_mode;
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
-        $this->result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
+        $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
+        $this->setConfig($result);
     }
 
     /**
@@ -33,11 +35,6 @@ class EntityFormTransformer extends FieldTransformerBase
     {
         // Format : 'core-entity_form_display-{entity_type}-{bundle}-{view_mode}'.
         return 'core.entity_form_display.' . $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode;
-    }
-
-    public function transformDependend(): array
-    {
-        return [];
     }
 
     protected function getTemplateOverrideData($data=[])

@@ -12,4 +12,12 @@ class BlockContentEntity extends EntityBase
     public function getTemplateFileName() {
         return 'block_content.type.template.yml';
     }
+
+    public function getDependencies() {
+        return [
+            'module' => [
+                'block_content'
+            ],
+        ];
+    }
 }

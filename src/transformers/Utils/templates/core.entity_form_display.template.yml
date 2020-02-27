@@ -2,11 +2,6 @@ uuid: df2e809a-2d79-4134-8693-dcb8ac3aab1b
 langcode: en
 status: true
 dependencies:
-  config:
-    - paragraphs.paragraphs_type.testimonial_box
-  module:
-    - media_library
-    - text
 id: paragraph.testimonial_box.default
 targetEntityType: paragraph
 bundle: testimonial_box

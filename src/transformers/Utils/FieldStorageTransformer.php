@@ -1,10 +1,11 @@
 <?php
 
-namespace Phabalicious\Scaffolder\Transformers;
+namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
 
 class FieldStorageTransformer extends FieldTransformerBase
 {
@@ -23,25 +24,10 @@ class FieldStorageTransformer extends FieldTransformerBase
         return 'field.storage.' . $this->entity_type . '.' . $this->getFieldName();
     }
 
-    public function transformDependend(): array
-    {
-        if (empty($this->parent['fields'])) {
-            return [];
-        }
-        $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-        $results[$this->getConfigName() . '.yml'] = $result;
-        return $results;
-    }
-
-    protected function getTemplateOverrideData($data=[]) 
+    protected function getTemplateOverrideData() 
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
-            'dependecies' => [
-                'module' => [
-                    $this->entity_type,
-                ]
-            ],
             'id' => $this->entity_type . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
         ];

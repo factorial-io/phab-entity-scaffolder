@@ -31,4 +31,6 @@ interface ESInterface {
      * Massage the template in php world.
      */
     public function getTemplateOverrideData();
+
+    public function getDependencies();
 }

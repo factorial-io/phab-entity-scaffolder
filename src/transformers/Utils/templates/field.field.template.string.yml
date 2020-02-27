@@ -2,9 +2,6 @@ uuid: e6c7c56a-8af1-404a-9363-b24e63175381
 langcode: en
 status: true
 dependencies:
-  config:
-    - block_content.type.anchor
-    - field.storage.block_content.field_anchor_label
 id: block_content.anchor.field_anchor_label
 field_name: field_anchor_label
 entity_type: block_content
