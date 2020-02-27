@@ -1,0 +1,26 @@
+uuid: f24168d4-ea4e-49e1-82e2-d99483e606c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+id: block_content.image_card.field_image_card_image
+field_name: field_image_card_image
+entity_type: block_content
+bundle: image_card
+label: Image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
