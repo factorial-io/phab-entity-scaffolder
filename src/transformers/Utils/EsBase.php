@@ -8,7 +8,7 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
 
-abstract class ESBase
+abstract class EsBase
 {
 
     protected $template = [];
@@ -30,7 +30,7 @@ abstract class ESBase
     /**
      * {@inheritDoc}
      */
-    protected function getTemplateFile() 
+    protected function getTemplateFile()
     {
         return $this->getTemplateDir() . '/' . $this->getTemplateFileName();
     }
@@ -38,7 +38,7 @@ abstract class ESBase
     /**
      * {@inheritDoc}
      */
-    protected function getTemplateDir() 
+    protected function getTemplateDir()
     {
         return __DIR__ . '/templates';
     }
@@ -46,7 +46,7 @@ abstract class ESBase
     /**
      * {@inheritDoc}
      */
-    public function getConfigurations() 
+    public function getConfigurations()
     {
         return $this->configService->get();
     }

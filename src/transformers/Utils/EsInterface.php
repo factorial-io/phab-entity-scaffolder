@@ -1,6 +1,6 @@
 <?php
 
-interface ESInterface {
+interface EsInterface {
 
     /**
      * Absolute path to the template.
@@ -32,5 +32,8 @@ interface ESInterface {
      */
     public function getTemplateOverrideData();
 
+    /**
+     * Get keyed array of dependencies.
+     */
     public function getDependencies();
 }

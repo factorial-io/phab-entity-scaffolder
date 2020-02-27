@@ -44,7 +44,7 @@ class ConfigService {
     }
 
     public function getConfigUUID($config_name) {
-        // @TODO : Incase uuid is not set, we have to
+        // @TODO : In case uuid is not set, we have to
         // either, throw an error, or respond by generating one.
         return $this->getConfigProperty($config_name, 'uuid');
     }
