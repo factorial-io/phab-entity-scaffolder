@@ -13,7 +13,7 @@ class FieldFieldTransformer extends FieldTransformerBase
 
     protected function getTemplateFileName()
     {
-        return 'field.field.template.' . $this->data['type'] . '.yml';
+        return 'field/' . $this->data['type']. '/field.yml';
     }
 
     /**

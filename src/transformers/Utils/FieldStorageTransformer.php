@@ -12,7 +12,7 @@ class FieldStorageTransformer extends FieldTransformerBase
 
     protected function getTemplateFileName() 
     {
-        return 'field.storage.template.' . $this->data['type'] . '.yml';
+        return 'field/' . $this->data['type']. '/storage.yml';
     }
 
     /**
