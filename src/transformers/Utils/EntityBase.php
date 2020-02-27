@@ -18,8 +18,12 @@ use Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer;
 abstract class EntityBase extends EsBase
 {
     const ENTITY_TYPE = '???';
-    const MODULE = '???';
+
     protected $bundle;
+
+    public function getTemplateFileName() {
+        return 'entity/' . $this::ENTITY_TYPE . '.yml';
+    }
 
     public function __construct(ConfigService $config_service, PlaceholderService $placeholder_service, $data)
     {

@@ -9,10 +9,6 @@ class BlockContentEntity extends EntityBase
 {
     const ENTITY_TYPE = 'block_content';
 
-    public function getTemplateFileName() {
-        return 'block_content.type.template.yml';
-    }
-
     public function getDependencies() {
         return [
             'module' => [
