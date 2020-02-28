@@ -55,15 +55,7 @@ abstract class EntityBase extends EsBase
                     $field['weight'] = $weight;
                 }
                 $fieldStorageTransformer = new FieldStorageTransformer($this::ENTITY_TYPE, $field, $data);
-                if (!empty($this->getDependencies())) {
-                    foreach($this->getDependencies() as $category => $dependencies) {
-                        if ($dependencies) {
-                            foreach($dependencies as $dependency) {
-                                $fieldStorageTransformer->setDependency($category, $dependency);
-                            }
-                        }
-                    }
-                }
+                $this->injectDependency($fieldStorageTransformer);
                 $this->configService->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
 
                 $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_TYPE, $field, $data);
@@ -104,4 +96,20 @@ abstract class EntityBase extends EsBase
         // For example boolean false becomes empty during export.
         return $out;
     }
+
+  /**
+   * @param \Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer $fieldStorageTransformer
+   */
+  protected function injectDependency(\Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer $fieldStorageTransformer)
+  {
+    if (!empty($this->getDependencies())) {
+      foreach ($this->getDependencies() as $category => $dependencies) {
+        if ($dependencies) {
+          foreach ($dependencies as $dependency) {
+            $fieldStorageTransformer->setDependency($category, $dependency);
+          }
+        }
+      }
+    }
+  }
 }

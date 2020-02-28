@@ -29,15 +29,6 @@ class FieldFieldTransformer extends FieldTransformerBase
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
-            // 'dependecies' => [
-            //     'config' => [
-            //         // Format : '{entity_type}-type-{bundle}'
-            //         - $this->entity_type . '.type.' . $this->parent['id'],
-            //         // Format : 'field-storage-{entity_type}-{field_name}'
-            //         - 'field.storage.' . $this->entity_type . '.' . $this->getFieldName()
-            //     ]
-            // ],
-            // Format : '{entity_type}-{bundle}-{field_name}'
             'id' => $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
             'bundle' => $this->parent['id'],
