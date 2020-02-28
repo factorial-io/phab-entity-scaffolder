@@ -6,6 +6,7 @@ use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldFieldTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
 
 class EntityFormTransformer extends EntityPropertyTransformerBase
@@ -49,10 +50,7 @@ class EntityFormTransformer extends EntityPropertyTransformerBase
         ];
     }
 
-    public function attachField(FieldFieldTransformer $fieldFieldTransformer) {
-        $this->result['dependencies']['config'][] = $fieldFieldTransformer->getConfigName();
-        $this->result['content'][$fieldFieldTransformer->getFieldName()] = [
-            'placeholder'
-        ];
+    public function attachField(FieldWidget $fieldWidgetTransformer) {
+        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getViewModeSpecificConfig($this->view_mode);
     }
 }

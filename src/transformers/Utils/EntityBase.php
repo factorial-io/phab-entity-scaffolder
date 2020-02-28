@@ -5,6 +5,7 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 require_once __DIR__ . '/EntityFormTransformer.php';
 require_once __DIR__ . '/FieldFieldTransformer.php';
 require_once __DIR__ . '/FieldStorageTransformer.php';
+require_once __DIR__ . '/FieldWidget.php';
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
@@ -14,6 +15,7 @@ use Phabalicious\Scaffolder\Transformers\Utils\EsBase;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldFieldTransformer;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 
 abstract class EntityBase extends EsBase
 {
@@ -61,6 +63,8 @@ abstract class EntityBase extends EsBase
                 $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_TYPE, $field, $data);
                 $this->configService->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
 
+                $fieldWidgetTransformer = new FieldWidget($this::ENTITY_TYPE, $field, $data);
+                $entityFormTransformer->attachField($fieldWidgetTransformer);
                 $entityFormTransformer->setDependency('config', $fieldFieldTransformer->getConfigName($data['id']));
             }
             $entityFormTransformer->setDependency('config', $this->getConfigName($data['id']));
