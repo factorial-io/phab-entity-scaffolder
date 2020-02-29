@@ -57,15 +57,19 @@ class ImageStyle extends EsBase {
 
     protected function generateStyleName($data)
     {
+        $prefix = 'esimg_';
         $width = $data['effective_width'];
         $height = $data['effective_height'];
         if (empty($width) & !empty($height)) {
-          return 'img_' . $height . 'h';
+          $name = $height . 'h';
         }
         elseif (!empty($width) & empty($height)) {
-          return 'img_' . $width . 'w';
+          $name = $width . 'w';
         }
-        return 'img_' . $width . 'x' . $height;
+        else {
+          $name = $width . 'x' . $height;
+        }
+        return $prefix . $name;
     }
 
     protected function getTemplateFileName()
