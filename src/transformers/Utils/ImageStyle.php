@@ -2,11 +2,11 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Scaffolder\Transformers\Utils\EsBase;
+use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\ImageEffect;
 use Phabalicious\Utilities\Utilities;
 
-class ImageStyle extends EsBase {
+class ImageStyle extends Base {
 
     protected $imageEffect;
 

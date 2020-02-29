@@ -11,13 +11,13 @@ use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\EsBase;
+use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldFieldTransformer;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 
-abstract class EntityBase extends EsBase
+abstract class EntityBase extends Base
 {
     const ENTITY_TYPE = '???';
 

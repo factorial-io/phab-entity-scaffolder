@@ -2,11 +2,11 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Scaffolder\Transformers\Utils\EsBase;
+use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\ImageEffect;
 use Phabalicious\Utilities\Utilities;
 
-class ResponsiveImage extends EsBase {
+class ResponsiveImage extends Base {
 
   public function __construct(ConfigService $config_service, PlaceholderService $placeholder_service, $data)
   {

@@ -8,7 +8,7 @@ use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
 
-abstract class EsBase
+abstract class Base
 {
 
     protected $template = [];
