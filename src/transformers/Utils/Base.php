@@ -6,7 +6,7 @@ use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
 
 abstract class Base
 {

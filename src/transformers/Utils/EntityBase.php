@@ -2,7 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-require_once __DIR__ . '/EntityFormTransformer.php';
+require_once __DIR__ . '/EntityForm.php';
 require_once __DIR__ . '/FieldField.php';
 require_once __DIR__ . '/FieldStorage.php';
 require_once __DIR__ . '/FieldWidget.php';
@@ -12,7 +12,7 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\Base;
-use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldStorage;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
@@ -49,7 +49,7 @@ abstract class EntityBase extends Base
         $field_configs = [];
         if (!empty($data['fields'])) {
             $weight = 0;
-            $entityFormTransformer = new EntityFormTransformer($this::ENTITY_TYPE, $data, 'default');
+            $entityFormTransformer = new EntityForm($this::ENTITY_TYPE, $data, 'default');
             foreach ($data['fields'] as $key => $field) {
                 $field['id'] = $key;
                 $weight++;

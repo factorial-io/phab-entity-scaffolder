@@ -6,7 +6,7 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use \Symfony\Component\Yaml\Yaml;
 
-abstract class EntityPropertyTransformerBase {
+abstract class EntityPropertyBase {
     protected $template = [];
 
     protected $placeholderService;
@@ -18,17 +18,17 @@ abstract class EntityPropertyTransformerBase {
         $this->placeholderService = new PlaceholderService();
     }
 
-    protected function getTemplateFile() 
+    protected function getTemplateFile()
     {
         return $this->getTemplateDir() . '/' . $this->getTemplateFileName();
     }
 
-    protected function getTemplateDir() 
+    protected function getTemplateDir()
     {
         return __DIR__ . '/templates';
     }
 
-    protected function getTemplateFileName() 
+    protected function getTemplateFileName()
     {
         return $this->getConfigName('template') . '.yml';
     }
@@ -41,7 +41,7 @@ abstract class EntityPropertyTransformerBase {
         return '???';
     }
 
-    protected function getTemplateOverrideData() 
+    protected function getTemplateOverrideData()
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,

@@ -8,7 +8,7 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 use Symfony\Component\Yaml\Yaml;
 
-class ImageEffect extends EntityPropertyTransformerBase
+class ImageEffect extends EntityPropertyBase
 {
     protected $effect;
     protected $height;

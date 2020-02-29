@@ -5,9 +5,9 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\EntityPropertyTransformerBase;
+use Phabalicious\Scaffolder\Transformers\Utils\EntityPropertyBase;
 
-abstract class FieldBase extends EntityPropertyTransformerBase
+abstract class FieldBase extends EntityPropertyBase
 {
     protected $entity_type;
     protected $data;

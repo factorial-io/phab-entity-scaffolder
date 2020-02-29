@@ -9,7 +9,7 @@ use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
-class EntityFormTransformer extends EntityPropertyTransformerBase
+class EntityForm extends EntityPropertyBase
 {
 
     protected $view_mode;
