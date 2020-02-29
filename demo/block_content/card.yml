@@ -18,7 +18,7 @@ fields:
     label: CTA
     description: A call to action
   body:
-    type: text
+    type: textarea
     label: Teaser body
     description: Enter just enough text to make readers itching to know more
     
