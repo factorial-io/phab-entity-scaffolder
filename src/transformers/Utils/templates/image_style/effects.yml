@@ -1,0 +1,15 @@
+effects:
+  focal_point_scale_and_crop:
+    uuid: ???
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: ???
+      height: ???
+      crop_type: focal_point
+  image_scale:
+    uuid: ???
+    id: image_scale
+    weight: 0
+    data:
+      upscale: false

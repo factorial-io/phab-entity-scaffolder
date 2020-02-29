@@ -51,6 +51,10 @@ class PlaceholderService {
         return $result;
     }
 
+    public function generateUUID() {
+        return Utilities::generateUUID();
+    }
+
     public function postTransform(&$items, $existing = [])
     {
         foreach ($items as $file => &$results) {
@@ -64,7 +68,7 @@ class PlaceholderService {
                         // UUID is special,
                         // since we can't have it empty.
                         if ($key == 'uuid') {
-                            $result = Utilities::generateUUID();
+                            $result = $this->generateUUID();
                         }
                     }
                 }

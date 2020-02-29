@@ -13,7 +13,7 @@ abstract class FieldTransformerBase extends EntityPropertyTransformerBase
     protected $data;
     protected $parent;
 
-    protected function getTemplateDir() 
+    protected function getTemplateDir()
     {
         return __DIR__ . '/templates';
     }
