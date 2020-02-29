@@ -1,26 +1,35 @@
-uuid: f24168d4-ea4e-49e1-82e2-d99483e606c4
+uuid: 6d437caf-c843-44bb-9195-0dbb94535a1d
 langcode: en
 status: true
 dependencies:
-  config:
-    - media.type.image
-id: block_content.image_card.field_image_card_image
-field_name: field_image_card_image
-entity_type: block_content
-bundle: image_card
-label: Image
+  module:
+    - image
+id: node.foo.field_fooi
+field_name: field_fooi
+entity_type: node
+bundle: foo
+label: FooImage
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
-  handler_settings:
-    target_bundles:
-      image: image
-    sort:
-      field: _none
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
