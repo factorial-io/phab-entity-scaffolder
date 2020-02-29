@@ -2,8 +2,6 @@ uuid: 505843d0-20b3-451f-a932-1364d4d4e761
 langcode: de
 status: true
 dependencies:
-  module:
-    - toolbar
 id: foo
 label: FOO
 image_style_mappings:
