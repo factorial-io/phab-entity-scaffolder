@@ -1,0 +1,17 @@
+uuid: 92d63914-4214-4511-a308-bd0edbd810b3
+langcode: en
+status: true
+dependencies:
+id: node.field_textarea
+field_name: field_textarea
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

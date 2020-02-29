@@ -1,0 +1,16 @@
+uuid: c3e945a6-eb2c-4177-af9d-5c5cfe790fcc
+langcode: en
+status: true
+dependencies:
+id: node.foo.field_textarea
+field_name: field_textarea
+entity_type: node
+bundle: foo
+label: Textarea
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
