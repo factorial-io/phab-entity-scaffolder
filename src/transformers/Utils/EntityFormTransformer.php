@@ -16,7 +16,7 @@ class EntityFormTransformer extends EntityPropertyTransformerBase
 
     protected function getTemplateFileName()
     {
-        return 'core.entity_form_display.template.yml';
+        return 'entity_form_display/template.yml';
     }
 
     public function __construct($entity_type, $data, $view_mode)
