@@ -2,29 +2,10 @@ uuid: 505843d0-20b3-451f-a932-1364d4d4e761
 langcode: de
 status: true
 dependencies:
-  config:
-    - image.style.esimg_100x200
-    - image.style.esimg_1080w
-    - image.style.esimg_1962x1104
   module:
     - toolbar
 id: foo
 label: FOO
 image_style_mappings:
-  -
-    breakpoint_id: toolbar.wide
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: esimg_1962x1104
-  -
-    breakpoint_id: toolbar.standard
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: esimg_1080w
-  -
-    breakpoint_id: toolbar.narrow
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: esimg_100x200
 breakpoint_group: toolbar
-fallback_image_style: esimg_1080w
+fallback_image_style: _empty image_
