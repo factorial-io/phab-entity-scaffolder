@@ -4,7 +4,6 @@ status: true
 dependencies:
   module:
     - link
-    - node
 id: node.field_cta
 field_name: field_cta
 entity_type: node

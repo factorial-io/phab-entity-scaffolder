@@ -2,9 +2,6 @@ uid: 35f62d81-e105-4ce9-b1e8-dab62b4f4dca
 langcode: en
 status: true
 dependencies:
-  config:
-    - field.storage.node.field_cta
-    - node.type.foo
   module:
     - link
 id: node.foo.field_cta
