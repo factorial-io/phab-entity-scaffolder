@@ -74,12 +74,12 @@ class ImageStyle extends EsBase {
 
     protected function getTemplateFileName()
     {
-        return 'image_style/style.template.yml';
+        return 'image/style.template.yml';
     }
 
     protected function getConfigName()
     {
-      return 'image_style.style.' . $this->data['name'];
+      return 'image.style.' . $this->data['name'];
     }
 
     protected function getTemplateOverrideData()
@@ -94,7 +94,8 @@ class ImageStyle extends EsBase {
 
     public function getDependencies()
     {
-        $this->imageEffect->getDependencies();
+        return [];
+//        $this->imageEffect->getDependencies();
     }
 
 }

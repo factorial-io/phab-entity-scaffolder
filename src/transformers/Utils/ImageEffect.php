@@ -29,7 +29,7 @@ class ImageEffect extends EntityPropertyTransformerBase
 
     protected function getTemplateFileName()
     {
-        return 'image_style/effects.yml';
+        return 'image/effects.yml';
     }
 
     protected function getTemplateOverrideData()
