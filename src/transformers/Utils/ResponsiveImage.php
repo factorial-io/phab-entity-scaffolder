@@ -12,14 +12,15 @@ class ResponsiveImage extends EsBase {
   {
     parent::__construct($config_service, $placeholder_service, $data);
     $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
+    $config['image_style_mappings'] = $this->transformImageStyles();
     $this->configService->setConfig($this->getConfigName(), $config);
-    $this->transformImageStyles();
   }
 
   protected function transformImageStyles() {
     $data = $this->data;
+    $image_style_mappings = [];
     $styleTransformers = [];
-    $multipliers = [1];
+    $multipliers = ['1x'];
     if (!empty($data['multipliers'])) {
       $multipliers = $data['multipliers'];
     }
@@ -29,9 +30,16 @@ class ResponsiveImage extends EsBase {
           $style_data['multiplier'] = $multiplier;
           $styleTransformer = new ImageStyle($this->configService, $this->placeholderService, $style_data);
           $styleTransformers[$multiplier][$breakpoint] = $styleTransformer;
+          $image_style_mappings[] = [
+            'breakpoint_id' => $this->data['breakpoint_group'] . '.' . $breakpoint,
+            'multiplier' => $multiplier,
+            'image_mapping_type' => 'image_style',
+            'image_mapping' => $styleTransformer->getName(),
+          ];
         }
       }
     }
+    return $image_style_mappings;
   }
 
   public function getTemplateFileName() {

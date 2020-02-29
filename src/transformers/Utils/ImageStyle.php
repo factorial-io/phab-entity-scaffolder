@@ -55,7 +55,9 @@ class ImageStyle extends EsBase {
         $this->configService->setConfig($this->getConfigName(), $config);
         $this->addDependencyFromImageEffects();
     }
-
+    public function getName() {
+      return $this->data['name'];
+    }
     protected function generateStyleName($data)
     {
         $prefix = 'esimg_';
@@ -80,15 +82,15 @@ class ImageStyle extends EsBase {
 
     protected function getConfigName()
     {
-      return 'image.style.' . $this->data['name'];
+      return 'image.style.' . $this->getName();
     }
 
     protected function getTemplateOverrideData()
     {
         // @TODO Fill $data with existing template data.
         $out = [];
-        $out['name'] = $this->data['name'];
-        $out['label'] = $this->data['name'];
+        $out['name'] = $this->getName();
+        $out['label'] = $this->getName();
         $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
         return $out;
     }
