@@ -2,8 +2,6 @@ uuid: ???
 langcode: en
 status: true
 dependencies:
-  module:
-    - focal_point
 name: ???
 label: ???
 effects: []

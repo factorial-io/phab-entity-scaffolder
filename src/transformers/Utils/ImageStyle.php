@@ -53,6 +53,7 @@ class ImageStyle extends EsBase {
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $config['effects'][$this->imageEffect->getConfig()['uuid']] = $this->imageEffect->getConfig();
         $this->configService->setConfig($this->getConfigName(), $config);
+        $this->addDependencyFromImageEffects();
     }
 
     protected function generateStyleName($data)
@@ -94,8 +95,18 @@ class ImageStyle extends EsBase {
 
     public function getDependencies()
     {
-        return [];
-//        $this->imageEffect->getDependencies();
+        return $this->imageEffect->getDependencies();
     }
+
+  private function addDependencyFromImageEffects()
+  {
+    if ($this->imageEffect->getDependencies()) {
+      foreach ($this->imageEffect->getDependencies() as $category => $dependencies) {
+        foreach ($dependencies as $dependency) {
+          $this->configService->addDependency($this->getConfigName(), $category, $dependency);
+        }
+      }
+    }
+  }
 
 }

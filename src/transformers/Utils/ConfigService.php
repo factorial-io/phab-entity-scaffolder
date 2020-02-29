@@ -54,7 +54,7 @@ class ConfigService {
     }
 
     public function addDependency($config_name, $category, $dependency) {
-        $this->config[$config_name]['dependencies'][$category][$dependency] = $dependency;
+        $this->config[$config_name]['dependencies'][$category][] = $dependency;
     }
 
 }
