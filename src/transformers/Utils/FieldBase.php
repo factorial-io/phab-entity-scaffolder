@@ -7,7 +7,7 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityPropertyTransformerBase;
 
-abstract class FieldTransformerBase extends EntityPropertyTransformerBase
+abstract class FieldBase extends EntityPropertyTransformerBase
 {
     protected $entity_type;
     protected $data;

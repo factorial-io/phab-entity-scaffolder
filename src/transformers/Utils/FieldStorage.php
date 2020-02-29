@@ -5,12 +5,12 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
-class FieldStorageTransformer extends FieldTransformerBase
+class FieldStorage extends FieldBase
 {
 
-    protected function getTemplateFileName() 
+    protected function getTemplateFileName()
     {
         return 'field/' . $this->data['type']. '/storage.yml';
     }
@@ -24,7 +24,7 @@ class FieldStorageTransformer extends FieldTransformerBase
         return 'field.storage.' . $this->entity_type . '.' . $this->getFieldName();
     }
 
-    protected function getTemplateOverrideData() 
+    protected function getTemplateOverrideData()
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,

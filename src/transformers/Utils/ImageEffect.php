@@ -5,7 +5,7 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 use Symfony\Component\Yaml\Yaml;
 
 class ImageEffect extends EntityPropertyTransformerBase

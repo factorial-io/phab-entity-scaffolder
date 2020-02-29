@@ -3,8 +3,8 @@
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 require_once __DIR__ . '/EntityFormTransformer.php';
-require_once __DIR__ . '/FieldFieldTransformer.php';
-require_once __DIR__ . '/FieldStorageTransformer.php';
+require_once __DIR__ . '/FieldField.php';
+require_once __DIR__ . '/FieldStorage.php';
 require_once __DIR__ . '/FieldWidget.php';
 
 use Phabalicious\Method\TaskContextInterface;
@@ -13,8 +13,8 @@ use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldFieldTransformer;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldStorage;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 
 abstract class EntityBase extends Base
@@ -56,11 +56,11 @@ abstract class EntityBase extends Base
                 if (empty($field['weight'])) {
                     $field['weight'] = $weight;
                 }
-                $fieldStorageTransformer = new FieldStorageTransformer($this::ENTITY_TYPE, $field, $data);
+                $fieldStorageTransformer = new FieldStorage($this::ENTITY_TYPE, $field, $data);
                 $this->injectDependency($fieldStorageTransformer);
                 $this->configService->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
 
-                $fieldFieldTransformer = new FieldFieldTransformer($this::ENTITY_TYPE, $field, $data);
+                $fieldFieldTransformer = new FieldField($this::ENTITY_TYPE, $field, $data);
                 $this->configService->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
 
                 $fieldWidgetTransformer = new FieldWidget($this::ENTITY_TYPE, $field, $data);
@@ -74,9 +74,9 @@ abstract class EntityBase extends Base
     }
 
     /**
-     * @param \Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer $fieldStorageTransformer
+     * @param \Phabalicious\Scaffolder\Transformers\Utils\FieldStorage $fieldStorageTransformer
      */
-    protected function injectDependency(\Phabalicious\Scaffolder\Transformers\Utils\FieldStorageTransformer $fieldStorageTransformer)
+    protected function injectDependency(\Phabalicious\Scaffolder\Transformers\Utils\FieldStorage $fieldStorageTransformer)
     {
       if (!empty($this->getDependencies())) {
         foreach ($this->getDependencies() as $category => $dependencies) {

@@ -5,9 +5,9 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldFieldTransformer;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
 class EntityFormTransformer extends EntityPropertyTransformerBase
 {

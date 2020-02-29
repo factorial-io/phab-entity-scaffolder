@@ -5,10 +5,10 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldTransformerBase;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
 
-class FieldFieldTransformer extends FieldTransformerBase
+class FieldField extends FieldBase
 {
 
     protected function getTemplateFileName()
