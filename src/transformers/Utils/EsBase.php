@@ -4,8 +4,8 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
-use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityFormTransformer;
 
 abstract class EsBase
@@ -56,4 +56,31 @@ abstract class EsBase
         return [];
     }
 
+    protected function getTemplateOverrideData()
+    {
+      // @TODO Fill $data with existing template data.
+      $data = $this->data;
+      $out = [];
+      $manddatory_keys_map = [
+        'id' => 'id',
+        'label' => 'label',
+      ];
+      foreach($manddatory_keys_map as $key => $target) {
+        $out[$key] = $data[$target];
+      }
+      $optional_keys_map = [
+        'description' => 'description',
+      ];
+      foreach($optional_keys_map as $key => $target) {
+        if (isset($data[$target])) {
+          $out[$key] = $data[$target];
+        }
+      }
+      $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
+
+      // @TODO Find a way to preserve the type of the data
+      // after merge.
+      // For example boolean false becomes empty during export.
+      return $out;
+    }
 }
