@@ -1,0 +1,23 @@
+requires: 3.4
+
+questions: []
+
+variables:
+  skipSubfolder: true
+  allowOverride: true
+
+assets: []
+
+plugins:
+  - vendor/factorial-io/phab-entity-scaffolder/src/transformers
+
+
+block_content:
+  - block_content
+
+responsive_image:
+  - responsive_image
+
+scaffold:
+  - transform(responsive_image, responsive_image, config/sync)
+  - transform(block_content, block_content, config/sync)
