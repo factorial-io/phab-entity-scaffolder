@@ -25,7 +25,7 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile(__DIR__ . '/Utils/templates/image.style.template.yml');
     }
 
-    public function transform(TaskContextInterface $context, array $files): array
+    public function transform(TaskContextInterface $context, array $files, $target_path): array
     {
         $results = [];
 

@@ -20,7 +20,7 @@ class ResponsiveImageTransformer extends YamlTransformer implements DataTransfor
         return "3.4";
     }
 
-    public function transform(TaskContextInterface $context, array $files): array
+    public function transform(TaskContextInterface $context, array $files, $target_path): array
     {
         $results = [];
         $placeholder_service = new PlaceholderService();
