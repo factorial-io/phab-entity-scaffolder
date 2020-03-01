@@ -2,11 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-require_once __DIR__ . '/EntityForm.php';
-require_once __DIR__ . '/FieldField.php';
-require_once __DIR__ . '/FieldStorage.php';
-require_once __DIR__ . '/FieldWidget.php';
-
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;

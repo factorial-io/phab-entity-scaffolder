@@ -2,12 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-require_once __DIR__ . '/Utils/ConfigService.php';
-require_once __DIR__ . '/Utils/PlaceholderService.php';
-require_once __DIR__ . '/Utils/ImageStyle.php';
-require_once __DIR__ . '/Utils/ImageEffect.php';
-require_once __DIR__ . '/Utils/ResponsiveImage.php';
-
 use Phabalicious\Scaffolder\Transformers\Utils\ResponsiveImage;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;

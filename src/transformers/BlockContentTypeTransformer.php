@@ -2,10 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-require_once __DIR__ . '/Utils/ConfigService.php';
-require_once __DIR__ . '/Utils/PlaceholderService.php';
-require_once __DIR__ . '/Utils/BlockContentEntity.php';
-
 use Phabalicious\Scaffolder\Transformers\Utils\BlockContentEntity;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
