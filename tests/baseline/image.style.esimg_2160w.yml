@@ -1,0 +1,15 @@
+uuid: b2ed3f6f-fb36-7cad-4880-292f29f8cc97
+langcode: en
+status: false
+dependencies: null
+name: esimg_2160w
+label: esimg_2160w
+effects:
+  7deec1b6-70e9-92ce-0be6-c6740137bb3c:
+    uuid: 7deec1b6-70e9-92ce-0be6-c6740137bb3c
+    id: image_scale
+    weight: 0
+    data:
+      upscale: false
+      width: 2160
+      height: null

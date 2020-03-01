@@ -1,0 +1,17 @@
+uuid: f9f6a180-e57f-4538-788f-2917d8cdaea5
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: image_card__medium__1x
+label: 'Image card medium @ 1x'
+effects:
+  c273cc1d-f428-0881-2f66-b00bca956794:
+    data:
+      width: 540
+      height: 720
+      crop_type: focal_point
+    uuid: c273cc1d-f428-0881-2f66-b00bca956794
+    id: focal_point_scale_and_crop
+    weight: 0

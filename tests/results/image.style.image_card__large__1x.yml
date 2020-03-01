@@ -1,0 +1,15 @@
+uuid: 74fdcf15-d544-6b12-696d-e26b8126c33b
+langcode: en
+status: true
+dependencies:
+  module: null
+name: image_card__large__1x
+label: 'Image card large @ 1x'
+effects:
+  179ec543-48a7-68ae-36ac-561dfee3f5dc:
+    data:
+      width: 540
+      height: 720
+    uuid: 179ec543-48a7-68ae-36ac-561dfee3f5dc
+    id: image_scale
+    weight: 0

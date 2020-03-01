@@ -1,0 +1,15 @@
+uuid: 6f6a05c5-017a-08df-54a4-f143c777c2e4
+langcode: en
+status: true
+dependencies:
+  module: null
+name: image_card__large__2x
+label: 'Image card large @ 2x'
+effects:
+  6b9cdd5e-1df3-b5b2-1492-436091bb8786:
+    data:
+      width: 1080
+      height: 1440
+    uuid: 6b9cdd5e-1df3-b5b2-1492-436091bb8786
+    id: image_scale
+    weight: 0

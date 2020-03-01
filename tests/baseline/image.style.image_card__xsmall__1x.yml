@@ -1,0 +1,17 @@
+uuid: 07d192d0-b576-2b66-f26c-5877b78ad55f
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: image_card__xsmall__1x
+label: 'Image card xsmall @ 1x'
+effects:
+  be8f0daa-13f4-ae32-b0ae-dfcf4a3df3d4:
+    data:
+      width: 540
+      height: 720
+      crop_type: focal_point
+    uuid: be8f0daa-13f4-ae32-b0ae-dfcf4a3df3d4
+    id: focal_point_scale_and_crop
+    weight: 0
