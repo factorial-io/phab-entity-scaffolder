@@ -15,14 +15,14 @@ abstract class Base
 
     protected $placeholderService;
 
-    protected $configService;
+    protected $configAccumulator;
 
     protected $data = [];
 
     public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
     {
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
-        $this->configService = $config_service;
+        $this->configAccumulator = $config_service;
         $this->placeholderService = $placeholder_service;
         $this->data = $data;
     }
@@ -48,7 +48,7 @@ abstract class Base
      */
     public function getConfigurations()
     {
-        return $this->configService->get();
+        return $this->configAccumulator->get();
     }
 
     public function getDependencies()

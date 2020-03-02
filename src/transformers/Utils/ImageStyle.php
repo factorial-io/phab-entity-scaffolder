@@ -52,7 +52,7 @@ class ImageStyle extends Base {
         $this->imageEffect = new ImageEffect($data);
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $config['effects'][$this->imageEffect->getConfig()['uuid']] = $this->imageEffect->getConfig();
-        $this->configService->setConfig($this->getConfigName(), $config);
+        $this->configAccumulator->setConfig($this->getConfigName(), $config);
         $this->addDependencyFromImageEffects();
     }
     public function getName() {
@@ -105,7 +105,7 @@ class ImageStyle extends Base {
     if ($this->imageEffect->getDependencies()) {
       foreach ($this->imageEffect->getDependencies() as $category => $dependencies) {
         foreach ($dependencies as $dependency) {
-          $this->configService->addDependency($this->getConfigName(), $category, $dependency);
+          $this->configAccumulator->addDependency($this->getConfigName(), $category, $dependency);
         }
       }
     }

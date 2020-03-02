@@ -12,7 +12,7 @@ class ResponsiveImage extends Base {
   {
     parent::__construct($config_service, $placeholder_service, $data);
     $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-    $this->configService->setConfig($this->getConfigName(), $config);
+    $this->configAccumulator->setConfig($this->getConfigName(), $config);
     $this->transformImageStyles();
   }
 
@@ -28,7 +28,7 @@ class ResponsiveImage extends Base {
       if (is_array($data['mapping'])) {
         foreach($data['mapping'] as $breakpoint => $style_data) {
           $style_data['multiplier'] = $multiplier;
-          $styleTransformer = new ImageStyle($this->configService, $this->placeholderService, $style_data);
+          $styleTransformer = new ImageStyle($this->configAccumulator, $this->placeholderService, $style_data);
           $styleTransformers[$multiplier][$breakpoint] = $styleTransformer;
           $image_style_mappings[] = [
             'breakpoint_id' => $this->data['breakpoint_group'] . '.' . $breakpoint,
@@ -42,9 +42,9 @@ class ResponsiveImage extends Base {
     $this->addImageStyleMappings($image_style_mappings);
   }
   protected  function addImageStyleMappings($image_style_mappings) {
-      $config = $this->configService->getConfig($this->getConfigName());
+      $config = $this->configAccumulator->getConfig($this->getConfigName());
       $config['image_style_mappings'] = $image_style_mappings;
-      $this->configService->setConfig($this->getConfigName(), $config);
+      $this->configAccumulator->setConfig($this->getConfigName(), $config);
   }
 
   public function getTemplateFileName() {

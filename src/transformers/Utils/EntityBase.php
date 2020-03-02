@@ -27,10 +27,10 @@ abstract class EntityBase extends Base
         parent::__construct($config_service, $placeholder_service, $data);
         $this->bundle = $this->data['id'];
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-        $this->configService->setConfig($this->getConfigName(), $config);
+        $this->configAccumulator->setConfig($this->getConfigName(), $config);
         $configs = $this->transformFields();
         foreach($configs as $key => $value) {
-            $this->configService->setConfig($key, $value);
+            $this->configAccumulator->setConfig($key, $value);
         }
     }
 
@@ -53,17 +53,17 @@ abstract class EntityBase extends Base
                 }
                 $fieldStorageTransformer = new FieldStorage($this::ENTITY_TYPE, $field, $data);
                 $this->injectDependency($fieldStorageTransformer);
-                $this->configService->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
+                $this->configAccumulator->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
 
                 $fieldFieldTransformer = new FieldField($this::ENTITY_TYPE, $field, $data);
-                $this->configService->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
+                $this->configAccumulator->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
 
                 $fieldWidgetTransformer = new FieldWidget($this::ENTITY_TYPE, $field, $data);
                 $entityFormTransformer->attachField($fieldWidgetTransformer);
                 $entityFormTransformer->setDependency('config', $fieldFieldTransformer->getConfigName($data['id']));
             }
             $entityFormTransformer->setDependency('config', $this->getConfigName($data['id']));
-            $this->configService->setConfig($entityFormTransformer->getConfigName(), $entityFormTransformer->getConfig());
+            $this->configAccumulator->setConfig($entityFormTransformer->getConfigName(), $entityFormTransformer->getConfig());
         }
         return $field_configs;
     }
