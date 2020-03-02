@@ -25,8 +25,8 @@ class BlockContentTypeTransformer extends YamlTransformer implements DataTransfo
         $results = [];
         $placeholder_service = new PlaceholderService();
         foreach ($this->iterateOverFiles($context, $files) as $data) {
-            $config_service = new ConfigAccumulator();
-            $transformer = new BlockContentEntity($config_service, $placeholder_service, $data);
+            $config_accumulator = new ConfigAccumulator();
+            $transformer = new BlockContentEntity($config_accumulator, $placeholder_service, $data);
             $results += $transformer->getConfigurations();
         }
         $placeholder_service->postTransform($results);
