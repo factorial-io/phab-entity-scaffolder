@@ -14,12 +14,14 @@ use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 
 abstract class EntityBase extends Base
 {
-    const ENTITY_TYPE = '???';
-
     protected $bundle;
 
+    public function getEntityType() {
+      return '???';
+    }
+
     public function getTemplateFileName() {
-        return 'entity/' . $this::ENTITY_TYPE . '.yml';
+        return 'entity/' . $this->getEntityType() . '.yml';
     }
 
     public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
@@ -36,7 +38,7 @@ abstract class EntityBase extends Base
 
     public function getConfigName()
     {
-        return $this::ENTITY_TYPE . '.type.' . $this->bundle;
+        return $this->getEntityType() . '.type.' . $this->bundle;
     }
 
     protected function transformFields() {
@@ -44,21 +46,21 @@ abstract class EntityBase extends Base
         $field_configs = [];
         if (!empty($data['fields'])) {
             $weight = 0;
-            $entityFormTransformer = new EntityForm($this::ENTITY_TYPE, $data, 'default');
+            $entityFormTransformer = new EntityForm($this->getEntityType(), $data, 'default');
             foreach ($data['fields'] as $key => $field) {
                 $field['id'] = $key;
                 $weight++;
                 if (empty($field['weight'])) {
                     $field['weight'] = $weight;
                 }
-                $fieldStorageTransformer = new FieldStorage($this::ENTITY_TYPE, $field, $data);
+                $fieldStorageTransformer = new FieldStorage($this->getEntityType(), $field, $data);
                 $this->injectDependency($fieldStorageTransformer);
                 $this->configAccumulator->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
 
-                $fieldFieldTransformer = new FieldField($this::ENTITY_TYPE, $field, $data);
+                $fieldFieldTransformer = new FieldField($this->getEntityType(), $field, $data);
                 $this->configAccumulator->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
 
-                $fieldWidgetTransformer = new FieldWidget($this::ENTITY_TYPE, $field, $data);
+                $fieldWidgetTransformer = new FieldWidget($this->getEntityType(), $field, $data);
                 $entityFormTransformer->attachField($fieldWidgetTransformer);
                 $entityFormTransformer->setDependency('config', $fieldFieldTransformer->getConfigName($data['id']));
             }
