@@ -4,7 +4,7 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
+use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
@@ -22,7 +22,7 @@ abstract class EntityBase extends Base
         return 'entity/' . $this::ENTITY_TYPE . '.yml';
     }
 
-    public function __construct(ConfigService $config_service, PlaceholderService $placeholder_service, $data)
+    public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
     {
         parent::__construct($config_service, $placeholder_service, $data);
         $this->bundle = $this->data['id'];

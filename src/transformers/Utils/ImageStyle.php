@@ -10,7 +10,7 @@ class ImageStyle extends Base {
 
     protected $imageEffect;
 
-    public function __construct(ConfigService $config_service, PlaceholderService $placeholder_service, $data)
+    public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
     {
         $multiplier = 1;
         if (!empty($data['multiplier'])) {

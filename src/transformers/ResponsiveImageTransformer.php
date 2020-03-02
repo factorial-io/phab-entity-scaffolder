@@ -4,7 +4,7 @@ namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Scaffolder\Transformers\Utils\ResponsiveImage;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\ConfigService;
+use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 
@@ -25,7 +25,7 @@ class ResponsiveImageTransformer extends YamlTransformer implements DataTransfor
         $results = [];
         $placeholder_service = new PlaceholderService();
         foreach ($this->iterateOverFiles($context, $files) as $data) {
-            $config_service = new ConfigService();
+            $config_service = new ConfigAccumulator();
             $transformer = new ResponsiveImage($config_service, $placeholder_service, $data);
             $results += $transformer->getConfigurations();
         }

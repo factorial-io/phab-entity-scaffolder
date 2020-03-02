@@ -6,7 +6,7 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use \Symfony\Component\Yaml\Yaml;
 
-class ConfigService {
+class ConfigAccumulator {
 
     protected $config;
 
