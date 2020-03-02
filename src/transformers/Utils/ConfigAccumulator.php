@@ -19,8 +19,8 @@ class ConfigAccumulator {
         $config = $this->getRaw();
         $output = [];
         foreach($config as $key => $data) {
-            if (!empty($data['dependenices'])) {
-                foreach($data['dependenices'] as $category => &$dependencies) {
+            if (!empty($data['dependencies'])) {
+                foreach($data['dependencies'] as $category => &$dependencies) {
                     if (!empty($dependencies)) {
                         $dependencies = array_values($dependencies);
                     }
