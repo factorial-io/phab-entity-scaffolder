@@ -8,9 +8,9 @@ use Phabalicious\Utilities\Utilities;
 
 class ResponsiveImage extends Base {
 
-  public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
+  public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
   {
-    parent::__construct($config_service, $placeholder_service, $data);
+    parent::__construct($config_accumulator, $placeholder_service, $data);
     $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
     $this->configAccumulator->setConfig($this->getConfigName(), $config);
     $this->transformImageStyles();

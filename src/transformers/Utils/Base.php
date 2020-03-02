@@ -19,10 +19,10 @@ abstract class Base
 
     protected $data = [];
 
-    public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
+    public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
-        $this->configAccumulator = $config_service;
+        $this->configAccumulator = $config_accumulator;
         $this->placeholderService = $placeholder_service;
         $this->data = $data;
     }

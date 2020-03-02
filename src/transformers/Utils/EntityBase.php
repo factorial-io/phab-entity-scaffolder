@@ -22,9 +22,9 @@ abstract class EntityBase extends Base
         return 'entity/' . $this::ENTITY_TYPE . '.yml';
     }
 
-    public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
+    public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
-        parent::__construct($config_service, $placeholder_service, $data);
+        parent::__construct($config_accumulator, $placeholder_service, $data);
         $this->bundle = $this->data['id'];
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $this->configAccumulator->setConfig($this->getConfigName(), $config);

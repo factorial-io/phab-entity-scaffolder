@@ -10,7 +10,7 @@ class ImageStyle extends Base {
 
     protected $imageEffect;
 
-    public function __construct(ConfigAccumulator $config_service, PlaceholderService $placeholder_service, $data)
+    public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
         $multiplier = 1;
         if (!empty($data['multiplier'])) {
@@ -48,7 +48,7 @@ class ImageStyle extends Base {
           'effective_height' => $effective_height,
         ];
         $data['name'] = $this->generateStyleName($data);
-        parent::__construct($config_service, $placeholder_service, $data);
+        parent::__construct($config_accumulator, $placeholder_service, $data);
         $this->imageEffect = new ImageEffect($data);
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $config['effects'][$this->imageEffect->getConfig()['uuid']] = $this->imageEffect->getConfig();
