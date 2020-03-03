@@ -30,8 +30,8 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
         // the output of the command in the console
         $output = $commandTester->getDisplay();
 
-        $this->contains('Start scaffolding script', $output);
-        $this->contains('Scaffolding finished successfully', $output);
+        $this->assertContains('Start scaffolding script', $output);
+        $this->assertContains('Scaffolding finished successfully', $output);
 
         // Diff the arrays and throw exceptions if necessary.
 
