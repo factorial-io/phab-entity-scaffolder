@@ -60,7 +60,6 @@ class PlaceholderService {
         foreach ($items as $file => &$results) {
             foreach($results as $key => &$result) {
                 if ($result == $this::PRESERVE_IF_AVAILABLE) {
-                    $result = '';
                     if (isset($existing[$file][$key])) {
                         $result = $existing[$file][$key];
                     }
