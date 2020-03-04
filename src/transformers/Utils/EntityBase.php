@@ -58,6 +58,8 @@ abstract class EntityBase extends Base
                 $this->configAccumulator->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
 
                 $fieldFieldTransformer = new FieldField($this->getEntityType(), $field, $data);
+                $fieldFieldTransformer->setDependency('config', $this->getConfigName());
+                $fieldFieldTransformer->setDependency('config', $fieldStorageTransformer->getConfigName());
                 $this->configAccumulator->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
 
                 $fieldWidgetTransformer = new FieldWidget($this->getEntityType(), $field, $data);
