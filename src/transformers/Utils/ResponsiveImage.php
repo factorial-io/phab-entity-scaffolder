@@ -17,6 +17,7 @@ class ResponsiveImage extends Base {
   }
 
   protected function transformImageStyles() {
+    $fallback_image_style = '_empty image_';
     $data = $this->data;
     $image_style_mappings = [];
     $styleTransformers = [];
@@ -36,11 +37,20 @@ class ResponsiveImage extends Base {
             'image_mapping_type' => 'image_style',
             'image_mapping' => $styleTransformer->getName(),
           ];
+          $fallback_image_style = $styleTransformer->getName();
         }
       }
     }
+    $this->setFallbackImageStyle($fallback_image_style);
     $this->addImageStyleMappings($image_style_mappings);
   }
+
+  protected  function setFallbackImageStyle($fallback_image_style) {
+    $config = $this->configAccumulator->getConfig($this->getConfigName());
+    $config['fallback_image_style'] = $fallback_image_style;
+    $this->configAccumulator->setConfig($this->getConfigName(), $config);
+  }
+
   protected  function addImageStyleMappings($image_style_mappings) {
       $config = $this->configAccumulator->getConfig($this->getConfigName());
       $config['image_style_mappings'] = $image_style_mappings;
