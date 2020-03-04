@@ -1,0 +1,14 @@
+uuid: 3c9369bd-05d0-36f9-59b4-67b3cd85fff7
+langcode: en
+status: true
+dependencies: null
+name: esimg_400w
+label: esimg_400w
+effects:
+  69371ba6-b30e-5bd4-4e03-cbb3f4aa895e:
+    uuid: 69371ba6-b30e-5bd4-4e03-cbb3f4aa895e
+    id: image_scale
+    weight: 0
+    data:
+      upscale: false
+      width: 400

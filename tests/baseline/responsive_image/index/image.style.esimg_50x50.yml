@@ -1,0 +1,17 @@
+uuid: 0ffcc0c8-9103-d32a-95f5-003117af7cbe
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: esimg_50x50
+label: esimg_50x50
+effects:
+  9086749c-a864-f592-21a3-c1d9f146ef74:
+    uuid: 9086749c-a864-f592-21a3-c1d9f146ef74
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 50
+      height: 50
+      crop_type: focal_point
