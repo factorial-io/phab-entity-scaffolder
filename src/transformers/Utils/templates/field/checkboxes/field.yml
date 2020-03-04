@@ -1,0 +1,18 @@
+uuid: 1ed4ded2-ea56-4bcb-891b-89768373165c
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+id: block_content.aaaa.field_checkboxes
+field_name: field_checkboxes
+entity_type: block_content
+bundle: aaaa
+label: Checkboxes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

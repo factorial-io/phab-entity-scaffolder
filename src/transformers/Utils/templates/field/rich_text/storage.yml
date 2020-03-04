@@ -1,0 +1,18 @@
+uuid: ee364fc7-b11d-4f12-be70-8062e543d964
+langcode: en
+status: true
+dependencies:
+  module:
+    - text
+id: block_content.field_ckeditor
+field_name: field_ckeditor
+entity_type: block_content
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

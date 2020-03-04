@@ -1,0 +1,24 @@
+uuid: 024adf23-bf53-4459-aac4-330b9aeee77f
+langcode: en
+status: true
+dependencies:
+  module:
+    - list_predefined_options
+    - options
+third_party_settings:
+  list_predefined_options:
+    plugin_id: us_states
+id: block_content.field_checkboxes
+field_name: field_checkboxes
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: list_predefined_options_allowed_values
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

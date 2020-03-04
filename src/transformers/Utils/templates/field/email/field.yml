@@ -1,0 +1,16 @@
+uuid: bdd3d052-18e5-4a50-9bbf-af04f5561aaf
+langcode: en
+status: true
+dependencies:
+id: block_content.aaaa.field_email
+field_name: field_email
+entity_type: block_content
+bundle: aaaa
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

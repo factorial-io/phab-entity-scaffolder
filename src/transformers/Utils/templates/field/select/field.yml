@@ -1,0 +1,18 @@
+uuid: 385e5345-421c-4944-83e8-9f4137976456
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+id: block_content.aaaa.field_select
+field_name: field_select
+entity_type: block_content
+bundle: aaaa
+label: Select
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
