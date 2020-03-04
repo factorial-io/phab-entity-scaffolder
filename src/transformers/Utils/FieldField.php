@@ -32,7 +32,7 @@ class FieldField extends FieldBase
             'id' => $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
             'bundle' => $this->parent['id'],
-            'label' => !empty($this->parent['label']) ? $this->parent['label'] : $this->parent['id'],
+            'label' => !empty($this->data['label']) ? $this->data['label'] : $this->data['id'],
             'description' => !empty($this->parent['description']) ? $this->parent['description'] : '',
             'entity_type' => $this->entity_type,
             'required' => !!empty($this->data['required']),
