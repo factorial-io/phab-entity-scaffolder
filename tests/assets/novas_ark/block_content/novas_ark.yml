@@ -1,0 +1,28 @@
+label: Novas Ark
+id: novas_ark
+description: A block_content to test all fields.
+fields:
+  # checkbox
+  # cta
+  cta:
+    map: cta
+    type: cta
+    label: CTA
+  # image
+  image:
+    map: img
+    type: image
+    label: Image
+  # link
+  # radio
+  # select
+  # text
+  label:
+    map: label
+    type: text
+    label: Label
+  # textarea
+  body:
+    map: body
+    type: textarea
+    label: Body

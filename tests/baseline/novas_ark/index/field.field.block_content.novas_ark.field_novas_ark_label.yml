@@ -1,0 +1,22 @@
+uuid: 284cc2f0-8d9d-a3b8-1941-a50ea1399ff8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.novas_ark
+    - field.storage.block_content.field_novas_ark_label
+  module:
+    - allowed_formats
+    - text
+id: block_content.novas_ark.field_novas_ark_label
+field_name: field_novas_ark_label
+entity_type: block_content
+bundle: novas_ark
+label: Label
+description: 'A block_content to test all fields.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

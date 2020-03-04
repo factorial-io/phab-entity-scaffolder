@@ -1,0 +1,24 @@
+uid: 35f62d81-e105-4ce9-b1e8-dab62b4f4dca
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+  config:
+    - block_content.type.novas_ark
+    - field.storage.block_content.field_novas_ark_cta
+id: block_content.novas_ark.field_novas_ark_cta
+field_name: field_novas_ark_cta
+entity_type: block_content
+bundle: novas_ark
+label: CTA
+description: 'A block_content to test all fields.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link
+uuid: 3e03b595-9bdd-47ff-8a40-3bf4b9728d28

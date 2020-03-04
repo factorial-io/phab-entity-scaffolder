@@ -1,0 +1,8 @@
+uuid: 6fcebf2a-8d4d-1d15-935f-6d628904454a
+langcode: en
+status: true
+dependencies: {  }
+id: novas_ark
+label: 'Novas Ark'
+revision: 0
+description: 'A block_content to test all fields.'

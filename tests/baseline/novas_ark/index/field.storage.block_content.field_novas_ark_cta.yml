@@ -1,0 +1,20 @@
+uid: feba1fe8-31e6-42cd-aaa4-e00564c7152c
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - block_content
+id: block_content.field_novas_ark_cta
+field_name: field_novas_ark_cta
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+uuid: 48a8b0f5-31c7-31e7-ad60-6cb98c9f6694

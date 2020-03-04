@@ -1,0 +1,11 @@
+requires: 3.4
+
+block_content:
+  - block_content
+
+plugins:
+  - src/transformers
+
+scaffold:
+  - transform(block_content, block_content, tests/results/novas_ark/index)
+

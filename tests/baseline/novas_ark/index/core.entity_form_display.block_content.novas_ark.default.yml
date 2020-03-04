@@ -1,0 +1,52 @@
+uuid: 6e87d8d2-9055-2fb8-2c8a-790de5701ba6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.block_content.novas_ark.field_novas_ark_cta
+    - field.field.block_content.novas_ark.field_novas_ark_image
+    - field.field.block_content.novas_ark.field_novas_ark_label
+    - field.field.block_content.novas_ark.field_novas_ark_body
+    - block_content.type.novas_ark
+id: block_content.novas_ark.default
+targetEntityType: block_content
+bundle: novas_ark
+mode: default
+content:
+  field_novas_ark_cta:
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+    weight: 1
+  field_novas_ark_image:
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
+    type: image_focal_point
+    region: content
+    weight: 2
+  field_novas_ark_label:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_novas_ark_body:
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+    weight: 4
+hidden:
+  created: true
+  status: true
