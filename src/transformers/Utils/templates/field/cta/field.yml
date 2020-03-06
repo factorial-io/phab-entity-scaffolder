@@ -1,0 +1,20 @@
+uid: 35f62d81-e105-4ce9-b1e8-dab62b4f4dca
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+id: node.foo.field_cta
+field_name: field_cta
+entity_type: node
+bundle: foo
+label: CTA
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

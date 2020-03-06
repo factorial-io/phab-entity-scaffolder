@@ -1,0 +1,12 @@
+uuid: df2e809a-2d79-4134-8693-dcb8ac3aab1b
+langcode: en
+status: true
+dependencies:
+id: paragraph.testimonial_box.default
+targetEntityType: paragraph
+bundle: testimonial_box
+mode: default
+content:
+hidden:
+  created: true
+  status: true

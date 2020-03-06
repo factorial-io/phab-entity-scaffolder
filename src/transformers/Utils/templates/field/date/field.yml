@@ -1,0 +1,18 @@
+uuid: d1abff43-593f-40f1-84d5-52b2049a2cff
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+id: block_content.aaaa.field_date
+field_name: field_date
+entity_type: block_content
+bundle: aaaa
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

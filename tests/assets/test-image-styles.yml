@@ -1,0 +1,11 @@
+requires: 3.4
+
+image_styles:
+  - image_style
+
+plugins:
+  - src/transformers
+
+scaffold:
+  - transform(imagestyles, image_styles, tests/results)
+

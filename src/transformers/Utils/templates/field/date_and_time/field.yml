@@ -1,0 +1,18 @@
+uuid: 32a35537-8a61-4c29-acd7-9425ca98a264
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+id: block_content.aaaa.field_date_and_time
+field_name: field_date_and_time
+entity_type: block_content
+bundle: aaaa
+label: 'Date And Time'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

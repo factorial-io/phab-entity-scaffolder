@@ -1,0 +1,11 @@
+requires: 3.4
+
+responsive_image:
+  - responsive_image
+
+plugins:
+  - src/transformers
+
+scaffold:
+  - transform(responsive_image, responsive_image, tests/results/responsive_image/index)
+

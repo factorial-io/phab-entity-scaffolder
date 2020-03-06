@@ -1,0 +1,20 @@
+uuid: 87ed3fcf-82b2-4b12-97e2-dae34830dbda
+langcode: en
+status: true
+dependencies:
+id: block_content.aaaa.field_checkbox
+field_name: field_checkbox
+entity_type: block_content
+bundle: aaaa
+label: checkbox
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

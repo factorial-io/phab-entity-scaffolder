@@ -10,6 +10,13 @@
     ],
     "require": {},
     "require-dev": {
-        "factorial-io/phabalicious": "dev-feature/pluggable-scaffolders"
+        "factorial-io/phabalicious": "dev-feature/pluggable-scaffolders",
+        "phpunit/phpunit": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Phabalicious\\Scaffolder\\Tests\\": "tests/",
+            "Phabalicious\\Scaffolder\\Transformers\\": "src/transformers/"
+        }
     }
 }

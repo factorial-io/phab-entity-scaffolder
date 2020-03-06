@@ -1,0 +1,14 @@
+uuid: 76317fce-4a3d-dfbb-14fe-a9ecb24a94c4
+langcode: en
+status: true
+dependencies: null
+name: esimg_200w
+label: esimg_200w
+effects:
+  1ba7fb9d-2134-d07a-69a5-5dc42929711e:
+    uuid: 1ba7fb9d-2134-d07a-69a5-5dc42929711e
+    id: image_scale
+    weight: 0
+    data:
+      upscale: false
+      width: 200

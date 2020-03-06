@@ -1,0 +1,6 @@
+content:
+  default:
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content

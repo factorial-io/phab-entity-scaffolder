@@ -1,3 +1,6 @@
 composer.lock
 vendor
 .idea
+.DS_Store
+/tests/results
+.phab-scaffold-tokens

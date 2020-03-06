@@ -1,0 +1,8 @@
+content:
+  default:
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content

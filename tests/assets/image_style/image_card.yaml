@@ -1,0 +1,41 @@
+prefix:
+  machine_name: image_card_
+  name: "Image card"
+
+multiplier:
+  - 1x
+  - 2x
+
+image_styles:
+  -
+    machine_name: xsmall
+    effects:
+      -
+        name: focal_point_scale_and_crop
+        data:
+          width: 540
+          height: 720
+  -
+    machine_name: small
+    effects:
+      -
+        name: focal_point_scale_and_crop
+        data:
+          width: 540
+          height: 720
+  -
+    machine_name: medium
+    effects:
+      -
+        name: focal_point_scale_and_crop
+        data:
+          width: 540
+          height: 720
+  -
+    machine_name: large
+    effects:
+      -
+        name: image_scale
+        data:
+          width: 540
+          height: 720

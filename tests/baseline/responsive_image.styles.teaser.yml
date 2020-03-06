@@ -1,0 +1,30 @@
+uuid: 2d20e6cd-e500-ea8e-a775-c2212b24a27f
+langcode: de
+status: false
+dependencies:
+  config:
+    - image.style.esimg_100x200
+    - image.style.esimg_1080w
+    - image.style.esimg_981x552
+  module:
+    - toolbar
+id: teaser
+label: Teaser
+image_style_mappings:
+  -
+    breakpoint_id: toolbar.wide
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: esimg_1080w
+  -
+    breakpoint_id: toolbar.standard
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: esimg_981x552
+  -
+    breakpoint_id: toolbar.narrow
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: esimg_100x200
+breakpoint_group: toolbar
+fallback_image_style: esimg_100x200

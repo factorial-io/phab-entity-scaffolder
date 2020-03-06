@@ -1,0 +1,24 @@
+uuid: fef23a59-002c-4cbc-b75b-16afc2971193
+langcode: en
+status: true
+dependencies:
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    stripped_html: stripped_html
+    full_html: '0'
+    plain_text: '0'
+id: block_content.aaaa.field_ckeditor
+field_name: field_ckeditor
+entity_type: block_content
+bundle: aaaa
+label: Ckeditor
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

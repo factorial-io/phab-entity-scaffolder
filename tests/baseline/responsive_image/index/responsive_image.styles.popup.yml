@@ -1,0 +1,39 @@
+uuid: 011f2d83-82f8-07ef-a3a2-ff05891b7384
+langcode: de
+status: true
+dependencies: null
+id: popup
+label: Popup
+image_style_mappings:
+  -
+    breakpoint_id: toolbar.wide
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: esimg_200w
+  -
+    breakpoint_id: toolbar.standard
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: esimg_100x50
+  -
+    breakpoint_id: toolbar.narrow
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: esimg_50x50
+  -
+    breakpoint_id: toolbar.wide
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: esimg_400w
+  -
+    breakpoint_id: toolbar.standard
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: esimg_200x100
+  -
+    breakpoint_id: toolbar.narrow
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: esimg_100x100
+breakpoint_group: toolbar
+fallback_image_style: 'esimg_100x100'
