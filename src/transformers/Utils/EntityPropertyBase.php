@@ -2,8 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use \Symfony\Component\Yaml\Yaml;
 
 abstract class EntityPropertyBase

@@ -38,7 +38,12 @@ class ConfigAccumulator
         return $this->config;
     }
 
-    public function setConfig($config_name, $value)
+    public function consume(ConfigAccumulatorConsumableInterface $consumable)
+    {
+        $this->setConfig($consumable->getConfigName(), $consumable->getConfig());
+    }
+
+    public function setConfig(string $config_name, $value)
     {
         $this->config[$config_name] = $value;
     }

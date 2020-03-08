@@ -17,7 +17,7 @@ class ResponsiveImageTest extends BaseScaffoldingTest
     ];
 
 
-    public function testNovasArk()
+    public function testResponsiveImages()
     {
 
         $command = $this->application->find('scaffold');
@@ -34,8 +34,10 @@ class ResponsiveImageTest extends BaseScaffoldingTest
 
         // Diff the arrays and throw exceptions if necessary.
 
-        $this->assertEqualContents('baseline/responsive_image/index', 'results/responsive_image/index', self::$filenames);
+        $this->assertEqualContents(
+            'baseline/responsive_image/index',
+            'results/responsive_image/index',
+            self::$filenames
+        );
     }
-
 }
-

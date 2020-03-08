@@ -16,10 +16,6 @@ abstract class EntityBase extends Base
 {
     protected $bundle;
 
-    public function getEntityType()
-    {
-        return '???';
-    }
 
     public function getTemplateFileName()
     {
@@ -58,19 +54,31 @@ abstract class EntityBase extends Base
                 }
                 $fieldStorageTransformer = new FieldStorage($this->getEntityType(), $field, $data);
                 $this->injectDependency($fieldStorageTransformer);
-                $this->configAccumulator->setConfig($fieldStorageTransformer->getConfigName(), $fieldStorageTransformer->getConfig());
+                $this->configAccumulator->setConfig(
+                    $fieldStorageTransformer->getConfigName(),
+                    $fieldStorageTransformer->getConfig()
+                );
 
                 $fieldFieldTransformer = new FieldField($this->getEntityType(), $field, $data);
                 $fieldFieldTransformer->setDependency('config', $this->getConfigName());
                 $fieldFieldTransformer->setDependency('config', $fieldStorageTransformer->getConfigName());
-                $this->configAccumulator->setConfig($fieldFieldTransformer->getConfigName(), $fieldFieldTransformer->getConfig());
+                $this->configAccumulator->setConfig(
+                    $fieldFieldTransformer->getConfigName(),
+                    $fieldFieldTransformer->getConfig()
+                );
 
                 $fieldWidgetTransformer = new FieldWidget($this->getEntityType(), $field, $data);
                 $entityFormTransformer->attachField($fieldWidgetTransformer);
-                $entityFormTransformer->setDependency('config', $fieldFieldTransformer->getConfigName($data['id']));
+                $entityFormTransformer->setDependency(
+                    'config',
+                    $fieldFieldTransformer->getConfigName($data['id'])
+                );
             }
             $entityFormTransformer->setDependency('config', $this->getConfigName($data['id']));
-            $this->configAccumulator->setConfig($entityFormTransformer->getConfigName(), $entityFormTransformer->getConfig());
+            $this->configAccumulator->setConfig(
+                $entityFormTransformer->getConfigName(),
+                $entityFormTransformer->getConfig()
+            );
         }
         return $field_configs;
     }
@@ -78,7 +86,7 @@ abstract class EntityBase extends Base
     /**
      * @param \Phabalicious\Scaffolder\Transformers\Utils\FieldStorage $fieldStorageTransformer
      */
-    protected function injectDependency(\Phabalicious\Scaffolder\Transformers\Utils\FieldStorage $fieldStorageTransformer)
+    protected function injectDependency(FieldStorage $fieldStorageTransformer)
     {
         if (!empty($this->getDependencies())) {
             foreach ($this->getDependencies() as $category => $dependencies) {

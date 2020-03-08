@@ -4,7 +4,7 @@ namespace Phabalicious\Scaffolder\Tests;
 
 use Symfony\Component\Console\Tester\CommandTester;
 
-class NovasArk extends BaseScaffoldingTest
+class NovasArkTest extends BaseScaffoldingTest
 {
     private static $filenames = [
         // entity: block_content
@@ -46,6 +46,4 @@ class NovasArk extends BaseScaffoldingTest
 
         $this->assertEqualContents('baseline/novas_ark/index', 'results/novas_ark/index', self::$filenames);
     }
-
 }
-

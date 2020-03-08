@@ -24,7 +24,7 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
         $command = $this->application->find('scaffold');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array(
-            'scaffold-path' => $this->getcwd().'/assets/test-image-styles.yml'
+            'scaffold-path' => $this->getcwd().'/assets/test-image-styles.yml',
         ));
 
         // the output of the command in the console
@@ -37,6 +37,4 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
 
         $this->assertEqualContents('baseline', 'results', self::$filenames);
     }
-
 }
-

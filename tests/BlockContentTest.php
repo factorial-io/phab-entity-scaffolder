@@ -30,6 +30,4 @@ class BlockContentTest extends BaseScaffoldingTest
 
         $this->assertEqualContents('baseline/block_content/index', 'results/block_content/index', self::$filenames);
     }
-
 }
-

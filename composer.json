@@ -10,8 +10,12 @@
     ],
     "require": {},
     "require-dev": {
-        "factorial-io/phabalicious": "dev-feature/pluggable-scaffolders",
-        "phpunit/phpunit": "^7.3"
+        "factorial-io/phabalicious": "dev-develop",
+        "phpunit/phpunit": "^7.3",
+        "phpro/grumphp": "^0.18.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpstan/phpstan": "^0.12.14",
+        "jakub-onderka/php-parallel-lint": "^1.0"
     },
     "autoload": {
         "psr-4": {

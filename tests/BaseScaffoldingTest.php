@@ -11,7 +11,7 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Yaml\Yaml;
 
-class BaseScaffoldingTest extends TestCase
+abstract class BaseScaffoldingTest extends TestCase
 {
 
     protected $application;
@@ -50,12 +50,12 @@ class BaseScaffoldingTest extends TestCase
         }
     }
 
-    protected function removeUUIDs(&$array) {
+    protected function removeUUIDs(&$array)
+    {
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 $this->removeUUIDs($array[$key]);
-            }
-            else if ($key == 'uuid') {
+            } elseif ($key == 'uuid') {
                 unset($array[$key]);
             }
         }

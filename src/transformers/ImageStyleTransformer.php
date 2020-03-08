@@ -4,6 +4,7 @@ namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
+use Symfony\Component\Yaml\Yaml;
 
 class ImageStyleTransformer extends YamlTransformer implements DataTransformerInterface
 {
@@ -22,7 +23,7 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
 
     public function __construct()
     {
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile(__DIR__ . '/Utils/templates/image.style.template.yml');
+        $this->template = Yaml::parseFile(__DIR__ . '/Utils/templates/image.style.template.yml');
     }
 
     public function transform(TaskContextInterface $context, array $files, $target_path): array
