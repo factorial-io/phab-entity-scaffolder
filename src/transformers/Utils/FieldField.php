@@ -7,7 +7,6 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
-
 class FieldField extends FieldBase
 {
 
@@ -25,7 +24,7 @@ class FieldField extends FieldBase
         return 'field.field.' . $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName();
     }
 
-    protected function getTemplateOverrideData($data=[])
+    protected function getTemplateOverrideData($data = [])
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
@@ -38,5 +37,4 @@ class FieldField extends FieldBase
             'required' => !!empty($this->data['required']),
         ];
     }
-
 }

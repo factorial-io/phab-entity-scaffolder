@@ -18,13 +18,13 @@ class ImageEffect extends EntityPropertyBase
 
     public function __construct($data)
     {
-      $this->effect = $data['effect'];
-      $this->height = $data['effective_height'];
-      $this->width = $data['effective_width'];
-      $this->placeholderService = new PlaceholderService();
-      $this->template = Yaml::parseFile($this->getTemplateFile())['effects'][$this->effect];
-      $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-      $this->setConfig($config);
+        $this->effect = $data['effect'];
+        $this->height = $data['effective_height'];
+        $this->width = $data['effective_width'];
+        $this->placeholderService = new PlaceholderService();
+        $this->template = Yaml::parseFile($this->getTemplateFile())['effects'][$this->effect];
+        $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
+        $this->setConfig($config);
     }
 
     protected function getTemplateFileName()
@@ -53,10 +53,8 @@ class ImageEffect extends EntityPropertyBase
                     'focal_point'
                 ]
             ];
-        }
-        else {
+        } else {
             return [];
         }
     }
-
 }

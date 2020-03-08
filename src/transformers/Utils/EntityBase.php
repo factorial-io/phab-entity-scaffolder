@@ -16,11 +16,13 @@ abstract class EntityBase extends Base
 {
     protected $bundle;
 
-    public function getEntityType() {
-      return '???';
+    public function getEntityType()
+    {
+        return '???';
     }
 
-    public function getTemplateFileName() {
+    public function getTemplateFileName()
+    {
         return 'entity/' . $this->getEntityType() . '.yml';
     }
 
@@ -31,7 +33,7 @@ abstract class EntityBase extends Base
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
         $configs = $this->transformFields();
-        foreach($configs as $key => $value) {
+        foreach ($configs as $key => $value) {
             $this->configAccumulator->setConfig($key, $value);
         }
     }
@@ -41,7 +43,8 @@ abstract class EntityBase extends Base
         return $this->getEntityType() . '.type.' . $this->bundle;
     }
 
-    protected function transformFields() {
+    protected function transformFields()
+    {
         $data = $this->data;
         $field_configs = [];
         if (!empty($data['fields'])) {
@@ -77,14 +80,14 @@ abstract class EntityBase extends Base
      */
     protected function injectDependency(\Phabalicious\Scaffolder\Transformers\Utils\FieldStorage $fieldStorageTransformer)
     {
-      if (!empty($this->getDependencies())) {
-        foreach ($this->getDependencies() as $category => $dependencies) {
-          if ($dependencies) {
-            foreach ($dependencies as $dependency) {
-              $fieldStorageTransformer->setDependency($category, $dependency);
+        if (!empty($this->getDependencies())) {
+            foreach ($this->getDependencies() as $category => $dependencies) {
+                if ($dependencies) {
+                    foreach ($dependencies as $dependency) {
+                        $fieldStorageTransformer->setDependency($category, $dependency);
+                    }
+                }
             }
-          }
         }
-      }
     }
 }

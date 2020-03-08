@@ -28,9 +28,9 @@ abstract class FieldBase extends EntityPropertyBase
         $this->setConfig($config);
     }
 
-    public function getFieldName() {
+    public function getFieldName()
+    {
         // @TODO Check if field_ prefix can be dropped in D8 too.
         return 'field_' . $this->parent['id'] . '_' . $this->data['id'];
     }
-
 }

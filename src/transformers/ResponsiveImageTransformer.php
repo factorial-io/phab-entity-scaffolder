@@ -25,12 +25,11 @@ class ResponsiveImageTransformer extends YamlTransformer implements DataTransfor
         $results = [];
         $placeholder_service = new PlaceholderService();
         foreach ($this->iterateOverFiles($context, $files) as $data) {
-          $config_accumulator = new ConfigAccumulator();
+            $config_accumulator = new ConfigAccumulator();
             $transformer = new ResponsiveImage($config_accumulator, $placeholder_service, $data);
             $results += $transformer->getConfigurations();
         }
         $placeholder_service->postTransform($results);
         return $this->asYamlFiles($results);
     }
-
 }

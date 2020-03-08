@@ -38,7 +38,7 @@ class EntityForm extends EntityPropertyBase
         return 'core.entity_form_display.' . $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode;
     }
 
-    protected function getTemplateOverrideData($data=[])
+    protected function getTemplateOverrideData($data = [])
     {
         return [
             'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
@@ -50,7 +50,8 @@ class EntityForm extends EntityPropertyBase
         ];
     }
 
-    public function attachField(FieldWidget $fieldWidgetTransformer) {
+    public function attachField(FieldWidget $fieldWidgetTransformer)
+    {
         $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getViewModeSpecificConfig($this->view_mode);
     }
 }

@@ -6,7 +6,8 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use \Symfony\Component\Yaml\Yaml;
 
-abstract class EntityPropertyBase {
+abstract class EntityPropertyBase
+{
     protected $template = [];
 
     protected $placeholderService;
@@ -48,18 +49,20 @@ abstract class EntityPropertyBase {
         ];
     }
 
-    public function getConfig() {
+    public function getConfig()
+    {
         return $this->config;
     }
 
-    public function setConfig($config) {
+    public function setConfig($config)
+    {
         $this->config = $config;
         return $this;
     }
 
-    public function setDependency($category, $config_name) {
+    public function setDependency($category, $config_name)
+    {
         $this->config['dependencies'][$category][] = $config_name;
         return $this;
     }
-
 }

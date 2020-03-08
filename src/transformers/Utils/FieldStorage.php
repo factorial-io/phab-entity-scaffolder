@@ -32,5 +32,4 @@ class FieldStorage extends FieldBase
             'field_name' => $this->getFieldName(),
         ];
     }
-
 }

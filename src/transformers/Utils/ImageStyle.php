@@ -6,7 +6,8 @@ use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\ImageEffect;
 use Phabalicious\Utilities\Utilities;
 
-class ImageStyle extends Base {
+class ImageStyle extends Base
+{
 
     protected $imageEffect;
 
@@ -14,29 +15,28 @@ class ImageStyle extends Base {
     {
         $multiplier = 1;
         if (!empty($data['multiplier'])) {
-          $multiplier = trim($data['multiplier'], ' xX.');
+            $multiplier = trim($data['multiplier'], ' xX.');
         }
-        $effect = NULL;
-        $width = NULL;
-        $height = NULL;
-        $effective_width = NULL;
-        $effective_height = NULL;
+        $effect = null;
+        $width = null;
+        $height = null;
+        $effective_width = null;
+        $effective_height = null;
 
         if (!empty($data['width'])) {
-          $width = $data['width'];
-          $effective_width = intval($width * $multiplier, 10);
+            $width = $data['width'];
+            $effective_width = intval($width * $multiplier, 10);
         }
 
         if (!empty($data['height'])) {
-          $height = $data['height'];
-          $effective_height = intval($height * $multiplier, 10);
+            $height = $data['height'];
+            $effective_height = intval($height * $multiplier, 10);
         }
 
         if (!(empty($width) || empty($height))) {
-          $effect = 'focal_point_scale_and_crop';
-        }
-        else {
-          $effect = 'image_scale';
+            $effect = 'focal_point_scale_and_crop';
+        } else {
+            $effect = 'image_scale';
         }
 
         $data = [
@@ -55,8 +55,9 @@ class ImageStyle extends Base {
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
         $this->addDependencyFromImageEffects();
     }
-    public function getName() {
-      return $this->data['name'];
+    public function getName()
+    {
+        return $this->data['name'];
     }
     protected function generateStyleName($data)
     {
@@ -64,13 +65,11 @@ class ImageStyle extends Base {
         $width = $data['effective_width'];
         $height = $data['effective_height'];
         if (empty($width) & !empty($height)) {
-          $name = $height . 'h';
-        }
-        elseif (!empty($width) & empty($height)) {
-          $name = $width . 'w';
-        }
-        else {
-          $name = $width . 'x' . $height;
+            $name = $height . 'h';
+        } elseif (!empty($width) & empty($height)) {
+            $name = $width . 'w';
+        } else {
+            $name = $width . 'x' . $height;
         }
         return $prefix . $name;
     }
@@ -82,7 +81,7 @@ class ImageStyle extends Base {
 
     protected function getConfigName()
     {
-      return 'image.style.' . $this->getName();
+        return 'image.style.' . $this->getName();
     }
 
     protected function getTemplateOverrideData()
@@ -100,15 +99,14 @@ class ImageStyle extends Base {
         return $this->imageEffect->getDependencies();
     }
 
-  private function addDependencyFromImageEffects()
-  {
-    if ($this->imageEffect->getDependencies()) {
-      foreach ($this->imageEffect->getDependencies() as $category => $dependencies) {
-        foreach ($dependencies as $dependency) {
-          $this->configAccumulator->addDependency($this->getConfigName(), $category, $dependency);
+    private function addDependencyFromImageEffects()
+    {
+        if ($this->imageEffect->getDependencies()) {
+            foreach ($this->imageEffect->getDependencies() as $category => $dependencies) {
+                foreach ($dependencies as $dependency) {
+                    $this->configAccumulator->addDependency($this->getConfigName(), $category, $dependency);
+                }
+            }
         }
-      }
     }
-  }
-
 }

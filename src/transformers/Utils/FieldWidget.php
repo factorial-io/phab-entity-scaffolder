@@ -7,7 +7,6 @@ use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
-
 class FieldWidget extends FieldBase
 {
 
@@ -18,7 +17,7 @@ class FieldWidget extends FieldBase
         $this->parent = $parent;
         $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
         $config = [];
-        foreach($this->template['content'] as $view_mode => $template) {
+        foreach ($this->template['content'] as $view_mode => $template) {
             $config['content'][$view_mode] = Utilities::mergeData($template, $this->getTemplateOverrideData());
         }
         $this->setConfig($config);
@@ -36,8 +35,8 @@ class FieldWidget extends FieldBase
         ];
     }
 
-    public function getViewModeSpecificConfig($view_mode = 'default') {
+    public function getViewModeSpecificConfig($view_mode = 'default')
+    {
         return $this->getConfig()['content'][$view_mode];
     }
-
 }

@@ -32,5 +32,4 @@ class BlockContentTypeTransformer extends YamlTransformer implements DataTransfo
         $placeholder_service->postTransform($results);
         return $this->asYamlFiles($results);
     }
-
 }
