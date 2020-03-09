@@ -71,10 +71,10 @@ abstract class EntityBase extends Base
                 $entityFormTransformer->attachField($fieldWidgetTransformer);
                 $entityFormTransformer->setDependency(
                     'config',
-                    $fieldFieldTransformer->getConfigName($data['id'])
+                    $fieldFieldTransformer->getConfigName()
                 );
             }
-            $entityFormTransformer->setDependency('config', $this->getConfigName($data['id']));
+            $entityFormTransformer->setDependency('config', $this->getConfigName());
             $this->configAccumulator->setConfig(
                 $entityFormTransformer->getConfigName(),
                 $entityFormTransformer->getConfig()
