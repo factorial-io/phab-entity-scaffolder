@@ -58,7 +58,7 @@ abstract class Base
 
     protected function getTemplateOverrideData()
     {
-      // @TODO Fill $data with existing template data.
+        // @TODO Fill $data with existing template data.
         $data = $this->data;
         $out = [];
         $manddatory_keys_map = [
@@ -78,9 +78,9 @@ abstract class Base
         }
         $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
 
-      // @TODO Find a way to preserve the type of the data
-      // after merge.
-      // For example boolean false becomes empty during export.
+        // @TODO Find a way to preserve the type of the data
+        // after merge.
+        // For example boolean false becomes empty during export.
         return $out;
     }
 }
