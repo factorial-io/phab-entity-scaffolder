@@ -1,4 +1,8 @@
+
 # phab-entity-scaffolder
+
+[![Build Status](https://travis-ci.org/factorial-io/phab-entity-scaffolder.svg?branch=master)](https://travis-ci.org/factorial-io/phab-entity-scaffolder)
+
 Port of entity-scaffolder for D8 using phabalicious for scaffolding files and configuration.
 
 ## Installation
