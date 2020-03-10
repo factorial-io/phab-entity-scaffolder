@@ -1,0 +1,24 @@
+label: Card
+id: card
+description: "A teaser item"
+fields:
+  headline:
+    type: text
+    label: Headline
+    description: A striking headline to grab attention
+  subline:
+    type: text
+    label: Sub title
+    description: A optinal sub title
+  image:
+    type: image
+    label: Image
+  cta:
+    type: cta
+    label: CTA
+    description: A call to action
+  body:
+    type: textarea
+    label: Teaser body
+    description: Enter just enough text to make readers itching to know more
+    
