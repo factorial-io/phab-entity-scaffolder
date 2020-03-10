@@ -1,0 +1,11 @@
+requires: 3.4
+
+paragraphs:
+  - paragraphs
+
+plugins:
+  - src/transformers
+
+scaffold:
+  - transform(paragraphs, paragraphs, tests/results/paragraphs/index)
+
