@@ -6,11 +6,14 @@ fields:
     map: label
     type: text
     label: Card Label
+    required: true
   author:
     map: author
     type: text
     label: Card Author
+    required: true
   job_title:
     map: jobTitle
     type: text
     label: Card Job Title
+    required: false

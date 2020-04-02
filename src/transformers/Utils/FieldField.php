@@ -34,7 +34,7 @@ class FieldField extends FieldBase
             'label' => !empty($this->data['label']) ? $this->data['label'] : $this->data['id'],
             'description' => !empty($this->parent['description']) ? $this->parent['description'] : '',
             'entity_type' => $this->entity_type,
-            'required' => !!empty($this->data['required']),
+            'required' => $this->data['required'] ?? false,
         ];
     }
 }

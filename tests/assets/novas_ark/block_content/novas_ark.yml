@@ -8,11 +8,13 @@ fields:
     map: cta
     type: cta
     label: CTA
+    required: true
   # image
   image:
     map: img
     type: image
     label: Image
+    required: true
   # link
   # radio
   # select
@@ -21,8 +23,10 @@ fields:
     map: label
     type: text
     label: Label
+    required: true
   # textarea
   body:
     map: body
     type: textarea
     label: Body
+    required: true
