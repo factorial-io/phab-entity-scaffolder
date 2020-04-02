@@ -27,7 +27,7 @@ class FieldField extends FieldBase
     protected function getTemplateOverrideData($data = [])
     {
         return [
-            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
+            'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             'id' => $this->entity_type . '.' . $this->parent['id'] . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
             'bundle' => $this->parent['id'],

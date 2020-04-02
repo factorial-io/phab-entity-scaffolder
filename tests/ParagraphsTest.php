@@ -14,6 +14,12 @@ class ParagraphsTest extends BaseScaffoldingTest
     public function testParagraphsScaffold()
     {
 
+        $this->copyBaseline(
+            'baseline/paragraphs/index',
+            'results/paragraphs/index',
+            self::$filenames
+        );
+
         $command = $this->application->find('scaffold');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array(
@@ -28,6 +34,10 @@ class ParagraphsTest extends BaseScaffoldingTest
 
         // Diff the arrays and throw exceptions if necessary.
 
-        $this->assertEqualContents('baseline/paragraphs/index', 'results/paragraphs/index', self::$filenames);
+        $this->assertEqualContents(
+            'baseline/paragraphs/index',
+            'results/paragraphs/index',
+            self::$filenames
+        );
     }
 }

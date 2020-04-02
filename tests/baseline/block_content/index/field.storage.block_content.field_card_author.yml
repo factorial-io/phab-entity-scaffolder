@@ -1,9 +1,11 @@
-uuid: __REUSE__
+uuid: f4a71c51-70be-2479-0ddd-44bfd5dc4daa
 langcode: en
 status: true
 dependencies:
-id: block_content.field_anchor_label
-field_name: field_anchor_label
+  module:
+    - block_content
+id: block_content.field_card_author
+field_name: field_card_author
 entity_type: block_content
 type: string
 settings:

@@ -1,0 +1,22 @@
+uuid: 1cb7aa03-200b-b4c2-cea5-71580702cace
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_job_title
+  module:
+    - allowed_formats
+    - text
+id: block_content.card.field_card_job_title
+field_name: field_card_job_title
+entity_type: block_content
+bundle: card
+label: 'Card Job Title'
+description: 'Description of the card.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

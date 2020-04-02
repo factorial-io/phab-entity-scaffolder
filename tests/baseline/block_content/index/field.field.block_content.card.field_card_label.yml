@@ -1,0 +1,22 @@
+uuid: 4498c9f5-595d-50ed-8c7b-e645b09c614e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_label
+  module:
+    - allowed_formats
+    - text
+id: block_content.card.field_card_label
+field_name: field_card_label
+entity_type: block_content
+bundle: card
+label: 'Card Label'
+description: 'Description of the card.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

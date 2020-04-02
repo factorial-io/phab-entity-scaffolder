@@ -34,7 +34,7 @@ class ImageEffect extends EntityPropertyBase
 
     protected function getTemplateOverrideData()
     {
-        $data['uuid'] = $this->placeholderService->generateUUID();
+        $data['uuid'] = PlaceholderService::REUSE_OR_CREATE_VALUE;
         if (!empty($this->height)) {
             $data['data']['height'] = $this->height;
         }

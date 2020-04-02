@@ -76,7 +76,7 @@ abstract class Base
                 $out[$key] = $data[$target];
             }
         }
-        $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
+        $out['uuid'] = PlaceholderService::REUSE_OR_CREATE_VALUE;
 
         // @TODO Find a way to preserve the type of the data
         // after merge.

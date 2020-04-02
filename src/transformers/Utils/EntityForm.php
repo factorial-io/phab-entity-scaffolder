@@ -41,7 +41,7 @@ class EntityForm extends EntityPropertyBase
     protected function getTemplateOverrideData($data = [])
     {
         return [
-            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
+            'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             // Format : '{entity_type}-{bundle}-{view_mode}'
             'id' => $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode,
             'targetEntityType' => $this->entity_type,
