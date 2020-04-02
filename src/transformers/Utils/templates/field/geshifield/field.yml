@@ -1,0 +1,16 @@
+uuid: f7731571-b67c-40fe-8bb1-8e9c3c41899c
+langcode: en
+status: true
+dependencies:
+  module:
+    - geshifield
+id: block_content.codesnippet.field_codesnippet_code
+field_name: field_codesnippet_code
+label: Code
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geshifield

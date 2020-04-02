@@ -18,6 +18,10 @@ block_content:
 responsive_image:
   - responsive_image
 
+paragraphs:
+  - paragraphs
+
 scaffold:
+  - transform(paragraphs, paragraphs, config/sync)
   - transform(responsive_image, responsive_image, config/sync)
   - transform(block_content, block_content, config/sync)

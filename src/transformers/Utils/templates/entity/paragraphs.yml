@@ -1,0 +1,10 @@
+uuid: 63baed48-c8b7-4226-a0cc-396ed22aacbb
+langcode: en
+status: true
+dependencies: {  }
+id: poof
+label: poof
+icon_uuid: null
+icon_default: null
+description: Despoof
+behavior_plugins: {  }

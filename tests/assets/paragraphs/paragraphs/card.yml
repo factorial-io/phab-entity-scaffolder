@@ -1,0 +1,16 @@
+label: Card
+id: card
+description: Description of the card.
+fields:
+  label:
+    map: label
+    type: text
+    label: Card Label
+  author:
+    map: author
+    type: text
+    label: Card Author
+  job_title:
+    map: jobTitle
+    type: text
+    label: Card Job Title
