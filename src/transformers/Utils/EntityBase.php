@@ -16,6 +16,9 @@ abstract class EntityBase extends Base
 {
     protected $bundle;
 
+    public function getEntityType() {
+      throw new \Exception('Missing getEntityType method in concrete class');
+    }
 
     public function getTemplateFileName()
     {
