@@ -1,0 +1,20 @@
+uuid: b8d71abf-322c-2143-fbbd-4eacc5901632
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - block_content
+id: block_content.field_novas_ark_content
+field_name: field_novas_ark_content
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

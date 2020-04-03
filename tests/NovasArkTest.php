@@ -23,7 +23,9 @@ class NovasArkTest extends BaseScaffoldingTest
         // field: textarea
         'field.field.block_content.novas_ark.field_novas_ark_body.yml',
         'field.storage.block_content.field_novas_ark_body.yml',
-
+        // field: reference_node
+        'field.field.block_content.novas_ark.field_novas_ark_content.yml',
+        'field.storage.block_content.field_novas_ark_content.yml',
     ];
 
 

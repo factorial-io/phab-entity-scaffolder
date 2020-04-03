@@ -30,3 +30,12 @@ fields:
     type: textarea
     label: Body
     required: true
+  # reference_node
+  content:
+    map: content
+    type: reference_node
+    label: Content
+    required: false
+    target:
+      - basic_page
+#      - articles

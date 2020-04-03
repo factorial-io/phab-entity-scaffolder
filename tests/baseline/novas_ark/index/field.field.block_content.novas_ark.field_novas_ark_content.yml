@@ -1,0 +1,29 @@
+uuid: e675ad7a-1a30-ee2b-a3f5-ef042abeb6b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.novas_ark
+    - field.storage.block_content.field_novas_ark_content
+    - node.type.basic_page
+id: block_content.novas_ark.field_novas_ark_content
+field_name: field_novas_ark_content
+entity_type: block_content
+bundle: novas_ark
+label: Content
+description: 'A block_content to test all fields.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      basic_page: basic_page
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
