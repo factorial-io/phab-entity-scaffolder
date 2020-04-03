@@ -29,6 +29,11 @@ class NovasArkTest extends BaseScaffoldingTest
 
     public function testNovasArk()
     {
+        $this->copyBaseline(
+            'baseline/novas_ark/index',
+            'results/novas_ark/index',
+            self::$filenames
+        );
 
         $command = $this->application->find('scaffold');
         $commandTester = new CommandTester($command);
@@ -44,6 +49,10 @@ class NovasArkTest extends BaseScaffoldingTest
 
         // Diff the arrays and throw exceptions if necessary.
 
-        $this->assertEqualContents('baseline/novas_ark/index', 'results/novas_ark/index', self::$filenames);
+        $this->assertEqualContents(
+            'baseline/novas_ark/index',
+            'results/novas_ark/index',
+            self::$filenames
+        );
     }
 }

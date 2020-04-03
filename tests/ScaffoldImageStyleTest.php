@@ -20,6 +20,11 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
 
     public function testImageStyleScaffolding()
     {
+        $this->copyBaseline(
+            'baseline/image_styles/index',
+            'results/image_styles/index',
+            self::$filenames
+        );
 
         $command = $this->application->find('scaffold');
         $commandTester = new CommandTester($command);
@@ -35,6 +40,11 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
 
         // Diff the arrays and throw exceptions if necessary.
 
-        $this->assertEqualContents('baseline', 'results', self::$filenames);
+        $this->assertEqualContents(
+            'baseline/image_styles/index',
+            'results/image_styles/index',
+            self::$filenames,
+            1
+        );
     }
 }

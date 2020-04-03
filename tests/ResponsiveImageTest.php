@@ -20,6 +20,12 @@ class ResponsiveImageTest extends BaseScaffoldingTest
     public function testResponsiveImages()
     {
 
+        $this->copyBaseline(
+            'baseline/responsive_image/index',
+            'results/responsive_image/index',
+            self::$filenames
+        );
+
         $command = $this->application->find('scaffold');
         $commandTester = new CommandTester($command);
         $commandTester->execute(array(
@@ -37,7 +43,8 @@ class ResponsiveImageTest extends BaseScaffoldingTest
         $this->assertEqualContents(
             'baseline/responsive_image/index',
             'results/responsive_image/index',
-            self::$filenames
+            self::$filenames,
+            1
         );
     }
 }

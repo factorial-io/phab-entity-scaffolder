@@ -28,7 +28,7 @@ class ParagraphsTypeTransformer extends YamlTransformer implements DataTransform
             $transformer = new ParagraphEntity($config_accumulator, $placeholder_service, $data);
             $results += $transformer->getConfigurations();
         }
-        $placeholder_service->postTransform($results);
+        $results = $placeholder_service->postTransform($results, $target_path);
         return $this->asYamlFiles($results);
     }
 }

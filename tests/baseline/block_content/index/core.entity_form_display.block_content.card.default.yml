@@ -1,0 +1,41 @@
+uuid: 89f793d4-257b-66af-28cf-916198f05d07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.block_content.card.field_card_label
+    - field.field.block_content.card.field_card_author
+    - field.field.block_content.card.field_card_job_title
+    - block_content.type.card
+id: block_content.card.default
+targetEntityType: block_content
+bundle: card
+mode: default
+content:
+  field_card_label:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_card_author:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+  field_card_job_title:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+    region: content
+hidden:
+  created: true
+  status: true

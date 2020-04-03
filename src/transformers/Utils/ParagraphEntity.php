@@ -15,7 +15,7 @@ class ParagraphEntity extends EntityBase
 
     public function getConfigName()
     {
-      return $this->getEntityType() . '.paragraphs_type.' . $this->bundle;
+        return $this->getEntityType() . '.paragraphs_type.' . $this->bundle;
     }
 
     public function getDependencies()

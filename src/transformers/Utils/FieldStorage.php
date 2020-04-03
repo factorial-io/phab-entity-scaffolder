@@ -27,7 +27,7 @@ class FieldStorage extends FieldBase
     protected function getTemplateOverrideData()
     {
         return [
-            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
+            'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             'id' => $this->entity_type . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
         ];

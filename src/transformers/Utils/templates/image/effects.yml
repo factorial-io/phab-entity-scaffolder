@@ -1,6 +1,6 @@
 effects:
   focal_point_scale_and_crop:
-    uuid: ???
+    uuid: __REUSE__
     id: focal_point_scale_and_crop
     weight: 0
     data:
@@ -8,7 +8,7 @@ effects:
       height: ???
       crop_type: focal_point
   image_scale:
-    uuid: ???
+    uuid: __REUSE__
     id: image_scale
     weight: 0
     data:

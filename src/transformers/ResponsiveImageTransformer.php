@@ -29,7 +29,7 @@ class ResponsiveImageTransformer extends YamlTransformer implements DataTransfor
             $transformer = new ResponsiveImage($config_accumulator, $placeholder_service, $data);
             $results += $transformer->getConfigurations();
         }
-        $placeholder_service->postTransform($results);
+        $results = $placeholder_service->postTransform($results, $target_path);
         return $this->asYamlFiles($results);
     }
 }
