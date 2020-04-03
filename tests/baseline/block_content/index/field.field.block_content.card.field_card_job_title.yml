@@ -14,7 +14,7 @@ entity_type: block_content
 bundle: card
 label: 'Card Job Title'
 description: 'Description of the card.'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
