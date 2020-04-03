@@ -48,6 +48,7 @@ fields:
     entity: taxonomy_term
     bundles:
       - categories
+    view_mode: teaser
   medimg:
     map: img
     type: entity_reference
