@@ -3,6 +3,7 @@
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
+use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
@@ -10,7 +11,6 @@ use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldStorage;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 
 abstract class EntityBase extends Base
 {
@@ -46,6 +46,7 @@ abstract class EntityBase extends Base
         if (!empty($data['fields'])) {
             $weight = 0;
             $entityFormTransformer = new EntityForm($this->getEntityType(), $data, 'default');
+            $entityViewTransformer = new EntityView($this->getEntityType(), $data, 'default');
             foreach ($data['fields'] as $key => $field) {
                 $field['id'] = $key;
                 $weight++;
@@ -73,12 +74,26 @@ abstract class EntityBase extends Base
                     'config',
                     $fieldFieldTransformer->getConfigName()
                 );
+
+                $fieldFormatterTransformer = new FieldFormatter($this->getEntityType(), $field, $data);
+                $entityViewTransformer->attachField($fieldFormatterTransformer);
+                $entityViewTransformer->setDependency(
+                  'config',
+                    $fieldFieldTransformer->getConfigName()
+                );
             }
             $entityFormTransformer->setDependency('config', $this->getConfigName());
             $this->configAccumulator->setConfig(
                 $entityFormTransformer->getConfigName(),
                 $entityFormTransformer->getConfig()
             );
+
+            $entityViewTransformer->setDependency('config', $this->getConfigName());
+            $this->configAccumulator->setConfig(
+              $entityViewTransformer->getConfigName(),
+              $entityViewTransformer->getConfig()
+            );
+
         }
         return $field_configs;
     }

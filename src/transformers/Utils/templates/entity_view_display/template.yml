@@ -1,0 +1,11 @@
+uuid: 447846c8-7a03-4a71-ad97-1e98c7e04d9f
+langcode: en
+status: true
+dependencies:
+id: block_content.anchor.default
+targetEntityType: block_content
+bundle: anchor
+mode: default
+content:
+hidden:
+  langcode: true

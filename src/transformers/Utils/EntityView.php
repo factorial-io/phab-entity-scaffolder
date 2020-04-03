@@ -9,7 +9,7 @@ use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
-class EntityForm extends EntityPropertyBase
+class EntityView extends EntityPropertyBase
 {
 
     protected $view_mode;
@@ -18,7 +18,7 @@ class EntityForm extends EntityPropertyBase
 
     protected function getTemplateFileName()
     {
-        return 'entity_form_display/template.yml';
+        return 'entity_view_display/template.yml';
     }
 
     public function __construct($entity_type, $data, $view_mode)
@@ -36,8 +36,8 @@ class EntityForm extends EntityPropertyBase
      */
     public function getConfigName()
     {
-        // Format : 'core-entity_form_display-{entity_type}-{bundle}-{view_mode}'.
-        return 'core.entity_form_display.' . $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode;
+        // Format : 'core-entity_view_display-{entity_type}-{bundle}-{view_mode}'.
+        return 'core.entity_view_display.' . $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode;
     }
 
     protected function getTemplateOverrideData($data = [])
@@ -52,14 +52,9 @@ class EntityForm extends EntityPropertyBase
         ];
     }
 
-    public function attachField(FieldWidget $fieldWidgetTransformer)
+    public function attachField(FieldFormatter $fieldFormatterTransformer)
     {
-        $widget = $fieldWidgetTransformer->widget ?? 'default';
-        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getWidgetSpecificConfig($widget);
-        switch($widget) {
-          case 'media_library_widget':
-            $this->setDependency('module', 'media_library');
-            break;
-        }
+        $widget = $fieldFormatterTransformer->widget ?? 'default';
+        $this->config['content'][$fieldFormatterTransformer->getFieldName()] = $fieldFormatterTransformer->getWidgetSpecificConfig($widget);
     }
 }
