@@ -1,0 +1,29 @@
+uuid: c04e5482-2d48-7e28-6da3-1f802ae65cfc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.vocabulary.categories
+    - block_content.type.novas_ark
+    - field.storage.block_content.field_novas_ark_groups
+id: block_content.novas_ark.field_novas_ark_groups
+field_name: field_novas_ark_groups
+entity_type: block_content
+bundle: novas_ark
+label: Groups
+description: 'A block_content to test all fields.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+    target_bundles:
+      categories: categories
+  handler: 'default:taxonomy_term'
+field_type: entity_reference

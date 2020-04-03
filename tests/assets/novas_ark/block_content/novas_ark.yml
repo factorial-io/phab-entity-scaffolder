@@ -40,3 +40,11 @@ fields:
     bundles:
       - basic_page
       - articles
+  groups:
+    map: groups
+    type: entity_reference
+    label: Groups
+    required: false
+    entity: taxonomy_term
+    bundles:
+      - categories
