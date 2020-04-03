@@ -33,9 +33,10 @@ fields:
   # reference_node
   content:
     map: content
-    type: reference_node
+    type: entity_reference
     label: Content
     required: false
-    target:
+    entity: node
+    bundles:
       - basic_page
 #      - articles
