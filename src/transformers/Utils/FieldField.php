@@ -62,6 +62,13 @@ class FieldField extends FieldBase
           break;
 
         case 'taxonomy_term':
+          $data['settings']['handler'] = 'default:taxonomy_term';
+          if ($bundles) {
+            $data['settings']['handler_settings']['target_bundles'] = $bundles;
+            foreach ($bundles as $bundle) {
+              $data['dependencies']['config'][] = 'node.vocabulary.' . $bundle;
+            }
+          }
           break;
       }
       return $data;
