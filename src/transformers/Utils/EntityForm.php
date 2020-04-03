@@ -54,8 +54,9 @@ class EntityForm extends EntityPropertyBase
 
     public function attachField(FieldWidget $fieldWidgetTransformer)
     {
+        // @TODO Add support for multiple widget.
         $widget = $fieldWidgetTransformer->widget ?? 'default';
-        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getWidgetSpecificConfig($widget);
+        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getSpecificConfig($widget);
         switch($widget) {
           case 'media_library_widget':
             $this->setDependency('module', 'media_library');

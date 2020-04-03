@@ -35,8 +35,8 @@ class FieldFormatter extends FieldBase
     ];
   }
 
-  public function getWidgetSpecificConfig($widget = 'default')
+  public function getSpecificConfig($formatter = 'default')
   {
-    return $this->getConfig()['content'][$widget];
+    return $this->getConfig()['content'][$formatter];
   }
 }

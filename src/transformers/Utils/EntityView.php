@@ -42,7 +42,7 @@ class EntityView extends EntityPropertyBase
 
     protected function getTemplateOverrideData($data = [])
     {
-        return [
+        $out = [
             'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             // Format : '{entity_type}-{bundle}-{view_mode}'
             'id' => $this->entity_type . '.' . $this->data['id'] . '.' . $this->view_mode,
@@ -50,11 +50,13 @@ class EntityView extends EntityPropertyBase
             'mode' => $this->view_mode,
             'bundle' => $this->data['id'],
         ];
+        return $out;
     }
 
     public function attachField(FieldFormatter $fieldFormatterTransformer)
     {
-        $widget = $fieldFormatterTransformer->widget ?? 'default';
-        $this->config['content'][$fieldFormatterTransformer->getFieldName()] = $fieldFormatterTransformer->getWidgetSpecificConfig($widget);
+        // @TODO Add support for multiple formatter.
+        $formatter = 'default';
+        $this->config['content'][$fieldFormatterTransformer->getFieldName()] = $fieldFormatterTransformer->getSpecificConfig($formatter);
     }
 }

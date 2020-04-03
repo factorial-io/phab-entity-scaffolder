@@ -35,7 +35,7 @@ class FieldWidget extends FieldBase
         ];
     }
 
-    public function getWidgetSpecificConfig($widget = 'default')
+    public function getSpecificConfig($widget = 'default')
     {
         return $this->getConfig()['content'][$widget];
     }
