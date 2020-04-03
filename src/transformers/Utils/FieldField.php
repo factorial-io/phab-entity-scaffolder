@@ -36,21 +36,27 @@ class FieldField extends FieldBase
             'entity_type' => $this->entity_type,
             'required' => $this->data['required'] ?? false,
         ];
-        $out = $this->getTemplateOverrideDataForEntityReferences($out);
+        if ($this->data['type'] == 'entity_reference') {
+          $out = $this->getTemplateOverrideDataForEntityReferences($out);
+        }
         return $out;
     }
 
     private function getTemplateOverrideDataForEntityReferences($data)
     {
-      if (isset($this->data['target']) && !empty($this->data['target']) && is_array($this->data['target'])) {
-        foreach ($this->data['target'] as $target) {
-          switch ($this->data['type']) {
-            case 'reference_node':
-              $data['settings']['handler_settings']['target_bundles'][$target] = $target;
-              $data['dependencies']['config'][] = 'node.type.' . $target;
-              break;
-          }
+      if (isset($this->data['bundles']) && !empty($this->data['bundles']) && is_array($this->data['bundles'])) {
+        foreach ($this->data['bundles'] as $target) {
+          $data['settings']['handler_settings']['target_bundles'][$target] = $target;
         }
+      }
+      switch($this->data['entity']) {
+        case 'node':
+          $data['settings']['handler'] = 'default:node';
+          $data['dependencies']['config'][] = 'node.type.' . $target;
+          break;
+
+        case 'taxonomy_term':
+          break;
       }
       return $data;
     }

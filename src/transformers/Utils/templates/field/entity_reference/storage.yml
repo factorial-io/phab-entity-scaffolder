@@ -2,14 +2,12 @@ uuid: b6768c60-7e4e-43a1-9853-0c45029331f6
 langcode: en
 status: true
 dependencies:
-  module:
-    - node
 id: block_content.field_ref_content
 field_name: field_ref_content
 entity_type: block_content
 type: entity_reference
 settings:
-  target_type: node
+  target_type: nodeXXXXX
 module: core
 locked: false
 cardinality: 1
