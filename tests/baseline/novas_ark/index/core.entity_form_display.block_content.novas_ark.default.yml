@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.novas_ark.field_novas_ark_body
     - field.field.block_content.novas_ark.field_novas_ark_groups
     - field.field.block_content.novas_ark.field_novas_ark_content
+    - field.field.block_content.novas_ark.field_novas_ark_medimg
     - block_content.type.novas_ark
 id: block_content.novas_ark.default
 targetEntityType: block_content
@@ -61,6 +62,16 @@ content:
     region: content
   field_novas_ark_groups:
     weight: 6
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_novas_ark_medimg:
+    weight: 7
     settings:
       match_operator: CONTAINS
       match_limit: 10

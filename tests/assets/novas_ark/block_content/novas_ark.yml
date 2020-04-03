@@ -48,3 +48,11 @@ fields:
     entity: taxonomy_term
     bundles:
       - categories
+  medimg:
+    map: img
+    type: entity_reference
+    label: Groups
+    required: false
+    entity: media
+    bundles:
+      - categories

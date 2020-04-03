@@ -1,0 +1,29 @@
+uuid: 6dc8cd9c-1281-0ba6-3a36-ecd5f7898a70
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.vocabulary.categories
+    - block_content.type.novas_ark
+    - field.storage.block_content.field_novas_ark_medimg
+id: block_content.novas_ark.field_novas_ark_medimg
+field_name: field_novas_ark_medimg
+entity_type: block_content
+bundle: novas_ark
+label: Groups
+description: 'A block_content to test all fields.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler_settings:
+    sort:
+      field: field_novas_ark_medimg.title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+    target_bundles:
+      categories: categories
+  handler: 'default:media'
+field_type: entity_reference

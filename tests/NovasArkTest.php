@@ -29,6 +29,9 @@ class NovasArkTest extends BaseScaffoldingTest
         // field: entity_reference : taxonomy_term
         'field.storage.block_content.field_novas_ark_groups.yml',
         'field.field.block_content.novas_ark.field_novas_ark_groups.yml',
+        // field: entity_reference : media
+        'field.storage.block_content.field_novas_ark_medimg.yml',
+        'field.field.block_content.novas_ark.field_novas_ark_medimg.yml',
     ];
 
 
