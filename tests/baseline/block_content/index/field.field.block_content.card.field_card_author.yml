@@ -1,0 +1,22 @@
+uuid: ce5ea563-e008-d22f-0665-c8ae0c475a6f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_author
+  module:
+    - allowed_formats
+    - text
+id: block_content.card.field_card_author
+field_name: field_card_author
+entity_type: block_content
+bundle: card
+label: 'Card Author'
+description: 'Description of the card.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

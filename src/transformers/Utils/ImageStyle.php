@@ -51,7 +51,7 @@ class ImageStyle extends Base
         parent::__construct($config_accumulator, $placeholder_service, $data);
         $this->imageEffect = new ImageEffect($data);
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-        $config['effects'][$this->imageEffect->getConfig()['uuid']] = $this->imageEffect->getConfig();
+        $config['effects'][PlaceholderService::createChildReference('uuid')] = $this->imageEffect->getConfig();
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
         $this->addDependencyFromImageEffects();
     }
@@ -90,7 +90,7 @@ class ImageStyle extends Base
         $out = [];
         $out['name'] = $this->getName();
         $out['label'] = $this->getName();
-        $out['uuid'] = PlaceholderService::PRESERVE_IF_AVAILABLE;
+        $out['uuid'] = PlaceholderService::REUSE_OR_CREATE_VALUE;
         return $out;
     }
 
