@@ -70,6 +70,17 @@ class FieldField extends FieldBase
             }
           }
           break;
+
+        case 'media':
+          $data['settings']['handler'] = 'default:media';
+          if ($bundles) {
+            $data['settings']['handler_settings']['target_bundles'] = $bundles;
+            $data['settings']['handler_settings']['sort']['field'] = $this->getFieldName() . '.title';
+            foreach ($bundles as $bundle) {
+              $data['dependencies']['config'][] = 'node.vocabulary.' . $bundle;
+            }
+          }
+          break;
       }
       return $data;
     }

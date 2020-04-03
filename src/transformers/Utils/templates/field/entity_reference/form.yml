@@ -9,3 +9,11 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  media_library_widget:
+    type: media_library_widget
+    weight: 29
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+

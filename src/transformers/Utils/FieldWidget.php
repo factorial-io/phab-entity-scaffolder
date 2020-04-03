@@ -35,8 +35,8 @@ class FieldWidget extends FieldBase
         ];
     }
 
-    public function getViewModeSpecificConfig($view_mode = 'default')
+    public function getWidgetSpecificConfig($widget = 'default')
     {
-        return $this->getConfig()['content'][$view_mode];
+        return $this->getConfig()['content'][$widget];
     }
 }

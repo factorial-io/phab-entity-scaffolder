@@ -49,6 +49,11 @@ class FieldStorage extends FieldBase
         $data['dependencies']['module'][] = 'taxonomy';
         $data['settings']['target_type'] = 'taxonomy_term';
         break;
+
+      case 'media':
+        $data['dependencies']['module'][] = 'media';
+        $data['settings']['target_type'] = 'media';
+        break;
     }
     return $data;
   }

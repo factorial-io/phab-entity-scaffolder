@@ -13,6 +13,8 @@ class EntityForm extends EntityPropertyBase
 {
 
     protected $view_mode;
+    private $entity_type;
+    private $data;
 
     protected function getTemplateFileName()
     {
@@ -52,6 +54,12 @@ class EntityForm extends EntityPropertyBase
 
     public function attachField(FieldWidget $fieldWidgetTransformer)
     {
-        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getViewModeSpecificConfig($this->view_mode);
+        $widget = $fieldWidgetTransformer->widget ?? 'default';
+        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getWidgetSpecificConfig($widget);
+        switch($widget) {
+          case 'media_library_widget':
+            $this->config['dependencies']['module'][] = 'media_library';
+            break;
+        }
     }
 }
