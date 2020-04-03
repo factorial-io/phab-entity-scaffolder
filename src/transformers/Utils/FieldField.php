@@ -44,15 +44,21 @@ class FieldField extends FieldBase
 
     private function getTemplateOverrideDataForEntityReferences($data)
     {
+      $bundles = [];
       if (isset($this->data['bundles']) && !empty($this->data['bundles']) && is_array($this->data['bundles'])) {
-        foreach ($this->data['bundles'] as $target) {
-          $data['settings']['handler_settings']['target_bundles'][$target] = $target;
+        foreach ($this->data['bundles'] as $bundle) {
+          $bundles[$bundle] = $bundle;
         }
       }
       switch($this->data['entity']) {
         case 'node':
           $data['settings']['handler'] = 'default:node';
-          $data['dependencies']['config'][] = 'node.type.' . $target;
+          if ($bundles) {
+            $data['settings']['handler_settings']['target_bundles'] = $bundles;
+            foreach ($bundles as $bundle) {
+              $data['dependencies']['config'][] = 'node.type.' . $bundle;
+            }
+          }
           break;
 
         case 'taxonomy_term':

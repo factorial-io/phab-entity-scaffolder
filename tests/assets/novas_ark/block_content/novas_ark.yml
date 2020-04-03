@@ -39,4 +39,4 @@ fields:
     entity: node
     bundles:
       - basic_page
-#      - articles
+      - articles

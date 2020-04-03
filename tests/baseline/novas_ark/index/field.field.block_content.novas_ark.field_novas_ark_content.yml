@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.novas_ark
     - field.storage.block_content.field_novas_ark_content
+    - node.type.articles
     - node.type.basic_page
 id: block_content.novas_ark.field_novas_ark_content
 field_name: field_novas_ark_content
@@ -19,11 +20,12 @@ default_value_callback: ''
 settings:
   handler: 'default:node'
   handler_settings:
-    target_bundles:
-      basic_page: basic_page
     sort:
       field: title
       direction: ASC
     auto_create: false
     auto_create_bundle: ''
+    target_bundles:
+      articles: articles
+      basic_page: basic_page
 field_type: entity_reference
