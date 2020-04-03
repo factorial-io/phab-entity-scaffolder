@@ -30,9 +30,15 @@ class FieldFormatter extends FieldBase
 
   protected function getTemplateOverrideData()
   {
-    return [
+    $out = [
       'weight' => $this->data['weight'],
     ];
+    switch ($this->data['type']) {
+      case 'entity_reference':
+        $out['settings']['view_mode'] = $this->data['view_mode'] ?? 'default';
+        break;
+    }
+    return $out;
   }
 
   public function getSpecificConfig($formatter = 'default')
