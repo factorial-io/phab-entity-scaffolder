@@ -29,7 +29,7 @@ abstract class EntityPropertyBase
 
     protected function getTemplateFileName()
     {
-        return $this->getConfigName('template') . '.yml';
+        return $this->getConfigName() . '.yml';
     }
 
     /**
