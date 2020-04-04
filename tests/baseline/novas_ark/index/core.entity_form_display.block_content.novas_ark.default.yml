@@ -3,13 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.block_content.novas_ark.field_novas_ark_cbs
     - field.field.block_content.novas_ark.field_novas_ark_cta
     - field.field.block_content.novas_ark.field_novas_ark_image
     - field.field.block_content.novas_ark.field_novas_ark_label
     - field.field.block_content.novas_ark.field_novas_ark_body
-    - field.field.block_content.novas_ark.field_novas_ark_groups
-    - field.field.block_content.novas_ark.field_novas_ark_cbs
     - field.field.block_content.novas_ark.field_novas_ark_content
+    - field.field.block_content.novas_ark.field_novas_ark_groups
     - field.field.block_content.novas_ark.field_novas_ark_medimg
     - block_content.type.novas_ark
 id: block_content.novas_ark.default
@@ -56,7 +56,7 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-    weight: 4
+    weight: 5
   field_novas_ark_content:
     weight: 6
     settings:
@@ -78,11 +78,11 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_novas_ark_medimg:
+    type: media_library_widget
     weight: 8
     settings:
       media_types: {  }
     third_party_settings: {  }
-    type: media_library_widget
     region: content
 hidden:
   created: true
