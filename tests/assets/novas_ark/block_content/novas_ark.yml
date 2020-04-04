@@ -3,15 +3,19 @@ id: novas_ark
 description: A block_content to test all fields.
 fields:
   # checkbox
+  # checkboxes
+  cbs:
+    type: checkboxes
+    label: Checkboxes
+    plugin_id: fac_font_color
+    required: true
   # cta
   cta:
-    map: cta
     type: cta
     label: CTA
     required: true
   # image
   image:
-    map: img
     type: image
     label: Image
     required: true
@@ -20,19 +24,16 @@ fields:
   # select
   # text
   label:
-    map: label
     type: text
     label: Label
     required: true
   # textarea
   body:
-    map: body
     type: textarea
     label: Body
     required: true
   # reference_node
   content:
-    map: content
     type: entity_reference/node
     label: Content
     required: false
@@ -40,16 +41,13 @@ fields:
       - basic_page
       - articles
   groups:
-    map: groups
     type: entity_reference/taxonomy_term
     label: Groups
     required: false
-    entity: taxonomy_term
     bundles:
       - categories
     view_mode: teaser
   medimg:
-    map: img
     type: entity_reference/media
     label: Groups
     required: false
