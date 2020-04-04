@@ -37,49 +37,48 @@ class FieldField extends FieldBase
             'required' => $this->data['required'] ?? false,
         ];
         if ($this->getFieldBaseType() == 'entity_reference') {
-          $out = $this->getTemplateOverrideDataForEntityReferences($out);
+            $out = $this->getTemplateOverrideDataForEntityReferences($out);
         }
         return $out;
     }
 
     private function getTemplateOverrideDataForEntityReferences($data)
     {
-      $bundles = [];
-      if (isset($this->data['bundles']) && !empty($this->data['bundles']) && is_array($this->data['bundles'])) {
-        foreach ($this->data['bundles'] as $bundle) {
-          $bundles[$bundle] = $bundle;
+        $bundles = [];
+        if (isset($this->data['bundles']) && !empty($this->data['bundles']) && is_array($this->data['bundles'])) {
+            foreach ($this->data['bundles'] as $bundle) {
+                $bundles[$bundle] = $bundle;
+            }
         }
-      }
-      switch($this->getFieldSubType()) {
-        case 'node':
-          if ($bundles) {
-            $data['settings']['handler_settings']['target_bundles'] = $bundles;
-            foreach ($bundles as $bundle) {
-              $data['dependencies']['config'][] = 'node.type.' . $bundle;
-            }
-          }
-          break;
+        switch ($this->getFieldSubType()) {
+            case 'node':
+                if ($bundles) {
+                    $data['settings']['handler_settings']['target_bundles'] = $bundles;
+                    foreach ($bundles as $bundle) {
+                        $data['dependencies']['config'][] = 'node.type.' . $bundle;
+                    }
+                }
+                break;
 
-        case 'taxonomy_term':
-          if ($bundles) {
-            $data['settings']['handler_settings']['target_bundles'] = $bundles;
-            foreach ($bundles as $bundle) {
-              $data['dependencies']['config'][] = 'taxonomy.vocabulary.' . $bundle;
-            }
-          }
-          break;
+            case 'taxonomy_term':
+                if ($bundles) {
+                    $data['settings']['handler_settings']['target_bundles'] = $bundles;
+                    foreach ($bundles as $bundle) {
+                        $data['dependencies']['config'][] = 'taxonomy.vocabulary.' . $bundle;
+                    }
+                }
+                break;
 
-        case 'media':
-          if ($bundles) {
-            $data['settings']['handler_settings']['target_bundles'] = $bundles;
-            $data['settings']['handler_settings']['sort']['field'] = $this->getFieldName() . '.title';
-            foreach ($bundles as $bundle) {
-              $data['dependencies']['config'][] = 'media.type.' . $bundle;
-            }
-          }
-          break;
-      }
-      return $data;
+            case 'media':
+                if ($bundles) {
+                    $data['settings']['handler_settings']['target_bundles'] = $bundles;
+                    $data['settings']['handler_settings']['sort']['field'] = $this->getFieldName() . '.title';
+                    foreach ($bundles as $bundle) {
+                        $data['dependencies']['config'][] = 'media.type.' . $bundle;
+                    }
+                }
+                break;
+        }
+        return $data;
     }
-
 }

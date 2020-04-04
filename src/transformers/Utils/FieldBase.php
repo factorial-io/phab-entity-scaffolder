@@ -14,12 +14,14 @@ abstract class FieldBase extends EntityPropertyBase
     protected $data;
     protected $parent;
 
-    protected function getFieldBaseType() {
-      return explode('/', $this->data['type'])[0] ?? NULL;
+    protected function getFieldBaseType()
+    {
+        return explode('/', $this->data['type'])[0] ?? null;
     }
 
-    protected function getFieldSubType() {
-      return explode('/', $this->data['type'])[1] ?? 'default';
+    protected function getFieldSubType()
+    {
+        return explode('/', $this->data['type'])[1] ?? 'default';
     }
 
     protected function getTemplateDir()

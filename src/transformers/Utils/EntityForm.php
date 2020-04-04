@@ -54,13 +54,14 @@ class EntityForm extends EntityPropertyBase
 
     public function attachField(FieldWidget $fieldWidgetTransformer)
     {
-        $this->config['content'][$fieldWidgetTransformer->getFieldName()] = $fieldWidgetTransformer->getSpecificConfig();
+        $fieldname = $fieldWidgetTransformer->getFieldName();
+        $this->config['content'][$fieldname] = $fieldWidgetTransformer->getSpecificConfig();
         // Adding dependencies if any, from template.
         $dependencies = $fieldWidgetTransformer->getSpecificDependencies();
         if ($dependencies) {
-            foreach($dependencies as $category) {
-                foreach($category as $config_name) {
-                  $this->setDependency($category, $config_name);
+            foreach ($dependencies as $category) {
+                foreach ($category as $config_name) {
+                    $this->setDependency($category, $config_name);
                 }
             }
         }

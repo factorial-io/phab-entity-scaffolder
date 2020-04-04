@@ -31,7 +31,11 @@ class ResponsiveImage extends Base
             if (is_array($data['mapping'])) {
                 foreach ($data['mapping'] as $breakpoint => $style_data) {
                     $style_data['multiplier'] = $multiplier;
-                    $styleTransformer = new ImageStyle($this->configAccumulator, $this->placeholderService, $style_data);
+                    $styleTransformer = new ImageStyle(
+                        $this->configAccumulator,
+                        $this->placeholderService,
+                        $style_data
+                    );
                     $styleTransformers[$multiplier][$breakpoint] = $styleTransformer;
                     $image_style_mappings[] = [
                     'breakpoint_id' => $this->data['breakpoint_group'] . '.' . $breakpoint,

@@ -16,8 +16,9 @@ abstract class EntityBase extends Base
 {
     protected $bundle;
 
-    public function getEntityType() {
-      throw new \Exception('Missing getEntityType method in concrete class');
+    public function getEntityType()
+    {
+        throw new \Exception('Missing getEntityType method in concrete class');
     }
 
     public function getTemplateFileName()
@@ -81,7 +82,7 @@ abstract class EntityBase extends Base
                 $fieldFormatterTransformer = new FieldFormatter($this->getEntityType(), $field, $data);
                 $entityViewTransformer->attachField($fieldFormatterTransformer);
                 $entityViewTransformer->setDependency(
-                  'config',
+                    'config',
                     $fieldFieldTransformer->getConfigName()
                 );
             }
@@ -93,10 +94,9 @@ abstract class EntityBase extends Base
 
             $entityViewTransformer->setDependency('config', $this->getConfigName());
             $this->configAccumulator->setConfig(
-              $entityViewTransformer->getConfigName(),
-              $entityViewTransformer->getConfig()
+                $entityViewTransformer->getConfigName(),
+                $entityViewTransformer->getConfig()
             );
-
         }
         return $field_configs;
     }
