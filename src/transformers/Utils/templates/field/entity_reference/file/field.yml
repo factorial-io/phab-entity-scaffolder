@@ -1,0 +1,24 @@
+uuid: e78543e8-b80f-42bb-a707-fcc0166f0c07
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+id: block_content.nova_s_base.field_entity_reference_file
+field_name: field_entity_reference_file
+entity_type: block_content
+bundle: nova_s_base
+label: 'Entity Reference : File'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt rtf pdf xml'
+  max_filesize: '5 MB'
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

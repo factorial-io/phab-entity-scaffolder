@@ -55,8 +55,15 @@ class EntityView extends EntityPropertyBase
 
     public function attachField(FieldFormatter $fieldFormatterTransformer)
     {
-        // @TODO Add support for multiple formatter.
-        $formatter = 'default';
-        $this->config['content'][$fieldFormatterTransformer->getFieldName()] = $fieldFormatterTransformer->getSpecificConfig($formatter);
+        $this->config['content'][$fieldFormatterTransformer->getFieldName()] = $fieldFormatterTransformer->getSpecificConfig();
+        // Adding dependencies if any, from template.
+        $dependencies = $fieldFormatterTransformer->getSpecificDependencies();
+        if ($dependencies) {
+          foreach($dependencies as $category) {
+            foreach($category as $config_name) {
+              $this->setDependency($category, $config_name);
+            }
+          }
+        }
     }
 }

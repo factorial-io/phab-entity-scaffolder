@@ -39,4 +39,9 @@ class FieldWidget extends FieldBase
     {
         return $this->getConfig()['content'][$widget];
     }
+
+    public function getSpecificDependencies($widget = 'default')
+    {
+        return $this->getConfig()['dependencies'][$widget] ?? [];
+    }
 }

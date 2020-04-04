@@ -33,7 +33,7 @@ class FieldFormatter extends FieldBase
     $out = [
       'weight' => $this->data['weight'],
     ];
-    switch ($this->data['type']) {
+    switch ($this->getFieldBaseType()) {
       case 'entity_reference':
         $out['settings']['view_mode'] = $this->data['view_mode'] ?? 'default';
         break;
@@ -44,5 +44,10 @@ class FieldFormatter extends FieldBase
   public function getSpecificConfig($formatter = 'default')
   {
     return $this->getConfig()['content'][$formatter];
+  }
+
+  public function getSpecificDependencies($widget = 'default')
+  {
+    return $this->getConfig()['dependencies'][$widget] ?? [];
   }
 }

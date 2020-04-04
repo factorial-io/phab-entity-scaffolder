@@ -26,35 +26,11 @@ class FieldStorage extends FieldBase
 
     protected function getTemplateOverrideData()
     {
-        $out = [
+        return [
             'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             'id' => $this->entity_type . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
         ];
-        if ($this->data['type'] == 'entity_reference') {
-          $out = $this->getTemplateOverrideDataForEntityReferences($out);
-        }
-        return $out;
     }
 
-  private function getTemplateOverrideDataForEntityReferences($data)
-  {
-    switch($this->data['entity']) {
-      case 'node':
-        $data['dependencies']['module'][] = 'node';
-        $data['settings']['target_type'] = 'node';
-        break;
-
-      case 'taxonomy_term':
-        $data['dependencies']['module'][] = 'taxonomy';
-        $data['settings']['target_type'] = 'taxonomy_term';
-        break;
-
-      case 'media':
-        $data['dependencies']['module'][] = 'media';
-        $data['settings']['target_type'] = 'media';
-        break;
-    }
-    return $data;
-  }
 }

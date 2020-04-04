@@ -13,6 +13,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:taxonomy_term'
   handler_settings:
     sort:
       field: title

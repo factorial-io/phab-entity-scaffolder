@@ -1,0 +1,23 @@
+uuid: e8664aa0-a5c0-4804-8ee1-6132f175942d
+langcode: en
+status: true
+dependencies:
+id: block_content.anchor.field_ref_content
+field_name: field_ref_content
+entity_type: block_content
+bundle: anchor
+label: 'Ref Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

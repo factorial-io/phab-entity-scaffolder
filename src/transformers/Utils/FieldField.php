@@ -36,7 +36,7 @@ class FieldField extends FieldBase
             'entity_type' => $this->entity_type,
             'required' => $this->data['required'] ?? false,
         ];
-        if ($this->data['type'] == 'entity_reference') {
+        if ($this->getFieldBaseType() == 'entity_reference') {
           $out = $this->getTemplateOverrideDataForEntityReferences($out);
         }
         return $out;
@@ -50,9 +50,8 @@ class FieldField extends FieldBase
           $bundles[$bundle] = $bundle;
         }
       }
-      switch($this->data['entity']) {
+      switch($this->getFieldSubType()) {
         case 'node':
-          $data['settings']['handler'] = 'default:node';
           if ($bundles) {
             $data['settings']['handler_settings']['target_bundles'] = $bundles;
             foreach ($bundles as $bundle) {
@@ -62,22 +61,20 @@ class FieldField extends FieldBase
           break;
 
         case 'taxonomy_term':
-          $data['settings']['handler'] = 'default:taxonomy_term';
           if ($bundles) {
             $data['settings']['handler_settings']['target_bundles'] = $bundles;
             foreach ($bundles as $bundle) {
-              $data['dependencies']['config'][] = 'node.vocabulary.' . $bundle;
+              $data['dependencies']['config'][] = 'taxonomy.vocabulary.' . $bundle;
             }
           }
           break;
 
         case 'media':
-          $data['settings']['handler'] = 'default:media';
           if ($bundles) {
             $data['settings']['handler_settings']['target_bundles'] = $bundles;
             $data['settings']['handler_settings']['sort']['field'] = $this->getFieldName() . '.title';
             foreach ($bundles as $bundle) {
-              $data['dependencies']['config'][] = 'node.vocabulary.' . $bundle;
+              $data['dependencies']['config'][] = 'media.type.' . $bundle;
             }
           }
           break;
