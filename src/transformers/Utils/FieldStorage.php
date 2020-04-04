@@ -38,7 +38,8 @@ class FieldStorage extends FieldBase
         return $out;
     }
 
-    protected function usesListPredefinedOptions() {
+    protected function usesListPredefinedOptions()
+    {
         $modules = $this->template['dependencies']['module'] ?? [];
         return in_array('list_predefined_options', $modules);
     }
