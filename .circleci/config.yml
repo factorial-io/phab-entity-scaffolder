@@ -28,6 +28,8 @@ jobs:
 
       - run: php /composer.phar install
 
+      - run: php vendor/bin/grumphp run
+
       - save_cache:
           paths:
             - ./vendor
