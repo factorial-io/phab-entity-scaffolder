@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.novas_ark.field_novas_ark_label
     - field.field.block_content.novas_ark.field_novas_ark_body
     - field.field.block_content.novas_ark.field_novas_ark_groups
+    - field.field.block_content.novas_ark.field_novas_ark_cbs
     - field.field.block_content.novas_ark.field_novas_ark_content
     - field.field.block_content.novas_ark.field_novas_ark_medimg
     - block_content.type.novas_ark
@@ -16,6 +17,12 @@ targetEntityType: block_content
 bundle: novas_ark
 mode: default
 content:
+  field_novas_ark_cbs:
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+    weight: 1
   field_novas_ark_cta:
     settings:
       placeholder_url: ''
@@ -23,7 +30,7 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-    weight: 1
+    weight: 2
   field_novas_ark_image:
     settings:
       progress_indicator: throbber
@@ -33,9 +40,9 @@ content:
     third_party_settings: {  }
     type: image_focal_point
     region: content
-    weight: 2
-  field_novas_ark_label:
     weight: 3
+  field_novas_ark_label:
+    weight: 4
     settings:
       size: 60
       placeholder: ''
@@ -51,16 +58,6 @@ content:
     region: content
     weight: 4
   field_novas_ark_content:
-    weight: 5
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_novas_ark_groups:
     weight: 6
     settings:
       match_operator: CONTAINS
@@ -70,8 +67,18 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_novas_ark_medimg:
+  field_novas_ark_groups:
     weight: 7
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_novas_ark_medimg:
+    weight: 8
     settings:
       media_types: {  }
     third_party_settings: {  }
