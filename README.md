@@ -2,7 +2,7 @@
 # phab-entity-scaffolder
 
 
-[![<factorial-io>](https://circleci.com/github/factoial-io/phab-entity-scaffolder.svg?style=shield)](https://circleci.com/gh/factorial-io/phab-entity-scaffolder)
+[![factorial-io](https://circleci.com/github/factorial-io/phab-entity-scaffolder.svg?style=shield)](https://circleci.com/gh/factorial-io/phab-entity-scaffolder)
 
 Port of entity-scaffolder for D8 using phabalicious for scaffolding files and configuration.
 
