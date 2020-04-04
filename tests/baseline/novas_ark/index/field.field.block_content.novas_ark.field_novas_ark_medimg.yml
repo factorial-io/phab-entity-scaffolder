@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.vocabulary.categories
+    - media.type.image
     - block_content.type.novas_ark
     - field.storage.block_content.field_novas_ark_medimg
 id: block_content.novas_ark.field_novas_ark_medimg
@@ -24,6 +24,6 @@ settings:
     auto_create: false
     auto_create_bundle: ''
     target_bundles:
-      categories: categories
+      image: image
   handler: 'default:media'
 field_type: entity_reference

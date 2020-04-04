@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - node.vocabulary.categories
+    - taxonomy.vocabulary.categories
     - block_content.type.novas_ark
     - field.storage.block_content.field_novas_ark_groups
 id: block_content.novas_ark.field_novas_ark_groups

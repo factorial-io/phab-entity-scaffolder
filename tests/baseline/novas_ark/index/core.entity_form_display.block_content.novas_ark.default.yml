@@ -73,12 +73,9 @@ content:
   field_novas_ark_medimg:
     weight: 7
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      media_types: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: media_library_widget
     region: content
 hidden:
   created: true

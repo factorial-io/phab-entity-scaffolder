@@ -33,16 +33,15 @@ fields:
   # reference_node
   content:
     map: content
-    type: entity_reference
+    type: entity_reference/node
     label: Content
     required: false
-    entity: node
     bundles:
       - basic_page
       - articles
   groups:
     map: groups
-    type: entity_reference
+    type: entity_reference/taxonomy_term
     label: Groups
     required: false
     entity: taxonomy_term
@@ -51,9 +50,8 @@ fields:
     view_mode: teaser
   medimg:
     map: img
-    type: entity_reference
+    type: entity_reference/media
     label: Groups
     required: false
-    entity: media
     bundles:
-      - categories
+      - image
