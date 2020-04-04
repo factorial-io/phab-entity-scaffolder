@@ -36,6 +36,13 @@ abstract class Base
     }
 
     /**
+     * Get the corresponding template file name relative to template directory.
+     */
+    protected function getTemplateFileName() {
+        throw new \Exception('getTemplateFileName method not implemented.');
+    }
+
+    /**
      * {@inheritDoc}
      */
     protected function getTemplateDir()

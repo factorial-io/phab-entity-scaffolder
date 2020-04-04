@@ -43,7 +43,7 @@ abstract class EntityPropertyBase
     protected function getTemplateOverrideData()
     {
         return [
-            'uuid' => PlaceholderService::PRESERVE_IF_AVAILABLE,
+            'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
         ];
     }
 
