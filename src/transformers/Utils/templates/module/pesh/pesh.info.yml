@@ -1,0 +1,7 @@
+name: PESH
+type: module
+description: Phab Entity Scaffolder Helper
+package: Phab
+core: 8.x
+dependencies:
+  - list_predefined_options
