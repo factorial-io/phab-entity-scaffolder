@@ -28,7 +28,7 @@ jobs:
 
       - run: php /composer.phar install
 
-      - run: php vendor/bin/grumphp run
+      - run: php vendor/bin/grumphp run --tasks phpstan,phpcs,phplint
 
       - save_cache:
           paths:
