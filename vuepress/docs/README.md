@@ -1,1 +1,1 @@
-# Phab entity Scaffolder
+../../README.md
