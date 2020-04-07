@@ -25,7 +25,7 @@ class FieldFormatter extends FieldBase
 
     protected function getTemplateFileName()
     {
-        return 'field/' . $this->data['type']. '/view.yml';
+        return 'field/' . $this->getFieldType(). '/view.yml';
     }
 
     protected function getTemplateOverrideData()

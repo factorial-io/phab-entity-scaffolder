@@ -25,7 +25,7 @@ class FieldWidget extends FieldBase
 
     protected function getTemplateFileName()
     {
-        return 'field/' . $this->data['type']. '/form.yml';
+        return 'field/' . $this->getFieldType(). '/form.yml';
     }
 
     protected function getTemplateOverrideData()

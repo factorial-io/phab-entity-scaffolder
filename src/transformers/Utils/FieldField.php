@@ -10,9 +10,10 @@ use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 class FieldField extends FieldBase
 {
 
+
     protected function getTemplateFileName()
     {
-        return 'field/' . $this->data['type']. '/field.yml';
+        return 'field/' .$this->getFieldType(). '/field.yml';
     }
 
     /**
@@ -34,7 +35,7 @@ class FieldField extends FieldBase
             'label' => !empty($this->data['label']) ? $this->data['label'] : $this->data['id'],
             'description' => !empty($this->parent['description']) ? $this->parent['description'] : '',
             'entity_type' => $this->entity_type,
-            'required' => $this->data['required'] ?? false,
+            'required' => $this->getDataValue('required', false),
         ];
         if ($this->getFieldBaseType() == 'entity_reference') {
             $out = $this->getTemplateOverrideDataForEntityReferences($out);

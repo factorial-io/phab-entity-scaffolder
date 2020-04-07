@@ -12,7 +12,7 @@ class FieldStorage extends FieldBase
 
     protected function getTemplateFileName()
     {
-        return 'field/' . $this->data['type']. '/storage.yml';
+        return 'field/' . $this->getFieldType(). '/storage.yml';
     }
 
     /**
@@ -30,6 +30,7 @@ class FieldStorage extends FieldBase
             'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             'id' => $this->entity_type . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
+            'cardinality' => $this->getDataValue('cardinality', 1),
         ];
         if ($this->usesListPredefinedOptions()) {
             $plugin_id = $this->data['plugin_id'] ?? 'us_states';

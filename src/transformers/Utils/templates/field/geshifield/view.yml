@@ -1,2 +1,4 @@
 content:
   default:
+    label: hidden
+    region: content
