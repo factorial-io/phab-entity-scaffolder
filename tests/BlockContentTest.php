@@ -9,12 +9,17 @@ class BlockContentTest extends BaseScaffoldingTest
     private static $filenames = [
         'block_content.type.card.yml',
         'core.entity_form_display.block_content.card.default.yml',
+        'core.entity_view_display.block_content.card.default.yml',
         'field.field.block_content.card.field_card_author.yml',
+        'field.field.block_content.card.field_card_codesnippet.yml',
+        'field.field.block_content.card.field_card_job_link.yml',
         'field.field.block_content.card.field_card_job_title.yml',
         'field.field.block_content.card.field_card_label.yml',
         'field.storage.block_content.field_card_author.yml',
+        'field.storage.block_content.field_card_codesnippet.yml',
+        'field.storage.block_content.field_card_job_link.yml',
         'field.storage.block_content.field_card_job_title.yml',
-        'field.storage.block_content.field_card_label.yml'
+        'field.storage.block_content.field_card_label.yml',
     ];
 
 

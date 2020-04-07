@@ -1,0 +1,19 @@
+uuid: 929c8075-2520-1dd1-8775-d1035d0d6bfa
+langcode: en
+status: true
+dependencies:
+  module:
+    - geshifield
+    - block_content
+id: block_content.field_card_codesnippet
+field_name: field_card_codesnippet
+entity_type: block_content
+type: geshifield
+settings: {  }
+module: geshifield
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

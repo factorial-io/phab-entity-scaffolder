@@ -1,4 +1,4 @@
-uuid: 89f793d4-257b-66af-28cf-916198f05d07
+uuid: 2cc37bdf-c361-8885-7e55-f73d7b80d759
 langcode: en
 status: true
 dependencies:
@@ -16,43 +16,35 @@ mode: default
 content:
   field_card_label:
     weight: 1
+    label: hidden
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_textfield
+    type: string
     region: content
   field_card_author:
     weight: 2
+    label: hidden
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_textfield
+    type: string
     region: content
   field_card_job_title:
     weight: 3
+    label: hidden
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: text_textfield
+    type: string
     region: content
   field_card_job_link:
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
+    label: hidden
     region: content
     weight: 4
   field_card_codesnippet:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: geshifield_default
+    label: hidden
     region: content
+    weight: 5
 hidden:
-  created: true
-  status: true
+  langcode: true

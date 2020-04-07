@@ -17,3 +17,15 @@ fields:
     type: text
     label: Card Job Title
     required: false
+  job_link:
+    map: jobTitle
+    type: link
+    label: Link
+    required: false
+    cardinality: 3
+  codesnippet:
+    map: codeSnippet
+    type: geshifield
+    label: Code snippet
+    required: false
+    cardinality: 5

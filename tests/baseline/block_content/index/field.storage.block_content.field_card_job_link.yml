@@ -1,0 +1,19 @@
+uuid: aac196c3-d4be-2d93-69ae-e11c04e43b7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - block_content
+id: block_content.field_card_job_link
+field_name: field_card_job_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 3
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
