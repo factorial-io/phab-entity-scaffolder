@@ -1,4 +1,4 @@
-uid: 35f62d81-e105-4ce9-b1e8-dab62b4f4dca
+uuid: 35f62d81-e105-4ce9-b1e8-dab62b4f4dca
 langcode: en
 status: true
 dependencies:
@@ -21,4 +21,3 @@ settings:
   link_type: 17
   title: 1
 field_type: link
-uuid: 3e03b595-9bdd-47ff-8a40-3bf4b9728d28
