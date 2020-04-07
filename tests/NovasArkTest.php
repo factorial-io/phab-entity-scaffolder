@@ -11,9 +11,13 @@ class NovasArkTest extends BaseScaffoldingTest
         'block_content.type.novas_ark.yml',
         // form display: default
         'core.entity_form_display.block_content.novas_ark.default.yml',
+        'core.entity_view_display.block_content.novas_ark.default.yml',
         // field: cta
         'field.field.block_content.novas_ark.field_novas_ark_cta.yml',
         'field.storage.block_content.field_novas_ark_cta.yml',
+        // field: checkboxes
+        'field.field.block_content.novas_ark.field_novas_ark_cbs.yml',
+        'field.storage.block_content.field_novas_ark_cbs.yml',
         // field: image
         'field.field.block_content.novas_ark.field_novas_ark_image.yml',
         'field.storage.block_content.field_novas_ark_image.yml',

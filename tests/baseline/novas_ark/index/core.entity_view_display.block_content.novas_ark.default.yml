@@ -1,0 +1,76 @@
+uuid: 8cb17934-cbd4-4b48-3ef9-f1701992614e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.block_content.novas_ark.field_novas_ark_cbs
+    - field.field.block_content.novas_ark.field_novas_ark_cta
+    - field.field.block_content.novas_ark.field_novas_ark_image
+    - field.field.block_content.novas_ark.field_novas_ark_label
+    - field.field.block_content.novas_ark.field_novas_ark_body
+    - field.field.block_content.novas_ark.field_novas_ark_content
+    - field.field.block_content.novas_ark.field_novas_ark_groups
+    - field.field.block_content.novas_ark.field_novas_ark_medimg
+    - block_content.type.novas_ark
+id: block_content.novas_ark.default
+targetEntityType: block_content
+bundle: novas_ark
+mode: default
+content:
+  field_novas_ark_cbs:
+    label: hidden
+    region: content
+    weight: 1
+  field_novas_ark_cta:
+    label: hidden
+    region: content
+    weight: 2
+  field_novas_ark_image:
+    label: hidden
+    region: content
+    weight: 3
+  field_novas_ark_label:
+    weight: 4
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_novas_ark_body:
+    weight: 5
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_novas_ark_content:
+    weight: 6
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_novas_ark_groups:
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: teaser
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_novas_ark_medimg:
+    weight: 8
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,25 @@
+uuid: 575a006c-cb50-af7a-ba96-1870705867f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - list_predefined_options
+    - options
+    - block_content
+third_party_settings:
+  list_predefined_options:
+    plugin_id: fac_font_color
+id: block_content.field_novas_ark_cbs
+field_name: field_novas_ark_cbs
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values: {  }
+  allowed_values_function: list_predefined_options_allowed_values
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 763317f9-4b9c-d6b0-1376-1bc70b6a6bf8
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+  config:
+    - block_content.type.novas_ark
+    - field.storage.block_content.field_novas_ark_cbs
+id: block_content.novas_ark.field_novas_ark_cbs
+field_name: field_novas_ark_cbs
+entity_type: block_content
+bundle: novas_ark
+label: Checkboxes
+description: 'A block_content to test all fields.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
