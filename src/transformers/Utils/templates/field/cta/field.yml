@@ -6,7 +6,6 @@ dependencies:
     - link
 id: node.foo.field_cta
 field_name: field_cta
-entity_type: node
 bundle: foo
 label: CTA
 description: ''

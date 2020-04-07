@@ -9,7 +9,6 @@ dependencies:
     - field.storage.block_content.field_card_job_link
 id: block_content.card.field_card_job_link
 field_name: field_card_job_link
-entity_type: block_content
 bundle: card
 label: Link
 description: 'Description of the card.'
@@ -21,3 +20,4 @@ settings:
   link_type: 17
   title: 1
 field_type: link
+entity_type: block_content

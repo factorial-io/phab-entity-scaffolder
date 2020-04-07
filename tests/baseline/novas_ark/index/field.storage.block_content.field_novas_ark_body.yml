@@ -6,7 +6,7 @@ dependencies:
     - block_content
 id: block_content.field_novas_ark_body
 field_name: field_novas_ark_body
-entity_type: node
+entity_type: block_content
 type: string_long
 settings:
   case_sensitive: false

@@ -7,7 +7,6 @@ dependencies:
     - block_content
 id: block_content.field_card_job_link
 field_name: field_card_job_link
-entity_type: node
 type: link
 settings: {  }
 module: link
@@ -17,3 +16,4 @@ translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
+entity_type: block_content

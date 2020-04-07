@@ -31,6 +31,7 @@ class FieldStorage extends FieldBase
             'id' => $this->entity_type . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
             'cardinality' => $this->getDataValue('cardinality', 1),
+            'entity_type' => $this->entity_type,
         ];
         if ($this->usesListPredefinedOptions()) {
             $plugin_id = $this->data['plugin_id'] ?? 'us_states';
