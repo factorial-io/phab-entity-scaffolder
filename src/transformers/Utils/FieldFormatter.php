@@ -6,6 +6,7 @@ use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
+use Symfony\Component\Yaml\Yaml;
 
 class FieldFormatter extends FieldBase
 {
@@ -15,7 +16,7 @@ class FieldFormatter extends FieldBase
         $this->entity_type = $entity_type;
         $this->data = $data;
         $this->parent = $parent;
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->template = Yaml::parseFile($this->getTemplateFile());
         $config = [];
         foreach ($this->template['content'] as $view_mode => $template) {
             $config['content'][$view_mode] = Utilities::mergeData($template, $this->getTemplateOverrideData());
@@ -30,15 +31,9 @@ class FieldFormatter extends FieldBase
 
     protected function getTemplateOverrideData()
     {
-        $out = [
-        'weight' => $this->data['weight'],
+        return [
+            'weight' => $this->data['weight'],
         ];
-        switch ($this->getFieldBaseType()) {
-            case 'entity_reference':
-                $out['settings']['view_mode'] = $this->data['view_mode'] ?? 'default';
-                break;
-        }
-        return $out;
     }
 
     public function getSpecificConfig($formatter = 'default')

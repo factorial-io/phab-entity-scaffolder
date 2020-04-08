@@ -14,9 +14,6 @@ abstract class FieldBase extends EntityPropertyBase
     protected $data;
     protected $parent;
     
-    const FIELD_ALIAS_MAP = [
-        'link' => 'cta'
-    ];
 
     public function __construct($entity_type, $data, $parent)
     {
@@ -35,17 +32,17 @@ abstract class FieldBase extends EntityPropertyBase
      */
     public function getFieldType()
     {
-        return self::FIELD_ALIAS_MAP[$this->data['type']] ?? $this->data['type'];
+        return $this->data['type'];
     }
 
     protected function getFieldBaseType()
     {
-        return explode('/', $this->getFieldType())[0] ?? null;
+        return FieldTransformerFactory::getFieldBaseType($this->getFieldType());
     }
 
     protected function getFieldSubType()
     {
-        return explode('/', $this->getFieldType())[1] ?? 'default';
+        return FieldTransformerFactory::getFieldSubType($this->getFieldType());
     }
 
     protected function getTemplateDir()

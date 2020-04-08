@@ -57,33 +57,35 @@ abstract class EntityBase extends Base
                 if (empty($field['weight'])) {
                     $field['weight'] = $weight;
                 }
-                $fieldStorageTransformer = new FieldStorage($this->getEntityType(), $field, $data);
-                $this->injectDependency($fieldStorageTransformer);
+
+                $fieldTransformer = FieldTransformerFactory::create($this->getEntityType(), $field, $data);
+
+                $this->injectDependency($fieldTransformer->getStorage());
                 $this->configAccumulator->setConfig(
-                    $fieldStorageTransformer->getConfigName(),
-                    $fieldStorageTransformer->getConfig()
+                    $fieldTransformer->getStorage()->getConfigName(),
+                    $fieldTransformer->getStorage()->getConfig()
                 );
 
-                $fieldFieldTransformer = new FieldField($this->getEntityType(), $field, $data);
-                $fieldFieldTransformer->setDependency('config', $this->getConfigName());
-                $fieldFieldTransformer->setDependency('config', $fieldStorageTransformer->getConfigName());
+                $fieldTransformer->getField()->setDependency('config', $this->getConfigName());
+                $fieldTransformer->getField()->setDependency(
+                    'config',
+                    $fieldTransformer->getStorage()->getConfigName()
+                );
                 $this->configAccumulator->setConfig(
-                    $fieldFieldTransformer->getConfigName(),
-                    $fieldFieldTransformer->getConfig()
+                    $fieldTransformer->getField()->getConfigName(),
+                    $fieldTransformer->getField()->getConfig()
                 );
 
-                $fieldWidgetTransformer = new FieldWidget($this->getEntityType(), $field, $data);
-                $entityFormTransformer->attachField($fieldWidgetTransformer);
+                $entityFormTransformer->attachField($fieldTransformer->getWidget());
                 $entityFormTransformer->setDependency(
                     'config',
-                    $fieldFieldTransformer->getConfigName()
+                    $fieldTransformer->getField()->getConfigName()
                 );
 
-                $fieldFormatterTransformer = new FieldFormatter($this->getEntityType(), $field, $data);
-                $entityViewTransformer->attachField($fieldFormatterTransformer);
+                $entityViewTransformer->attachField($fieldTransformer->getFormatter());
                 $entityViewTransformer->setDependency(
                     'config',
-                    $fieldFieldTransformer->getConfigName()
+                    $fieldTransformer->getField()->getConfigName()
                 );
             }
             $entityFormTransformer->setDependency('config', $this->getConfigName());

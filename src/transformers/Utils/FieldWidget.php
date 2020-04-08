@@ -6,6 +6,7 @@ use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
+use Symfony\Component\Yaml\Yaml;
 
 class FieldWidget extends FieldBase
 {
@@ -15,7 +16,7 @@ class FieldWidget extends FieldBase
         $this->entity_type = $entity_type;
         $this->data = $data;
         $this->parent = $parent;
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->template = Yaml::parseFile($this->getTemplateFile());
         $config = [];
         foreach ($this->template['content'] as $view_mode => $template) {
             $config['content'][$view_mode] = Utilities::mergeData($template, $this->getTemplateOverrideData());
