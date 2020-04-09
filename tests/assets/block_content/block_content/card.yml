@@ -23,6 +23,8 @@ fields:
     label: Link
     required: false
     cardinality: 3
+    title: 0
+    link_type: EXTERNAL_ONLY
   codesnippet:
     map: codeSnippet
     type: geshifield
