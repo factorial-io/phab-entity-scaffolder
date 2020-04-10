@@ -1,7 +1,6 @@
-# Block Content n
+# Block Content
 
 ## Example Usage
-
 
 ### Minimal Example
 
