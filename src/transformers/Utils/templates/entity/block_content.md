@@ -1,19 +1,6 @@
-# Entity
-
-
-
-## Implementation status
-
-| Type | Status | Comment |
-| ---        | --- | --- |
-| **block_content** | Yes | 
-| **paragraphs** | Yes |
-| node | No |
-| user | No |
-
+# Block Content
 
 ## Example Usage
-
 
 ### Minimal Example
 

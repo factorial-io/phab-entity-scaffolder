@@ -16,6 +16,7 @@
     "debug": "node --nolazy --inspect-brk=9229 ./node_modules/.bin/vuepress dev"
   },
   "dependencies": {
+    "@factorial/vuepress-theme": "^1.0.0-alpha.1",
     "glob": "^7.1.6",
     "markdown-it-deflist": "^2.0.3",
     "markdown-it-footnote": "^3.0.2"
