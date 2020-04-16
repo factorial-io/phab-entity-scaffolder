@@ -42,6 +42,15 @@ content:
     label: hidden
     region: content
     weight: 4
+    type: link
+    settings:
+      trim_length: 40
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: '_blank'
+    third_party_settings: {  }
+
   field_card_codesnippet:
     label: hidden
     region: content

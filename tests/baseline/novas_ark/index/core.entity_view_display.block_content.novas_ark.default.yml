@@ -25,6 +25,14 @@ content:
     label: hidden
     region: content
     weight: 2
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
   field_novas_ark_image:
     label: hidden
     region: content
