@@ -2,12 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 
 class EntityView extends EntityPropertyBase
 {
@@ -26,7 +21,7 @@ class EntityView extends EntityPropertyBase
         $this->entity_type = $entity_type;
         $this->data = $data;
         $this->view_mode = $view_mode;
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
         $result = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $this->setConfig($result);
     }

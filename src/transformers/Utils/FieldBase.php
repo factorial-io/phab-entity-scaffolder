@@ -2,11 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\EntityPropertyBase;
-use Symfony\Component\Yaml\Yaml;
 
 abstract class FieldBase extends EntityPropertyBase
 {
@@ -20,7 +16,7 @@ abstract class FieldBase extends EntityPropertyBase
         $this->entity_type = $entity_type;
         $this->data = $data;
         $this->parent = $parent;
-        $this->template = Yaml::parseFile($this->getTemplateFile());
+        $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $this->setConfig($config);
     }

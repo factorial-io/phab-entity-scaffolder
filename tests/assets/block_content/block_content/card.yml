@@ -27,6 +27,7 @@ fields:
     link_type: EXTERNAL_ONLY
     rel: nofollow
     target: _blank
+    trim_length: 40
   codesnippet:
     map: codeSnippet
     type: geshifield

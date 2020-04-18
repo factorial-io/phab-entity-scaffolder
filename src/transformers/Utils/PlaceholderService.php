@@ -23,6 +23,12 @@ class PlaceholderService
         $counter++;
         return implode('|', [self::CHILD_REFERENCE, $counter, $key]);
     }
+    
+    
+    public static function parseTemplateFile($filename)
+    {
+        return Yaml::parseFile($filename);
+    }
 
 
     public function postTransform($items, $target_path)

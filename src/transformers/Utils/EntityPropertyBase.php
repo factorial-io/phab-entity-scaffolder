@@ -2,8 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use \Symfony\Component\Yaml\Yaml;
-
 abstract class EntityPropertyBase
 {
     protected $template = [];
@@ -13,7 +11,7 @@ abstract class EntityPropertyBase
 
     public function __construct()
     {
-        $this->template = Yaml::parseFile($this->getTemplateFile());
+        $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
         $this->placeholderService = new PlaceholderService();
     }
 
