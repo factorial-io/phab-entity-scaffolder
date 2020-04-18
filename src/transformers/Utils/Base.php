@@ -21,7 +21,7 @@ abstract class Base
 
     public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
-        $this->template = \Symfony\Component\Yaml\Yaml::parseFile($this->getTemplateFile());
+        $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
         $this->configAccumulator = $config_accumulator;
         $this->placeholderService = $placeholder_service;
         $this->data = $data;

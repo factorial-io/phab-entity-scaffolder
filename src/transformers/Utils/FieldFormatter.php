@@ -2,11 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Method\TaskContextInterface;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Symfony\Component\Yaml\Yaml;
 
 class FieldFormatter extends FieldBase
 {
@@ -16,7 +12,7 @@ class FieldFormatter extends FieldBase
         $this->entity_type = $entity_type;
         $this->data = $data;
         $this->parent = $parent;
-        $this->template = Yaml::parseFile($this->getTemplateFile());
+        $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
         $config = [];
         foreach ($this->template['content'] as $view_mode => $template) {
             $config['content'][$view_mode] = Utilities::mergeData($template, $this->getTemplateOverrideData());

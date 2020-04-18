@@ -23,51 +23,13 @@ class PlaceholderService
         $counter++;
         return implode('|', [self::CHILD_REFERENCE, $counter, $key]);
     }
-
-    public function set($name, $value)
+    
+    
+    public static function parseTemplateFile($filename)
     {
-        $this->placeholders += $this->flattenArray($name, $value);
+        return Yaml::parseFile($filename);
     }
 
-    public function translate($input)
-    {
-        return strtr($input, $this->placeholders);
-    }
-
-    private function makePlaceholder($key)
-    {
-        return '{' . trim($key) . '}';
-    }
-
-    public function get($name, $default_value = '')
-    {
-        $key = $this->makePlaceholder($name);
-        if (isset($this->placeholders[$key])) {
-            return $this->placeholders[$key];
-        }
-        return $default_value;
-    }
-
-    protected function flattenArray($prefix, $input)
-    {
-        $result = [];
-        if (!is_array($input)) {
-            $result[$this->makePlaceholder($prefix)] = $input;
-        } else {
-            foreach ($input as $key => $value) {
-                $new_key = $prefix . (empty($prefix) ? '' : '.') . $key;
-                if (is_array($value)) {
-                    $result = array_merge(
-                        $result,
-                        $this->flattenArray($new_key, $value)
-                    );
-                } else {
-                    $result[$this->makePlaceholder($new_key)] = $value;
-                }
-            }
-        }
-        return $result;
-    }
 
     public function postTransform($items, $target_path)
     {

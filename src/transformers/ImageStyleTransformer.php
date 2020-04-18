@@ -24,7 +24,7 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
 
     public function __construct()
     {
-        $this->template = Yaml::parseFile(__DIR__ . '/Utils/templates/image.style.template.yml');
+        $this->template = PlaceholderService::parseTemplateFile(__DIR__ . '/Utils/templates/image.style.template.yml');
     }
 
     public function transform(

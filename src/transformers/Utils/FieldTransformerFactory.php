@@ -22,6 +22,7 @@ class FieldTransformerFactory
     ];
     protected static $formatterFactory = [
         'default' => FieldFormatter::class,
+        'cta' => Plugins\CtaFieldFormatter::class,
         'entity_reference' => Plugins\EntityReferenceFieldFormatter::class,
     ];
 

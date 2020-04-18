@@ -15,6 +15,8 @@ fields:
     type: cta
     label: Call to Action
     description: Enter a catchy label and a link for call to action.
+    target: _blank
+    rel: nofollow
 ```
 
 ## Properties
@@ -30,6 +32,18 @@ fields:
 
 A combination of text field to enter title and another field to enter the link url.
 
-## Display
+| Property      | Description    | Value      | Limitations |
+| ---           | ---            | ---        | ---         |
+| `title`       | Allow user to enter a title for the url | Boolean | 1/0 |
+| `link_type`   | What types of liks are allowed | `EXTERNAL_ONLY` / `INTERNAL_ONLY` / `EXTERNAL_AND_INTERNAL` | |
+
+## Field formatter
 
 Displays the Label which is a link.
+
+| Property      | Description    | Value      | Limitations |
+| ---           | ---            | ---        | ---         |
+| `rel` | Relation to use for the field formatter | string
+| 
+|`target` | Target to use for the field formatter | string | |
+|`trim_length` | trim_length to use for the field formatter | integer | |
