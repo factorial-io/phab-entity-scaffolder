@@ -1,8 +1,8 @@
 content:
   default:
-    settings:
+    __settings:
       placeholder_url: ''
       placeholder_title: ''
-    third_party_settings: {  }
+    __third_party_settings: {  }
     type: link_default
     region: content

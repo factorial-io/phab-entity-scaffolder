@@ -41,6 +41,9 @@ class PlaceholderService
             } catch (\Exception $e) {
                 ; // Ignore intentionally
             }
+            if (!empty($existing)) {
+                $results = $this->reapplyExistingOverrides($results, $existing);
+            }
             $results = $this->postTransformValues($results, $existing);
             $return[$file] = $results;
             ;
@@ -94,5 +97,49 @@ class PlaceholderService
             return $value[$child_key];
         }
         return $key;
+    }
+
+    private function reapplyExistingOverrides($values, array $existing)
+    {
+        $results = [];
+        $user_config = [];
+        $unset = [];
+        // Remove duplicates from array and save it into another.
+        foreach ($values as $key => $value) {
+            if (substr($key, 0, 2) == '__') {
+                $key = substr($key, 2);
+                
+                if (isset($values[$key])) {
+                    $user_config[$key] = $values[$key];
+                    $unset[] = $key;
+                }
+            }
+        }
+        foreach ($unset as $key) {
+            unset($values[$key]);
+        }
+        
+        foreach ($values as $key => $value) {
+            if (substr($key, 0, 2) == '__') {
+                $key = substr($key, 2);
+                if (is_array($value)) {
+                    if (isset($existing[$key])) {
+                        $value = Utilities::mergeData($value, $existing[$key]);
+                    }
+                    if (isset($user_config[$key])) {
+                        $value = Utilities::mergeData($value, $user_config[$key]);
+                    }
+                } else {
+                    $value = $existing[$key] ?? $value;
+                    $value = $values[$key] ?? $value;
+                }
+            }
+            if (is_array($value)) {
+                $value = $this->reapplyExistingOverrides($value, $existing[$key] ?? []);
+            }
+            $results[$key] = $value;
+        }
+        
+        return $results;
     }
 }

@@ -18,7 +18,6 @@ class CtaFieldFormatter extends FieldFormatter
                 'settings' => [
                     'rel' => $this->getDataValue('rel', ''),
                     'target' => $this->getDataValue('target', ''),
-                    'trim_length' => $this->getDataValue('trim_length', '80'),
                 ],
             ]
         );

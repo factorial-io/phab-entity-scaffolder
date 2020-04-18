@@ -2,7 +2,7 @@ content:
   default:
     weight: 0
     label: above
-    settings: {  }
-    third_party_settings: {  }
+    __settings: {  }
+    __third_party_settings: {  }
     type: geshifield_default
     region: content
