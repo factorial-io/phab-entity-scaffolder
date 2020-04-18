@@ -47,7 +47,7 @@ content:
       trim_length: 40
       url_only: false
       url_plain: false
-      rel: ''
+      rel: 'nofollow'
       target: '_blank'
     third_party_settings: {  }
 
