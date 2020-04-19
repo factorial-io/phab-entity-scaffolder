@@ -1,8 +1,8 @@
 content:
   default:
-    __settings:
+    __|settings:
       size: 60
       placeholder: ''
-    __third_party_settings: {  }
+    __|third_party_settings: {  }
     type: email_default
     region: content

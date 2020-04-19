@@ -10,7 +10,7 @@ content:
     region: content
   media:
     type: media_library_widget
-    __settings:
+    __|settings:
       media_types: {  }
-    __third_party_settings: {  }
+    __|third_party_settings: {  }
     region: content

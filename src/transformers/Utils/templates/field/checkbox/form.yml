@@ -1,7 +1,7 @@
 content:
   default:
-    __settings:
+    __|settings:
       display_label: true
-    __third_party_settings: {  }
+    __|third_party_settings: {  }
     type: boolean_checkbox
     region: content

@@ -7,8 +7,8 @@ content:
   default:
     type: media_library_widget
     weight: 29
-    __settings:
+    __|settings:
       media_types: {  }
-    __third_party_settings: {  }
+    __|third_party_settings: {  }
     region: content
 

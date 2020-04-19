@@ -3,10 +3,10 @@ content:
     label: hidden
     type: link
     region: content
-    __settings:
+    __|settings:
       trim_length: 80
       url_only: false
       url_plain: false
       rel: ''
       target: ''
-    __third_party_settings: {  }
+    __|third_party_settings: {  }
