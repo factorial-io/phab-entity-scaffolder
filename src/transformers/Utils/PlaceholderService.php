@@ -142,7 +142,8 @@ class PlaceholderService
      * @return array|null
      *  Inherits the value from config, if it is absent in runtime value.
      */
-    private function implementStrategyInheritFromExisting($runtime_value, $existing = null) {
+    private function implementStrategyInheritFromExisting($runtime_value, $existing = null)
+    {
         if ($existing === null) {
             return $runtime_value;
         }
