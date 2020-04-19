@@ -113,7 +113,8 @@ class PlaceholderService
      * @return array
      *  An array with strategy as first item, followed by parameters.
      */
-    private function getPlaceholderStrategyForKey($key) {
+    private function getPlaceholderStrategyForKey($key)
+    {
         $values = explode('|', $key);
         // Probably the case when $key doesn't have a strategy mentioned.
         if (count($values) < 2) {
@@ -122,9 +123,9 @@ class PlaceholderService
                 $key,
             ];
         }
-        for($i = 2; $i < 5; $i++) {
+        for ($i = 2; $i < 5; $i++) {
             if (!isset($values[$i])) {
-                $values[$i] = NULL;
+                $values[$i] = null;
             }
         }
         return $values;
@@ -141,11 +142,11 @@ class PlaceholderService
      * @return array|null
      *  Inherits the value from config, if it is absent in runtime value.
      */
-    private function implementStrategyInheritFromExisting($runtime_value, $existing = NULL) {
-        if ($existing === NULL) {
+    private function implementStrategyInheritFromExisting($runtime_value, $existing = null) {
+        if ($existing === null) {
             return $runtime_value;
         }
-        $output = NULL;
+        $output = null;
         if (is_array($runtime_value)) {
             $output = Utilities::mergeData($runtime_value, $existing);
         } else {
@@ -171,7 +172,7 @@ class PlaceholderService
         // data for the corresponding placeholder strategy.
         foreach ($values as $key => $value) {
             list($strategy, $actual_key) = $this->getPlaceholderStrategyForKey($key);
-            $existing_value = $existing[$actual_key] ?? NULL;
+            $existing_value = $existing[$actual_key] ?? null;
             switch ($strategy) {
                 case self::STRATEGY_IGNORE:
                     break;
