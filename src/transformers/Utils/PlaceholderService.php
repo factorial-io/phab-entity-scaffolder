@@ -204,21 +204,31 @@ class PlaceholderService
      */
     private function implementStrategy(string $strategy, $e, $d, $t)
     {
-        $val = NULL;
+        $val = null;
         $values = [];
-        switch($strategy) {
+        switch ($strategy) {
             case self::STRATEGY_INHERIT_FROM_EXISTING:
             case self::STRATEGY_EDT:
                 $values = [$e, $d, $t];
                 break;
-            case self::STRATEGY_ETD: $values = [$e, $t, $d]; break;
-            case self::STRATEGY_DTE: $values = [$d, $t, $e]; break;
-            case self::STRATEGY_DET: $values = [$d, $e, $t]; break;
-            case self::STRATEGY_TDE: $values = [$t, $d, $e]; break;
-            case self::STRATEGY_TED: $values = [$t, $e, $d]; break;
+            case self::STRATEGY_ETD:
+                $values = [$e, $t, $d];
+                break;
+            case self::STRATEGY_DTE:
+                $values = [$d, $t, $e];
+                break;
+            case self::STRATEGY_DET:
+                $values = [$d, $e, $t];
+                break;
+            case self::STRATEGY_TDE:
+                $values = [$t, $d, $e];
+                break;
+            case self::STRATEGY_TED:
+                $values = [$t, $e, $d];
+                break;
         }
         foreach ($values as $val) {
-            if ($val !== NULL) {
+            if ($val !== null) {
                 break;
             }
         }
