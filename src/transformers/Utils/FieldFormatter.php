@@ -13,7 +13,9 @@ class FieldFormatter extends FieldBase
         $this->data = $data;
         $this->parent = $parent;
         $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
-        $config = [];
+        $config = [
+            'dependencies' => $this->template['dependencies'] ?? [],
+        ];
         foreach ($this->template['content'] as $view_mode => $template) {
             $config['content'][$view_mode] = Utilities::mergeData($template, $this->getTemplateOverrideData());
         }

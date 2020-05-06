@@ -9,6 +9,8 @@ dependencies:
     - field.field.block_content.card.field_card_job_link
     - field.field.block_content.card.field_card_codesnippet
     - block_content.type.card
+  module:
+    - geshifield
 id: block_content.card.default
 targetEntityType: block_content
 bundle: card
@@ -50,10 +52,12 @@ content:
       rel: 'nofollow'
       target: '_blank'
     third_party_settings: {  }
-
   field_card_codesnippet:
     label: hidden
     region: content
+    type: geshifield_default
+    settings: {  }
+    third_party_settings: {  }
     weight: 5
 hidden:
   langcode: true
