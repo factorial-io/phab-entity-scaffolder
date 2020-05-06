@@ -40,6 +40,13 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_card_codesnippet:
+    label: hidden
+    region: content
+    type: geshifield_default
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
   field_card_job_link:
     label: hidden
     region: content
@@ -52,12 +59,5 @@ content:
       rel: 'nofollow'
       target: '_blank'
     third_party_settings: {  }
-  field_card_codesnippet:
-    label: hidden
-    region: content
-    type: geshifield_default
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
 hidden:
   langcode: true
