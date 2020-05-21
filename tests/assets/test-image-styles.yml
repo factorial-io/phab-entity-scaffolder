@@ -1,11 +1,9 @@
-requires: 3.4
+requires: 3.4.6
 
-image_styles:
-  - image_style
 
 plugins:
   - src/transformers
 
 scaffold:
-  - transform(imagestyles, image_styles, tests/results)
+  - transform(imagestyles, image_style, tests/results)
 
