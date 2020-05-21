@@ -58,9 +58,6 @@ class PlaceholderService
                 ; // Ignore intentionally
             }
             $existing = $existing ?? [];
-            if (isset($results['id']) && $results['id'] == 'block_content.card.default') {
-                $a = 1;
-            }
             $results = $this->adjustValuesFromExistingConfig($results, $existing);
             $results = $this->postTransformValues($results, $existing);
             $return[$file] = $results;
@@ -164,9 +161,6 @@ class PlaceholderService
             $e = $values_copy[$actual_key] ?? null;
             $d = $existing[$actual_key] ?? null;
             $t = $value;
-            if ($key === 'field_card_job_link') {
-                $c = 1;
-            }
             switch ($strategy) {
                 case self::STRATEGY_IGNORE:
                     break;
