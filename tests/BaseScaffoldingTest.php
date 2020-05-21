@@ -6,6 +6,7 @@ use Phabalicious\Command\ScaffoldCommand;
 use Phabalicious\Configuration\ConfigurationService;
 use Phabalicious\Method\MethodFactory;
 use Phabalicious\Method\ScriptMethod;
+use Phabalicious\Utilities\Utilities;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application;
@@ -19,7 +20,7 @@ abstract class BaseScaffoldingTest extends TestCase
     public function setUp()
     {
         $this->application = new Application();
-        $this->application->setVersion('3.4.0');
+        $this->application->setVersion(Utilities::FALLBACK_VERSION);
         $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
 
         $configuration = new ConfigurationService($this->application, $logger);

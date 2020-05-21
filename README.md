@@ -39,8 +39,6 @@ assets: []
 
 plugins:
   - vendor/factorial/phab-entity-scaffolder/src/transformers
-image_styles:
-  - path/to/imagestyles-yamls
   
 scaffold:
   # transform yaml files using the ImageStyleTransformer.

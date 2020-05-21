@@ -8,9 +8,10 @@
             "email": "stephan@factorial.io"
         }
     ],
-    "require": {},
+    "require": {
+        "factorial-io/phabalicious": "dev-develop#c9f520d3e7de3a2f68a5f56dfac9728112648ed7"
+    },
     "require-dev": {
-        "factorial-io/phabalicious": "dev-develop",
         "phpunit/phpunit": "^7.3",
         "phpro/grumphp": "^0.18.0",
         "squizlabs/php_codesniffer": "^3.5",

@@ -1,7 +1,5 @@
-requires: 3.4
+requires: 3.4.6
 
-paragraphs:
-  - paragraphs
 
 plugins:
   - src/transformers
