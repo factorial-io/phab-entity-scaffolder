@@ -2,6 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
+use Phabalicious\Exception\ValidationFailedException;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 use Phabalicious\Utilities\Utilities;
@@ -11,6 +12,8 @@ use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldStorage;
+use Phabalicious\Validation\ValidationErrorBag;
+use Phabalicious\Validation\ValidationService;
 
 abstract class EntityBase extends Base
 {
@@ -29,6 +32,19 @@ abstract class EntityBase extends Base
     public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
         parent::__construct($config_accumulator, $placeholder_service, $data);
+        $errors = new ValidationErrorBag();
+        $service = new ValidationService($this->data, $errors, 'entity');
+        $service->hasKeys([
+            "label" => "Entity needs a label",
+            "fields" => "Entity needs a list of fields"
+        ]);
+        if ($errors->hasErrors()) {
+            throw new ValidationFailedException($errors);
+        }
+        
+        if (empty($this->data['id'])) {
+            $this->data['id']  = Utilities::slugify($this->data['label'], '_');
+        }
         $this->bundle = $this->data['id'];
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
