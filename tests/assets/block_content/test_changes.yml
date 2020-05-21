@@ -1,11 +1,8 @@
 requires: 3.4
 
-block_content:
-  - test_changed
-
 plugins:
   - src/transformers
 
 scaffold:
-  - transform(block_content, block_content, tests/results/test_changed/index)
+  - transform(block_content, test_changed, tests/results/test_changed/index)
 
