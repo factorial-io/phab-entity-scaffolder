@@ -1,0 +1,26 @@
+uuid: bfcfff37-47c7-bf26-fcc8-2d6aca1d0fbb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_description
+  module:
+    - allowed_formats
+    - text
+bundle: card
+label: Description
+description: 'Description of the card.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+field_type: text_long
+id: block_content.card.field_card_description
+field_name: field_card_description
+entity_type: block_content
+third_party_settings:
+  allowed_formats:
+    html: html
+    plaintext: plaintext
+settings: {  }

@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.card.field_card_job_title
     - field.field.block_content.card.field_card_job_link
     - field.field.block_content.card.field_card_codesnippet
+    - field.field.block_content.card.field_card_description
     - block_content.type.card
 id: block_content.card.default
 targetEntityType: block_content
@@ -16,43 +17,51 @@ mode: default
 content:
   field_card_label:
     weight: 1
+    type: text_textfield
+    region: content
     settings:
       size: 60
       placeholder: 'Input a label'
     third_party_settings: {  }
-    type: text_textfield
-    region: content
   field_card_author:
     weight: 2
+    type: text_textfield
+    region: content
     settings:
       size: 60
       placeholder: 'Input an author'
     third_party_settings: {  }
-    type: text_textfield
-    region: content
   field_card_job_title:
     weight: 3
+    type: text_textfield
+    region: content
     settings:
       size: 60
       placeholder: 'Input a title'
     third_party_settings: {  }
-    type: text_textfield
-    region: content
   field_card_job_link:
+    type: link_default
+    region: content
+    weight: 4
     settings:
       placeholder_url: 'Input a url'
       placeholder_title: 'Input a title for the url'
     third_party_settings: {  }
-    type: link_default
-    region: content
-    weight: 4
   field_card_codesnippet:
     weight: 5
     label: above
-    settings: {  }
-    third_party_settings: {  }
     type: geshifield_default
     region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_card_description:
+    weight: 6
+    type: text_textfield
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

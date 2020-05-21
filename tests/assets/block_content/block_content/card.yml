@@ -34,3 +34,12 @@ fields:
     label: Code snippet
     required: false
     cardinality: 5
+  description:
+    map: description
+    type: text_long
+    label: Description
+    required: true
+    cardinality: 1
+    allowed_formats:
+      - html
+      - plaintext

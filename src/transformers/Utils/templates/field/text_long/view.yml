@@ -1,0 +1,8 @@
+content:
+  default:
+    weight: 0
+    label: hidden
+    __|settings: { }
+    __|third_party_settings: {  }
+    type: text_default
+    region: content
