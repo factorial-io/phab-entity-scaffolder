@@ -55,8 +55,8 @@ class EntityView extends EntityPropertyBase
         // Adding dependencies if any, from template.
         $dependencies = $fieldFormatterTransformer->getSpecificDependencies();
         if ($dependencies) {
-            foreach ($dependencies as $category) {
-                foreach ($category as $config_name) {
+            foreach ($dependencies as $category => $deps) {
+                foreach ($deps as $config_name) {
                     $this->setDependency($category, $config_name);
                 }
             }
