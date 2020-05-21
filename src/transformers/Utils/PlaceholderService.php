@@ -13,6 +13,12 @@ class PlaceholderService
 
     const CREATE_NEW_VALUE = '__NEW__';
 
+    /**
+     * E = value from entity-scaffolder files
+     * D = value from existing drupal configuration
+     * T = value as defined in the template.yml file.
+     */
+
     const STRATEGY_EDT = '__edt';
     const STRATEGY_ETD = '__edt';
     const STRATEGY_DET = '__det';
@@ -154,13 +160,13 @@ class PlaceholderService
         // Traverse over each high level keys and prepare
         // data for the corresponding placeholder strategy.
         foreach ($values as $key => $value) {
-            if ($key == 'content') {
-                $c = 1;
-            }
             list($strategy, $actual_key) = $this->getPlaceholderStrategyForKey($key);
             $e = $values_copy[$actual_key] ?? null;
             $d = $existing[$actual_key] ?? null;
             $t = $value;
+            if ($key === 'field_card_job_link') {
+                $c = 1;
+            }
             switch ($strategy) {
                 case self::STRATEGY_IGNORE:
                     break;
@@ -227,9 +233,14 @@ class PlaceholderService
                 $values = [$t, $e, $d];
                 break;
         }
-        foreach ($values as $val) {
-            if ($val !== null) {
-                break;
+        if (is_array($e) && is_array($d) && (is_array($t))) {
+            $val = Utilities::mergeData($values[2], $values[1]);
+            $val = Utilities::mergeData($val, $values[0]);
+        } else {
+            foreach ($values as $val) {
+                if ($val !== null) {
+                    break;
+                }
             }
         }
         return $val;
