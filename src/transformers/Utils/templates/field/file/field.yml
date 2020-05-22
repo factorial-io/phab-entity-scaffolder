@@ -1,0 +1,22 @@
+uuid: 07042dfc-0f92-4bae-aa5c-b81817858416
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+__|default_value: {  }
+default_value_callback: ''
+__|settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: txt
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
+
+
+
+
+
+

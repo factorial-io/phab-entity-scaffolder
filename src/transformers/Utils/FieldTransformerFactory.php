@@ -15,6 +15,7 @@ class FieldTransformerFactory
         'default' => FieldStorage::class,
     ];
     protected static $fieldFactory = [
+        'file' => Plugins\FileFieldField::class,
         'text' => Plugins\TextFieldField::class,
         'text_long' => Plugins\TextFieldField::class,
         'cta' => Plugins\CtaFieldField::class,

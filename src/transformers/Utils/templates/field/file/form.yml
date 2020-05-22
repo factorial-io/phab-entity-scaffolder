@@ -1,0 +1,7 @@
+content:
+  default:
+    __|settings:
+      progress_indicator: throbber
+    __|third_party_settings: {  }
+    type: file_generic
+    region: content
