@@ -1,0 +1,18 @@
+dependencies:
+  default:
+    module:
+      - paragraphs
+      - entity_reference_revisions
+
+content:
+  default:
+    type: entity_reference_paragraphs
+    __|settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    __|third_party_settings: {  }
+    region: content

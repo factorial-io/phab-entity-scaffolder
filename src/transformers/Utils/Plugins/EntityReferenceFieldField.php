@@ -19,6 +19,7 @@ class EntityReferenceFieldField extends FieldField
                 $bundles[$bundle] = $bundle;
             }
         }
+        print_r($this->getFieldSubType());
         switch ($this->getFieldSubType()) {
             case 'node':
                 if ($bundles) {
@@ -44,6 +45,23 @@ class EntityReferenceFieldField extends FieldField
                     $data['settings']['handler_settings']['sort']['field'] = $this->getFieldName().'.title';
                     foreach ($bundles as $bundle) {
                         $data['dependencies']['config'][] = 'media.type.'.$bundle;
+                    }
+                }
+                break;
+                
+            case 'paragraphs':
+                if ($bundles) {
+                    $data['settings']['handler_settings']['target_bundles'] = $bundles;
+                    $dnd = [];
+                    foreach ($bundles as $ndx => $bundle) {
+                        $dnd[$bundle] = [
+                            "enabled" => true,
+                            "weight" => $ndx,
+                        ];
+                    }
+                    $data['settings']['handler_settings']['target_bundles_drag_drop'] = $dnd;
+                    foreach ($bundles as $bundle) {
+                        $data['dependencies']['config'][] = 'paragraphs.paragraphs_type.'.$bundle;
                     }
                 }
                 break;
