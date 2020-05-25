@@ -18,7 +18,7 @@ content:
     weight: 1
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Input a label'
     third_party_settings: {  }
     type: text_textfield
     region: content
@@ -26,7 +26,7 @@ content:
     weight: 2
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Input an author'
     third_party_settings: {  }
     type: text_textfield
     region: content
@@ -34,14 +34,14 @@ content:
     weight: 3
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Input a title'
     third_party_settings: {  }
     type: text_textfield
     region: content
   field_card_job_link:
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      placeholder_url: 'Input a url'
+      placeholder_title: 'Input a title for the url'
     third_party_settings: {  }
     type: link_default
     region: content

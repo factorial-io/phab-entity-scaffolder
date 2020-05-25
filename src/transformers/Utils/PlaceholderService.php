@@ -13,7 +13,25 @@ class PlaceholderService
 
     const CREATE_NEW_VALUE = '__NEW__';
 
+    /**
+     * E = value from entity-scaffolder files
+     * D = value from existing drupal configuration
+     * T = value as defined in the template.yml file.
+     */
+
+    const STRATEGY_EDT = '__edt';
+    const STRATEGY_ETD = '__edt';
+    const STRATEGY_DET = '__det';
+    const STRATEGY_DTE = '__dte';
+    const STRATEGY_TDE = '__tde';
+    const STRATEGY_TED = '__ted';
+
     protected const CHILD_REFERENCE = '__CHILD_REF__';
+
+    // es.yml > existing configuration > template.yml
+    const STRATEGY_INHERIT_FROM_EXISTING = '__';
+
+    const STRATEGY_IGNORE = '';
 
     protected $placeholders;
 
@@ -23,13 +41,11 @@ class PlaceholderService
         $counter++;
         return implode('|', [self::CHILD_REFERENCE, $counter, $key]);
     }
-    
-    
+
     public static function parseTemplateFile($filename)
     {
         return Yaml::parseFile($filename);
     }
-
 
     public function postTransform($items, $target_path)
     {
@@ -41,9 +57,10 @@ class PlaceholderService
             } catch (\Exception $e) {
                 ; // Ignore intentionally
             }
+            $existing = $existing ?? [];
+            $results = $this->adjustValuesFromExistingConfig($results, $existing);
             $results = $this->postTransformValues($results, $existing);
             $return[$file] = $results;
-            ;
         }
         return $return;
     }
@@ -94,5 +111,132 @@ class PlaceholderService
             return $value[$child_key];
         }
         return $key;
+    }
+
+    /**
+     * Decode the placeholder strategy and parameters in the given key.
+     *
+     * @param $key
+     *  Array key.
+     *
+     * @return array
+     *  An array with strategy as first item, followed by parameters.
+     */
+    private function getPlaceholderStrategyForKey($key)
+    {
+        $values = explode('|', $key);
+        // Probably the case when $key doesn't have a strategy mentioned.
+        if (count($values) < 2) {
+            $values = [
+                self::STRATEGY_IGNORE,
+                $key,
+            ];
+        }
+        for ($i = 2; $i < 5; $i++) {
+            if (!isset($values[$i])) {
+                $values[$i] = null;
+            }
+        }
+        return $values;
+    }
+
+    /**
+     * Replace values base don encoded strategy in array keys.
+     *
+     * @param $values
+     *  Incoming values.
+     * @param $existing
+     *  Values in existing configuration.
+     *
+     * @return mixed
+     *  Adjusted values after corresponding replacement strategy has been done.
+     */
+    private function adjustValuesFromExistingConfig($values, $existing)
+    {
+        $values_copy = $values;
+        // Traverse over each high level keys and prepare
+        // data for the corresponding placeholder strategy.
+        foreach ($values as $key => $value) {
+            list($strategy, $actual_key) = $this->getPlaceholderStrategyForKey($key);
+            $e = $values_copy[$actual_key] ?? null;
+            $d = $existing[$actual_key] ?? null;
+            $t = $value;
+            switch ($strategy) {
+                case self::STRATEGY_IGNORE:
+                    break;
+
+                case self::STRATEGY_EDT:
+                case self::STRATEGY_ETD:
+                case self::STRATEGY_DTE:
+                case self::STRATEGY_DET:
+                case self::STRATEGY_TDE:
+                case self::STRATEGY_TED:
+                case self::STRATEGY_INHERIT_FROM_EXISTING:
+                    $v = $this->implementStrategy($strategy, $e, $d, $t);
+                    if ($actual_key !== $key) {
+                        unset($values[$key]);
+                    }
+                    $values[$actual_key] = $v;
+                    break;
+            }
+            if (!empty($values[$actual_key]) && is_array($values[$actual_key])) {
+                $values[$actual_key] = $this->adjustValuesFromExistingConfig($values[$actual_key], $d);
+            }
+        }
+        return $values;
+    }
+
+    /**
+     * Find the value based on replacement strategy.
+     *
+     * @param string $strategy
+     *   The strategy to be used.
+     *
+     * @param mixed $e
+     *   Value from ES Configuration (user provided).
+     * @param mixed $d
+     *   Value from Drupal config files.
+     * @param mixed $t
+     *   Value from template.
+     *
+     * @return mixed|null
+     *   One of the values provided based on the strategy.
+     */
+    private function implementStrategy(string $strategy, $e, $d, $t)
+    {
+        $val = null;
+        $values = [];
+        switch ($strategy) {
+            case self::STRATEGY_INHERIT_FROM_EXISTING:
+            case self::STRATEGY_EDT:
+                $values = [$e, $d, $t];
+                break;
+            case self::STRATEGY_ETD:
+                $values = [$e, $t, $d];
+                break;
+            case self::STRATEGY_DTE:
+                $values = [$d, $t, $e];
+                break;
+            case self::STRATEGY_DET:
+                $values = [$d, $e, $t];
+                break;
+            case self::STRATEGY_TDE:
+                $values = [$t, $d, $e];
+                break;
+            case self::STRATEGY_TED:
+                $values = [$t, $e, $d];
+                break;
+        }
+        if (is_array($e) && is_array($d) && (is_array($t))) {
+            $val = Utilities::mergeData($values[2], $values[1]);
+            $val = Utilities::mergeData($val, $values[0]);
+        } else {
+            foreach ($values as $val) {
+                if ($val !== null) {
+                    break;
+                }
+            }
+        }
+        return $val;
     }
 }

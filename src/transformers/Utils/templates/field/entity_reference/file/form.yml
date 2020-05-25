@@ -1,8 +1,8 @@
 content:
   default:
     weight: 32
-    settings:
+    __|settings:
       progress_indicator: throbber
-    third_party_settings: {  }
+    __|third_party_settings: {  }
     type: file_generic
     region: content

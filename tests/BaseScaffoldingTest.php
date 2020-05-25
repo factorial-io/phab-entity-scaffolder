@@ -78,4 +78,9 @@ abstract class BaseScaffoldingTest extends TestCase
             );
         }
     }
+
+    protected function parseConfig(string $filename)
+    {
+        return Yaml::parseFile($this->getcwd() . '/' . $filename);
+    }
 }

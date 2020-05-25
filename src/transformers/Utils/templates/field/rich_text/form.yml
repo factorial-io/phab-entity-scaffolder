@@ -1,8 +1,8 @@
 content:
   default:
-    settings:
+    __|settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    __|third_party_settings: {  }
     type: text_textarea
     region: content
