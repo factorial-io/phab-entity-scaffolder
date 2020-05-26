@@ -17,7 +17,7 @@ mode: default
 content:
   field_card_label:
     weight: 1
-    type: text_textfield
+    type: string_textfield
     region: content
     settings:
       size: 60
@@ -25,7 +25,7 @@ content:
     third_party_settings: {  }
   field_card_author:
     weight: 2
-    type: text_textfield
+    type: string_textfield
     region: content
     settings:
       size: 60
@@ -33,7 +33,7 @@ content:
     third_party_settings: {  }
   field_card_job_title:
     weight: 3
-    type: text_textfield
+    type: string_textfield
     region: content
     settings:
       size: 60

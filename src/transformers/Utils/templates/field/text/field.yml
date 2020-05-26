@@ -6,9 +6,6 @@ dependencies:
   module:
     - allowed_formats
     - text
-id: block_content.anchor.field_anchor_label
-field_name: field_anchor_label
-entity_type: block_content
 bundle: anchor
 label: Label
 description: 'Will be used as a label for the navigational link.'
@@ -16,5 +13,5 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string
+__|settings: {  }
+field_type: text

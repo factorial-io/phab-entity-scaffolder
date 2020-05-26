@@ -15,5 +15,5 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
+field_type: string
 settings: {  }
-field_type: string_long

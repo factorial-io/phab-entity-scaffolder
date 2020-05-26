@@ -2,8 +2,7 @@ content:
   default:
     weight: 0
     label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
+    __|settings: { }
+    __|third_party_settings: {  }
+    type: text_default
     region: content

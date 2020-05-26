@@ -20,27 +20,27 @@ content:
   field_card_label:
     weight: 1
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_card_author:
     weight: 2
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_card_job_title:
     weight: 3
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_card_job_link:
     label: hidden
     type: link
