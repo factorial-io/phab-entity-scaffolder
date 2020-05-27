@@ -4,7 +4,7 @@ status: true
 dependencies:
   module:
     - text
-type: text
+type: text_long
 settings: {}
 module: text
 locked: false

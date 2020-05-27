@@ -1,0 +1,17 @@
+uuid: 7e976a1e-1fad-470e-a133-09f490213ac7
+langcode: en
+status: true
+dependencies:
+  config: {}
+id: node.test_node.field_string_example
+field_name: field_string_example
+entity_type: node
+bundle: test_node
+label: string_example
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+__|settings: {  }
+field_type: string

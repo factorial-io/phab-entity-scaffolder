@@ -6,15 +6,6 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class ResponsiveImageTest extends BaseScaffoldingTest
 {
-    private static $filenames = [
-        'image.style.esimg_50x50.yml',
-        'image.style.esimg_100x50.yml',
-        'image.style.esimg_100x100.yml',
-        'image.style.esimg_200w.yml',
-        'image.style.esimg_200x100.yml',
-        'image.style.esimg_400w.yml',
-        'responsive_image.styles.popup.yml',
-    ];
 
 
     public function testResponsiveImages()
@@ -23,7 +14,7 @@ class ResponsiveImageTest extends BaseScaffoldingTest
         $this->copyBaseline(
             'baseline/responsive_image/index',
             'results/responsive_image/index',
-            self::$filenames
+            []
         );
 
         $command = $this->application->find('scaffold');
@@ -43,8 +34,7 @@ class ResponsiveImageTest extends BaseScaffoldingTest
         $this->assertEqualContents(
             'baseline/responsive_image/index',
             'results/responsive_image/index',
-            self::$filenames,
-            1
+            []
         );
     }
 }

@@ -7,6 +7,7 @@ use Phabalicious\Configuration\ConfigurationService;
 use Phabalicious\Method\MethodFactory;
 use Phabalicious\Method\ScriptMethod;
 use Phabalicious\Utilities\Utilities;
+use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application;
@@ -41,6 +42,9 @@ abstract class BaseScaffoldingTest extends TestCase
         array $filenames,
         $ignore_uuids_above_level = PHP_INT_MAX
     ) {
+        if (empty($filenames)) {
+            $filenames = $this->getFilesFromDirectory($baseline_folder, $filenames);
+        }
         foreach ($filenames as $filename) {
             $a_path = $this->getcwd().'/'.$baseline_folder.'/'.$filename;
             $b_path = $this->getcwd().'/'.$result_folder.'/'.$filename;
@@ -51,7 +55,8 @@ abstract class BaseScaffoldingTest extends TestCase
             $this->removeUUIDs($a, $ignore_uuids_above_level);
             $this->removeUUIDs($b, $ignore_uuids_above_level);
 
-            $this->assertEqualsCanonicalizing($a, $b, $filename.' differs from baseline!');
+            $this->assertArrayEquals($a, $b, $filename.' differs from baseline!');
+            $this->assertArrayEquals($b, $a, $filename.' differs from baseline!');
         }
     }
 
@@ -71,6 +76,9 @@ abstract class BaseScaffoldingTest extends TestCase
         if (!file_exists($this->getcwd() . '/' . $target)) {
             mkdir($this->getcwd() . '/' . $target, 0777, true);
         }
+        if (empty($filenames)) {
+            $filenames = $this->getFilesFromDirectory($source, $filenames);
+        }
         foreach ($filenames as $filename) {
             file_put_contents(
                 $this->getcwd() . '/' . $target . '/' . $filename,
@@ -82,5 +90,40 @@ abstract class BaseScaffoldingTest extends TestCase
     protected function parseConfig(string $filename)
     {
         return Yaml::parseFile($this->getcwd() . '/' . $filename);
+    }
+
+    protected function assertArrayEquals(array $a, array $b, string $message, $rootPath = [])
+    {
+        foreach ($a as $key => $value) {
+            $this->assertArrayHasKey($key, $b, $message);
+
+            if (isset($b[$key])) {
+                $keyPath = $rootPath;
+                $keyPath[] = $key;
+
+                if (is_array($value)) {
+                    $this->assertArrayEquals($value, $b[$key], $message, $keyPath);
+                } else {
+                    $this->assertEquals($value, $b[$key], "Failed asserting that `".$b[$key]
+                        ."` matches expected `$value` for path `".implode(".", $keyPath)."`. " . $message);
+                }
+            }
+        }
+    }
+
+    /**
+     * @param  string  $source
+     * @param  array  $filenames
+     * @return array
+     */
+    protected function getFilesFromDirectory(string $source, array $filenames): array
+    {
+        $dir = scandir($this->getcwd().'/'.$source);
+        foreach ($dir as $f) {
+            if ($f[0] !== '.' && is_file($this->getcwd().'/'.$source.'/'.$f)) {
+                $filenames[] = $f;
+            }
+        }
+        return $filenames;
     }
 }

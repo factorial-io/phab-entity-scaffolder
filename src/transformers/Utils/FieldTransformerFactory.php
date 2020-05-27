@@ -2,6 +2,8 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
+use Phabalicious\Utilities\PluginDiscovery;
+
 class FieldTransformerFactory
 {
 
@@ -13,6 +15,8 @@ class FieldTransformerFactory
         'default' => FieldStorage::class,
     ];
     protected static $fieldFactory = [
+        'text' => Plugins\TextFieldField::class,
+        'text_long' => Plugins\TextFieldField::class,
         'cta' => Plugins\CtaFieldField::class,
         'entity_reference' => Plugins\EntityReferenceFieldField::class,
         'default' => FieldField::class,

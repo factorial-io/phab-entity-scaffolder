@@ -4,13 +4,13 @@ description: Description of the card.
 fields:
   label:
     map: label
-    type: text
+    type: string
     label: Card Label
   author:
     map: author
-    type: text
+    type: string
     label: Card Author
   job_title:
     map: jobTitle
-    type: text
+    type: string
     label: Card Job Title

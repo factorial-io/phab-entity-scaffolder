@@ -10,6 +10,7 @@ class PlaceholderService
 {
 
     const REUSE_OR_CREATE_VALUE = '__REUSE__';
+    const CREATE_OR_REUSE_ABSOLUTE_REFERENCE  = '__REUSE_REFERENCE';
 
     const CREATE_NEW_VALUE = '__NEW__';
 
@@ -41,11 +42,65 @@ class PlaceholderService
         $counter++;
         return implode('|', [self::CHILD_REFERENCE, $counter, $key]);
     }
+    
 
     public static function parseTemplateFile($filename)
     {
         return Yaml::parseFile($filename);
     }
+
+    /**
+     * Will lookup a value in a multidimensional array. Uses dot-notation to separate hierarchy levels.
+     * There's one big exception. If a subkey is numerig it will also lookup the nth element in that array, regardless
+     * of the key.
+     *
+     * @param $data
+     *   The array.
+     * @param string $key
+     *   A key for the wnated value. Dots will separate hierachylevels. eg. root.level1.level2.level3.value
+     * @param mixed $default_value
+     *   If the value cant be looked up, return the default value instead
+     * @return mixed
+     *   the found value.
+     */
+    public static function lookupValue($data, string $key, $default_value = null)
+    {
+        $value = $default_value;
+        $keys = explode('.', $key);
+        $first_run = true;
+        foreach ($keys as $sub_key) {
+            if ($first_run) {
+                $value = $data;
+                $first_run = false;
+            }
+            $continue = false;
+            if (isset($value[$sub_key])) {
+                $value = $value[$sub_key];
+                $continue = true;
+            } elseif (is_numeric($sub_key)) {
+                // Try nth key.
+                $array_keys = array_keys($value);
+                if (isset($array_keys[$sub_key])) {
+                    $sub_key = $array_keys[$sub_key];
+                    if (isset($value[$sub_key])) {
+                        $value = $value[$sub_key];
+                        $continue = true;
+                    }
+                }
+            }
+            if (!$continue) {
+                return $default_value;
+            }
+        }
+
+        return $value;
+    }
+
+    public static function createAbsoluteReuseReference(array $keys)
+    {
+        return self::CREATE_OR_REUSE_ABSOLUTE_REFERENCE . "|" . implode(".", $keys);
+    }
+
 
     public function postTransform($items, $target_path)
     {
@@ -59,33 +114,42 @@ class PlaceholderService
             }
             $existing = $existing ?? [];
             $results = $this->adjustValuesFromExistingConfig($results, $existing);
-            $results = $this->postTransformValues($results, $existing);
+            $results = $this->postTransformValues($results, $existing, $existing);
             $return[$file] = $results;
         }
         return $return;
     }
 
-    protected function postTransformValues($values, $existing)
+    protected function postTransformValues($values, $existing, $existing_haystack)
     {
         $results = [];
         foreach ($values as $key => $value) {
-            $result = $this->postTransformValue($key, $value, $existing[$key] ?? null);
+            $result = $this->postTransformValue($key, $value, $existing[$key] ?? null, $existing_haystack);
             $key = $this->dereferenceKey($key, $result);
             $results[$key] = $result;
         }
         return $results;
     }
 
-    protected function postTransformValue($key, $value, $existing)
+    protected function postTransformValue($key, $value, $existing, $existing_haystack)
     {
         if (is_array($value)) {
-            return $this->postTransformValues($value, $existing);
+            return $this->postTransformValues($value, $existing, $existing_haystack);
         }
+        
+        $arguments = explode("|", $value);
+        $value = array_shift($arguments);
 
         if ($value === self::REUSE_OR_CREATE_VALUE) {
             return is_null($existing) ? $this->createNewValueForKey($key, $existing) : $existing;
         } elseif ($value === self::CREATE_NEW_VALUE) {
             return $this->createNewValueForKey($key, $existing);
+        } elseif ($value === self::CREATE_OR_REUSE_ABSOLUTE_REFERENCE) {
+            $candidate = self::lookupValue($existing_haystack, $arguments[0], null);
+            if (is_null($candidate)) {
+                $candidate = $this->createNewValueForKey($key, $existing);
+            }
+            return $candidate;
         }
 
         // Fall through, do nothing.

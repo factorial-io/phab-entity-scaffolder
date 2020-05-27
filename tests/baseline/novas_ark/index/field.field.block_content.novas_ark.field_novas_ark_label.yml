@@ -5,9 +5,6 @@ dependencies:
   config:
     - block_content.type.novas_ark
     - field.storage.block_content.field_novas_ark_label
-  module:
-    - allowed_formats
-    - text
 id: block_content.novas_ark.field_novas_ark_label
 field_name: field_novas_ark_label
 entity_type: block_content
@@ -18,5 +15,5 @@ required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
 field_type: string
+settings: {  }

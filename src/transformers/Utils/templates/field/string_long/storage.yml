@@ -2,11 +2,13 @@ uuid: __REUSE__
 langcode: en
 status: true
 dependencies:
-  module:
-    - text
-type: text
-settings: {}
-module: text
+id: node.field_textarea
+field_name: field_textarea
+entity_type: node
+type: string_long
+__|settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
