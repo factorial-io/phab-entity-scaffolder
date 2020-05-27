@@ -43,7 +43,7 @@ content:
     weight: 3
   field_novas_ark_label:
     weight: 4
-    type: text_textfield
+    type: string_textfield
     region: content
     settings:
       size: 60

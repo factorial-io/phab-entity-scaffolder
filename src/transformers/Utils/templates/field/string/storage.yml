@@ -1,12 +1,11 @@
 uuid: __REUSE__
 langcode: en
 status: true
-dependencies:
-id: node.field_textarea
-field_name: field_textarea
-entity_type: node
-type: string_long
-settings:
+id: node.field_string_example
+type: string
+__|settings:
+  max_length: 255
+  is_ascii: false
   case_sensitive: false
 module: core
 locked: false

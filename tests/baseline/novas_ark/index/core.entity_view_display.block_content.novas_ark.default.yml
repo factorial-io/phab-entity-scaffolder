@@ -23,9 +23,9 @@ content:
     weight: 1
   field_novas_ark_cta:
     label: hidden
+    type: link
     region: content
     weight: 2
-    type: link
     settings:
       trim_length: 80
       url_only: false
@@ -40,19 +40,19 @@ content:
   field_novas_ark_label:
     weight: 4
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_novas_ark_body:
     weight: 5
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_novas_ark_content:
     weight: 6
     label: hidden
@@ -65,20 +65,20 @@ content:
   field_novas_ark_groups:
     weight: 7
     label: hidden
+    type: entity_reference_entity_view
+    region: content
     settings:
       view_mode: teaser
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
   field_novas_ark_medimg:
     weight: 8
     label: hidden
+    type: entity_reference_entity_view
+    region: content
     settings:
       view_mode: default
       link: false
     third_party_settings: {  }
-    type: entity_reference_entity_view
-    region: content
 hidden:
   langcode: true

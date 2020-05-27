@@ -1,9 +1,9 @@
 content:
   default:
-    weight: 1
+    weight: 125
     __|settings:
       size: 60
       placeholder: ''
     __|third_party_settings: {  }
-    type: text_textfield
+    type: string_textfield
     region: content

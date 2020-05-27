@@ -38,10 +38,10 @@ class ResponsiveImage extends Base
                     );
                     $styleTransformers[$multiplier][$breakpoint] = $styleTransformer;
                     $image_style_mappings[] = [
-                    'breakpoint_id' => $this->data['breakpoint_group'] . '.' . $breakpoint,
-                    'multiplier' => $multiplier,
-                    'image_mapping_type' => 'image_style',
-                    'image_mapping' => $styleTransformer->getName(),
+                        'breakpoint_id' => $this->data['breakpoint_group'].'.'.$breakpoint,
+                        'multiplier' => $multiplier,
+                        'image_mapping_type' => 'image_style',
+                        'image_mapping' => $styleTransformer->getName(),
                     ];
                     $fallback_image_style = $styleTransformer->getName();
                 }
@@ -72,7 +72,7 @@ class ResponsiveImage extends Base
 
     public function getConfigName()
     {
-        return 'responsive_image.styles.' . $this->data['id'];
+        return 'responsive_image.styles.'.$this->data['id'];
     }
 
     public function getTemplateOverrideData()

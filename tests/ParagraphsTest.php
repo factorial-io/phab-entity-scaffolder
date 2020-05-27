@@ -6,9 +6,6 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class ParagraphsTest extends BaseScaffoldingTest
 {
-    private static $filenames = [
-        'paragraphs.paragraphs_type.card.yml',
-    ];
 
 
     public function testParagraphsScaffold()
@@ -17,7 +14,7 @@ class ParagraphsTest extends BaseScaffoldingTest
         $this->copyBaseline(
             'baseline/paragraphs/index',
             'results/paragraphs/index',
-            self::$filenames
+            []
         );
 
         $command = $this->application->find('scaffold');
@@ -37,7 +34,7 @@ class ParagraphsTest extends BaseScaffoldingTest
         $this->assertEqualContents(
             'baseline/paragraphs/index',
             'results/paragraphs/index',
-            self::$filenames
+            []
         );
     }
 }

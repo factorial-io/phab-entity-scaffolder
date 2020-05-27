@@ -5,9 +5,6 @@ dependencies:
   config:
     - block_content.type.card
     - field.storage.block_content.field_card_job_title
-  module:
-    - allowed_formats
-    - text
 id: block_content.card.field_card_job_title
 field_name: field_card_job_title
 entity_type: block_content
@@ -18,5 +15,5 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
 field_type: string
+settings: {  }

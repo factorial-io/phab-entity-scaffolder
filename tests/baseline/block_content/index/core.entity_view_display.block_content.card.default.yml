@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.card.field_card_job_title
     - field.field.block_content.card.field_card_job_link
     - field.field.block_content.card.field_card_codesnippet
+    - field.field.block_content.card.field_card_description
     - block_content.type.card
   module:
     - geshifield
@@ -19,27 +20,39 @@ content:
   field_card_label:
     weight: 1
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_card_author:
     weight: 2
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
-    region: content
   field_card_job_title:
     weight: 3
     label: hidden
+    type: string
+    region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+  field_card_job_link:
+    label: hidden
+    type: link
     region: content
+    weight: 4
+    settings:
+      trim_length: 40
+      url_only: false
+      url_plain: false
+      rel: nofollow
+      target: _blank
+    third_party_settings: {  }
   field_card_codesnippet:
     label: hidden
     region: content
@@ -47,17 +60,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
-  field_card_job_link:
+  field_card_description:
+    weight: 6
     label: hidden
+    type: text_default
     region: content
-    weight: 4
-    type: link
-    settings:
-      trim_length: 40
-      url_only: false
-      url_plain: false
-      rel: 'nofollow'
-      target: '_blank'
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true

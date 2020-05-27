@@ -14,4 +14,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 __|settings: {  }
-field_type: text
+field_type: text_long

@@ -12,8 +12,11 @@ class ImageEffect extends EntityPropertyBase
     protected $data;
     protected $config;
 
-    public function __construct($data)
+    protected $position;
+
+    public function __construct($data, $position)
     {
+        $this->position = $position;
         $this->effect = $data['effect'];
         $this->height = $data['effective_height'];
         $this->width = $data['effective_width'];
@@ -30,7 +33,7 @@ class ImageEffect extends EntityPropertyBase
 
     protected function getTemplateOverrideData()
     {
-        $data['uuid'] = PlaceholderService::REUSE_OR_CREATE_VALUE;
+        $data['uuid'] = PlaceholderService::createAbsoluteReuseReference(['effects', $this->position, 'uuid']);
         if (!empty($this->height)) {
             $data['data']['height'] = $this->height;
         }
