@@ -5,5 +5,5 @@ plugins:
   - src/transformers
 
 scaffold:
-  - transform(imagestyles, image_style, tests/results)
+  - transform(imagestyles, image_style, tests/results/image_styles/index)
 

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
+    - image
 name: gets_replaced
 label: 'gets replaced'
 effects: []
