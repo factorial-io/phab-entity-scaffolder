@@ -178,7 +178,7 @@ class PlaceholderService
     }
 
     /**
-     F* Decode the placeholder strategy and parameters in the given key.
+     * Decode the placeholder strategy and parameters in the given key.
      *
      * @param $key
      *  Array key.
