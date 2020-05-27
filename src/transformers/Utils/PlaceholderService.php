@@ -136,9 +136,14 @@ class PlaceholderService
         if (is_array($value)) {
             return $this->postTransformValues($value, $existing, $existing_haystack);
         }
+
+        $arguments = [];
+        $org_value = $value;
         
-        $arguments = explode("|", $value);
-        $value = array_shift($arguments);
+        if (is_string($value)) {
+            $arguments = explode("|", $value);
+            $value = array_shift($arguments);
+        }
 
         if ($value === self::REUSE_OR_CREATE_VALUE) {
             return is_null($existing) ? $this->createNewValueForKey($key, $existing) : $existing;
@@ -153,7 +158,7 @@ class PlaceholderService
         }
 
         // Fall through, do nothing.
-        return $value;
+        return $org_value;
     }
 
     protected function createNewValueForKey($key, $existing_value)
