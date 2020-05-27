@@ -1,0 +1,24 @@
+uuid: ed2e4b3f-5b78-1420-8700-ba71820d548e
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+    - block_content
+entity_type: block_content
+type: file
+module: file
+locked: false
+cardinality: 0
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+id: block_content.field_card_attachements
+field_name: field_card_attachements
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file

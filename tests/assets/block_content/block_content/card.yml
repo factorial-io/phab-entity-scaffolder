@@ -43,3 +43,11 @@ fields:
     allowed_formats:
       - html
       - plaintext
+  attachements:
+    map: attachements
+    type: file
+    label: Attachements
+    required: false
+    cardinality: 0
+    file_extensions: "pdf"
+    file_directory: "attachements/[date:custom:Y]-[date:custom:m]"

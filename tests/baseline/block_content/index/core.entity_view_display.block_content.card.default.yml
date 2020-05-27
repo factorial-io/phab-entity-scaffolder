@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.card.field_card_job_link
     - field.field.block_content.card.field_card_codesnippet
     - field.field.block_content.card.field_card_description
+    - field.field.block_content.card.field_card_attachements
     - block_content.type.card
   module:
     - geshifield
@@ -66,6 +67,14 @@ content:
     type: text_default
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_card_attachements:
+    label: hidden
+    type: file_default
+    region: content
+    weight: 7
+    settings:
+      use_description_as_link_text: true
     third_party_settings: {  }
 hidden:
   langcode: true

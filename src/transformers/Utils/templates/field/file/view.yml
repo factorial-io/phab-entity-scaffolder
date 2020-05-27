@@ -1,0 +1,9 @@
+content:
+  default:
+    label: hidden
+    __|settings:
+      use_description_as_link_text: true
+    __|third_party_settings: {  }
+    type: file_default
+    region: content
+

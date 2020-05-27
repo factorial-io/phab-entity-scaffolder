@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.card.field_card_job_link
     - field.field.block_content.card.field_card_codesnippet
     - field.field.block_content.card.field_card_description
+    - field.field.block_content.card.field_card_attachements
     - block_content.type.card
 id: block_content.card.default
 targetEntityType: block_content
@@ -61,6 +62,13 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_card_attachements:
+    type: file_generic
+    region: content
+    weight: 7
+    settings:
+      progress_indicator: throbber
     third_party_settings: {  }
 hidden:
   created: true
