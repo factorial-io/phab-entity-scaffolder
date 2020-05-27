@@ -34,8 +34,7 @@ class ResponsiveImageTest extends BaseScaffoldingTest
         $this->assertEqualContents(
             'baseline/responsive_image/index',
             'results/responsive_image/index',
-            [],
-            1
+            []
         );
     }
 }

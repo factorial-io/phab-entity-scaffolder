@@ -49,7 +49,8 @@ class ImageStyle extends Base
         ];
         $data['name'] = $this->generateStyleName($data);
         parent::__construct($config_accumulator, $placeholder_service, $data);
-        $this->imageEffect = new ImageEffect($data);
+        // We can hrdcode the position to 0, as we will only have one imageeffect per style.
+        $this->imageEffect = new ImageEffect($data, 0);
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $config['effects'][PlaceholderService::createChildReference('uuid')] = $this->imageEffect->getConfig();
         $this->configAccumulator->setConfig($this->getConfigName(), $config);

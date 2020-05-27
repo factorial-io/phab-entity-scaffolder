@@ -33,8 +33,7 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
         $this->assertEqualContents(
             'baseline/image_styles/index',
             'results/image_styles/index',
-            [],
-            1
+            []
         );
     }
 }
