@@ -48,12 +48,14 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
                     ]);
 
                     foreach ($style['effects'] as $weight => $effect) {
-                        $result_effect = $effect;
                         $result_effect['uuid'] = PlaceholderService::createAbsoluteReuseReference(
                             ['effects', count($result['effects']), 'uuid']
                         );
                         $result_effect['id'] = $effect['name'];
                         $result_effect['weight'] = $effect['weight'] ?? $weight;
+                        foreach ($effect as $k => $v) {
+                            $result_effect[$k] = $v;
+                        }
 
                         unset($result_effect['name']);
 

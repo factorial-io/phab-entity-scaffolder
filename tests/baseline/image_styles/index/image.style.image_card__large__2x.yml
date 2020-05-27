@@ -1,9 +1,7 @@
 uuid: 6f6a05c5-017a-08df-54a4-f143c777c2e4
 langcode: en
 status: true
-dependencies:
-  module:
-    - image
+dependencies: {  }
 name: image_card__large__2x
 label: 'Image card large @ 2x'
 effects:

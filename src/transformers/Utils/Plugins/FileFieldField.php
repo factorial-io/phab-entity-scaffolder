@@ -17,7 +17,7 @@ class FileFieldField extends FieldField
                 'settings' => [
                     'file_directory' => $this->data['file_directory'] ?? null,
                     'file_extensions' => $this->data['file_extensions'] ?? null,
-                    'description_field' => $this->data['has_description_field'] ?? null,
+                    'description_field' => $this->data['has_description_field'] ?? false,
                 ],
             ]
         );

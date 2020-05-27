@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   module:
-    - image
     - focal_point
 name: image_card__small__2x
 label: 'Image card small @ 2x'

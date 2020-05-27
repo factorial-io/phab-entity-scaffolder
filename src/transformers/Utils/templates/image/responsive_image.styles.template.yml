@@ -1,7 +1,7 @@
 uuid: __REUSE__
 langcode: de
 status: true
-dependencies:
+dependencies: { }
 id: foo
 label: FOO
 image_style_mappings:

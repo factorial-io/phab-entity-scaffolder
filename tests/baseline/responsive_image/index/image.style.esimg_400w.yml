@@ -1,7 +1,7 @@
 uuid: 3c9369bd-05d0-36f9-59b4-67b3cd85fff7
 langcode: en
 status: true
-dependencies: null
+dependencies: {}
 name: esimg_400w
 label: esimg_400w
 effects:

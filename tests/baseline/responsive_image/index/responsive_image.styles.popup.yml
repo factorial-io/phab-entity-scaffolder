@@ -1,7 +1,7 @@
 uuid: 011f2d83-82f8-07ef-a3a2-ff05891b7384
 langcode: de
 status: true
-dependencies: null
+dependencies: {}
 id: popup
 label: Popup
 image_style_mappings:

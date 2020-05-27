@@ -1,7 +1,7 @@
 uuid: 76317fce-4a3d-dfbb-14fe-a9ecb24a94c4
 langcode: en
 status: true
-dependencies: null
+dependencies: {}
 name: esimg_200w
 label: esimg_200w
 effects:

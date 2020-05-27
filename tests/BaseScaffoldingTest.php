@@ -104,7 +104,7 @@ abstract class BaseScaffoldingTest extends TestCase
                 if (is_array($value)) {
                     $this->assertArrayEquals($value, $b[$key], $message, $keyPath);
                 } else {
-                    $this->assertEquals($value, $b[$key], "Failed asserting that `".$b[$key]
+                    $this->assertSame($value, $b[$key], "Failed asserting that `".$b[$key]
                         ."` matches expected `$value` for path `".implode(".", $keyPath)."`. " . $message);
                 }
             }
