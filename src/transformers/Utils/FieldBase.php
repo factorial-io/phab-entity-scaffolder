@@ -50,7 +50,19 @@ abstract class FieldBase extends EntityPropertyBase
     public function getFieldName()
     {
         // @TODO Check if field_ prefix can be dropped in D8 too.
-        return 'field_' . $this->parent['id'] . '_' . $this->data['id'];
+        $field_name = 'field_' . $this->parent['id'] . '_' . $this->data['id'];
+        if (strlen($field_name) > 32) {
+            $a = explode('_', $field_name);
+            for ($i = 2; $i < count($a) - 1; $i++) {
+                $a[$i] = substr($a[$i], 0, 4);
+            }
+            $field_name = implode("_", $a);
+        }
+        // If still too long, raise an exception
+        if (strlen($field_name) > 32) {
+            throw new \RuntimeException(sprintf("Fieldname %s is too long, please sth shorter!", $field_name));
+        }
+        return $field_name;
     }
 
     /**

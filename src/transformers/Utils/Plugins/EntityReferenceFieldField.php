@@ -19,7 +19,6 @@ class EntityReferenceFieldField extends FieldField
                 $bundles[$bundle] = $bundle;
             }
         }
-        print_r($this->getFieldSubType());
         switch ($this->getFieldSubType()) {
             case 'node':
                 if ($bundles) {

@@ -10,3 +10,4 @@ __|settings:
     negate: 0
     target_bundles: {}
     target_bundles_drag_drop: {}
+field_type: entity_reference_revisions
