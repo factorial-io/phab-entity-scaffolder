@@ -47,6 +47,23 @@ class EntityReferenceFieldField extends FieldField
                     }
                 }
                 break;
+                
+            case 'paragraphs':
+                if ($bundles) {
+                    $data['settings']['handler_settings']['target_bundles'] = $bundles;
+                    $dnd = [];
+                    foreach ($bundles as $ndx => $bundle) {
+                        $dnd[$bundle] = [
+                            "enabled" => true,
+                            "weight" => $ndx,
+                        ];
+                    }
+                    $data['settings']['handler_settings']['target_bundles_drag_drop'] = $dnd;
+                    foreach ($bundles as $bundle) {
+                        $data['dependencies']['config'][] = 'paragraphs.paragraphs_type.'.$bundle;
+                    }
+                }
+                break;
         }
         return $data;
     }

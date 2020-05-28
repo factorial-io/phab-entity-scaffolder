@@ -4,6 +4,7 @@ namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
+use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
 
 class PlaceholderService
@@ -46,7 +47,11 @@ class PlaceholderService
 
     public static function parseTemplateFile($filename)
     {
-        return Yaml::parseFile($filename);
+        try {
+            return Yaml::parseFile($filename);
+        } catch (ParseException $e) {
+            throw new UnknownScaffoldTypeException(sprintf("Unknown scaffold-type! %s", $e->getMessage()));
+        }
     }
 
     /**

@@ -11,7 +11,7 @@ class ParagraphsTypeTransformer extends YamlTransformer implements DataTransform
 {
     public static function getName()
     {
-        return 'paragraphs';
+        return 'paragraph';
     }
 
     public static function requires()
