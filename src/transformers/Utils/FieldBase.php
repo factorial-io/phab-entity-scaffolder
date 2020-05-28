@@ -60,7 +60,7 @@ abstract class FieldBase extends EntityPropertyBase
         }
         // If still too long, raise an exception
         if (strlen($field_name) > 32) {
-            throw new \RuntimeException(sprintf("Fieldname %s is too long, please sth shorter!", $field_name));
+            throw new \RuntimeException(sprintf("Fieldname %s is too long, please use sth shorter!", $field_name));
         }
         return $field_name;
     }
