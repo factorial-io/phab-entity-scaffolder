@@ -1,9 +1,9 @@
-uuid: 011f2d83-82f8-07ef-a3a2-ff05891b7384
+uuid: 73599e43-eb38-ae88-fdca-7552c7072f04
 langcode: de
 status: true
-dependencies: {}
-id: popup
-label: Popup
+dependencies: {  }
+id: popup_with_fallback
+label: 'Popup with automatic fallback'
 image_style_mappings:
   -
     breakpoint_id: toolbar.wide
@@ -36,4 +36,4 @@ image_style_mappings:
     image_mapping_type: image_style
     image_mapping: esimg_100x100
 breakpoint_group: toolbar
-fallback_image_style: 'esimg_100x50'
+fallback_image_style: esimg_50x50

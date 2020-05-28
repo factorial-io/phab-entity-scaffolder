@@ -1,5 +1,5 @@
-label: Popup
-id: popup
+label: Popup with automatic fallback
+id: popup_with_fallback
 # Breakpoint group's machine name we have to use.
 breakpoint_group: toolbar
 # Multipliers present in breakpoint group.
@@ -16,7 +16,6 @@ mapping:
     # The image would be resized to the dimention provided using focal_point_scale_and_crop effect.
     width: 100
     height: 50
-    fallback: true
   narrow:
     width: 50
     height: 50

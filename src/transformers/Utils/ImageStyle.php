@@ -56,10 +56,17 @@ class ImageStyle extends Base
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
         $this->addDependencyFromImageEffects();
     }
+    
+    public function getSize()
+    {
+        return $this->data['width'] ?? $this->data['height'];
+    }
+
     public function getName()
     {
         return $this->data['name'];
     }
+
     protected function generateStyleName($data)
     {
         $prefix = 'esimg_';
