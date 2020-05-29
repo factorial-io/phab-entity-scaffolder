@@ -13,6 +13,9 @@ class FieldTransformerFactory
 
     protected static $storageFactory = [
         'default' => FieldStorage::class,
+        'radios' => Plugins\ListPredefinedOptionsFieldStorage::class,
+        'checkboxes' => Plugins\ListPredefinedOptionsFieldStorage::class,
+        'select' => Plugins\ListPredefinedOptionsFieldStorage::class,
     ];
     protected static $fieldFactory = [
         'file' => Plugins\FileFieldField::class,
@@ -20,6 +23,9 @@ class FieldTransformerFactory
         'text_long' => Plugins\TextFieldField::class,
         'cta' => Plugins\CtaFieldField::class,
         'entity_reference' => Plugins\EntityReferenceFieldField::class,
+        'checkboxes' => Plugins\ListPredefinedOptionsFieldField::class,
+        'radios' => Plugins\ListPredefinedOptionsFieldField::class,
+        'select' => Plugins\ListPredefinedOptionsFieldField::class,
         'default' => FieldField::class,
     ];
     protected static $widgetFactory = [
@@ -28,6 +34,7 @@ class FieldTransformerFactory
     protected static $formatterFactory = [
         'default' => FieldFormatter::class,
         'cta' => Plugins\CtaFieldFormatter::class,
+        'image' => Plugins\ImageFieldFormatter::class,
         'entity_reference' => Plugins\EntityReferenceFieldFormatter::class,
     ];
 

@@ -5,14 +5,14 @@ dependencies:
   module:
     - list_predefined_options
     - options
-third_party_settings:
+__|third_party_settings:
   list_predefined_options:
     plugin_id: us_states
 id: block_content.field_checkboxes
 field_name: field_checkboxes
 entity_type: block_content
 type: list_string
-settings:
+__|settings:
   allowed_values: {  }
   allowed_values_function: list_predefined_options_allowed_values
 module: options

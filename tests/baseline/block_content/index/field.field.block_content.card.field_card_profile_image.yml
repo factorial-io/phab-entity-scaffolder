@@ -1,0 +1,38 @@
+uuid: 554ff5bf-2d38-a7c9-d3e5-45b612809650
+langcode: en
+status: true
+dependencies:
+  module:
+    - image
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_profile_image
+id: block_content.card.field_card_profile_image
+field_name: field_card_profile_image
+entity_type: block_content
+bundle: card
+label: 'Profile Image'
+description: 'Description of the card.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: true
+  title_field_required: true
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

@@ -28,16 +28,6 @@ class FieldStorage extends FieldBase
             'cardinality' => $this->getDataValue('cardinality', 1),
             'entity_type' => $this->entity_type,
         ];
-        if ($this->usesListPredefinedOptions()) {
-            $plugin_id = $this->data['plugin_id'] ?? 'us_states';
-            $out['third_party_settings']['list_predefined_options']['plugin_id'] = $plugin_id;
-        }
         return $out;
-    }
-
-    protected function usesListPredefinedOptions()
-    {
-        $modules = $this->template['dependencies']['module'] ?? [];
-        return in_array('list_predefined_options', $modules);
     }
 }

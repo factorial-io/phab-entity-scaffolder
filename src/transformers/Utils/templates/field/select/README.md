@@ -13,7 +13,7 @@ fields:
     type: select
     label: Display Options
     description: Select display options.
-    plugin_id: display_options
+    options: display_options
     cardinality: -1
 ```
 
@@ -25,6 +25,7 @@ fields:
 | `label`       |  Label to be used for the field             |  Text | 255 chars |
 | `description` |  Description shown to the editors, next to the form item used to capture the value of this field               |   Text | 255 chars |
 | `plugin_id`   | Provides list of key-value pairs implemented as [List predefined options](https://github.com/Realityloop/list_predefined_options) | plugin id | List Predefined Option plugin |
+|`default_value` | A list of default values for the select field. | string / array of strings ||
 | `cardinality` | Determines how many values to be captured. Use `-1` cardinality to capture unlimitted number of values. | integer | `>=1` / `-1` |
 
 ## Form widget

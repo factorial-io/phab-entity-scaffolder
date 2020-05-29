@@ -37,6 +37,9 @@ content:
     label: hidden
     region: content
     weight: 3
+    settings:
+      image_link: ''
+    third_party_settings: {  }
   field_novas_ark_label:
     weight: 4
     label: hidden

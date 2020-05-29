@@ -12,6 +12,11 @@ fields:
     type: string
     label: Card Author
     required: true
+  profile_image:
+    map: profile_image
+    type: image
+    label: Profile Image
+    responsive_image_style: popup
   job_title:
     map: jobTitle
     type: string

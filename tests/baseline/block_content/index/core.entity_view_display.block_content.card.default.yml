@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.block_content.card.field_card_label
     - field.field.block_content.card.field_card_author
+    - field.field.block_content.card.field_card_profile_image
     - field.field.block_content.card.field_card_job_title
     - field.field.block_content.card.field_card_job_link
     - field.field.block_content.card.field_card_codesnippet
@@ -34,8 +35,17 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_card_job_title:
+  field_card_profile_image:
+    label: hidden
+    region: content
     weight: 3
+    settings:
+      image_link: ''
+      responsive_image_style: popup
+    type: responsive_image
+    third_party_settings: {  }
+  field_card_job_title:
+    weight: 4
     label: hidden
     type: string
     region: content
@@ -46,7 +56,7 @@ content:
     label: hidden
     type: link
     region: content
-    weight: 4
+    weight: 5
     settings:
       trim_length: 40
       url_only: false
@@ -60,9 +70,9 @@ content:
     type: geshifield_default
     settings: {  }
     third_party_settings: {  }
-    weight: 5
-  field_card_description:
     weight: 6
+  field_card_description:
+    weight: 7
     label: hidden
     type: text_default
     region: content
@@ -72,7 +82,7 @@ content:
     label: hidden
     type: file_default
     region: content
-    weight: 7
+    weight: 8
     settings:
       use_description_as_link_text: true
     third_party_settings: {  }

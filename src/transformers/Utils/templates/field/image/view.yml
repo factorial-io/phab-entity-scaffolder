@@ -2,3 +2,6 @@ content:
   default:
     label: hidden
     region: content
+    __|settings:
+      image_link: ''
+    __|third_party_settings: {}
