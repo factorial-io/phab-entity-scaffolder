@@ -16,7 +16,7 @@
         "squizlabs/php_codesniffer": "^3.5",
         "phpstan/phpstan": "^0.12.14",
         "jakub-onderka/php-parallel-lint": "^1.0",
-        "factorial-io/phabalicious": "dev-develop#c9f520d3e7de3a2f68a5f56dfac9728112648ed7"
+        "factorial-io/phabalicious": "dev-develop#78d07250841b63509b47011d062f5e44717ebed0"
     },
     "autoload": {
         "psr-4": {
