@@ -1,0 +1,30 @@
+uuid: 916e6c43-7d32-024f-05f0-066d7037d8cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.video.field_video_video
+    - field.field.media.video.field_video_description
+    - media.type.video
+id: media.video.default
+targetEntityType: media
+bundle: video
+mode: default
+content:
+  field_video_video:
+    label: hidden
+    type: file_default
+    region: content
+    weight: 1
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+  field_video_description:
+    weight: 2
+    label: hidden
+    type: text_default
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

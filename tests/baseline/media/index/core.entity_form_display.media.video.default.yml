@@ -1,0 +1,31 @@
+uuid: 5e99803e-46de-bf49-df87-06541c7aaf8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.video.field_video_video
+    - field.field.media.video.field_video_description
+    - media.type.video
+id: media.video.default
+targetEntityType: media
+bundle: video
+mode: default
+content:
+  field_video_video:
+    type: file_generic
+    region: content
+    weight: 1
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_video_description:
+    weight: 2
+    type: text_textfield
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

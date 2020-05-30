@@ -18,6 +18,7 @@ use Phabalicious\Validation\ValidationService;
 abstract class EntityBase extends Base
 {
     protected $bundle;
+    protected $fields = [];
 
     public function getEntityType()
     {
@@ -75,6 +76,8 @@ abstract class EntityBase extends Base
                 }
 
                 $fieldTransformer = FieldTransformerFactory::create($this->getEntityType(), $field, $data);
+                
+                $this->fields[$key] = $fieldTransformer->getField()->getFieldName();
 
                 $this->injectDependency($fieldTransformer->getStorage());
                 $this->configAccumulator->setConfig(

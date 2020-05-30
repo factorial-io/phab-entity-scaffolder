@@ -1,21 +1,21 @@
-uuid: ed2e4b3f-5b78-1420-8700-ba71820d548e
+uuid: a41029d9-67b0-275c-7c81-377b03fc067f
 langcode: en
 status: true
 dependencies:
   module:
     - file
-    - block_content
-entity_type: block_content
+    - media
+entity_type: media
 type: file
 module: file
 locked: false
-cardinality: 0
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
 custom_storage: false
-id: block_content.field_card_attachements
-field_name: field_card_attachements
+id: media.field_video_video
+field_name: field_video_video
 settings:
   display_field: false
   display_default: false

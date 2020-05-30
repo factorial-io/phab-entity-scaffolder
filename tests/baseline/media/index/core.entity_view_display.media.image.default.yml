@@ -1,0 +1,29 @@
+uuid: dae6bcaa-ac7c-f739-4af2-00c810b08e2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_image_image
+    - field.field.media.image.field_image_description
+    - media.type.image
+id: media.image.default
+targetEntityType: media
+bundle: image
+mode: default
+content:
+  field_image_image:
+    label: hidden
+    region: content
+    weight: 1
+    settings:
+      image_link: ''
+    third_party_settings: {  }
+  field_image_description:
+    weight: 2
+    label: hidden
+    type: text_default
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

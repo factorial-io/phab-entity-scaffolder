@@ -1,0 +1,19 @@
+label: Sample Image Media
+description: A sample image media example.
+id: image
+source: image
+source_field: image
+fields:
+  image:
+    type: image
+    label: Image
+
+  description:
+    map: description
+    type: text_long
+    label: Description
+    required: true
+    cardinality: 1
+    allowed_formats:
+      - html
+      - plaintext

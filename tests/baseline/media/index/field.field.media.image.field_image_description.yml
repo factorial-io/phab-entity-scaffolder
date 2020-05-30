@@ -1,0 +1,26 @@
+uuid: e411d95c-bd87-f985-1fd6-105e6f024686
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+    - field.storage.media.field_image_description
+  module:
+    - allowed_formats
+    - text
+bundle: image
+label: Description
+description: 'A sample image media example.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+field_type: text_long
+id: media.image.field_image_description
+field_name: field_image_description
+entity_type: media
+third_party_settings:
+  allowed_formats:
+    html: html
+    plaintext: plaintext
+settings: {  }

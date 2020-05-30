@@ -1,0 +1,26 @@
+uuid: 8b943ece-6434-679a-8820-2a142953a0c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+  config:
+    - media.type.video
+    - field.storage.media.field_video_video
+default_value_callback: ''
+field_type: file
+id: media.video.field_video_video
+field_name: field_video_video
+bundle: video
+label: Video
+description: 'A sample video media example.'
+entity_type: media
+required: false
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: mp4
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+default_value: {  }

@@ -4,14 +4,15 @@ status: true
 dependencies:
   module:
     - file
-    - node
 entity_type: node
 type: file
 __|settings:
-  display_field: false
-  display_default: false
-  uri_scheme: public
-  target_type: file
+  file_extensions: mp4
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
 module: file
 locked: false
 cardinality: 1

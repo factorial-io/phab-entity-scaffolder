@@ -2,13 +2,13 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
-use Phabalicious\Scaffolder\Transformers\Utils\BlockContentEntity;
+use Phabalicious\Scaffolder\Transformers\Utils\MediaEntity;
 
-class BlockContentTypeTransformer extends EntityTypeTransformer implements DataTransformerInterface
+class MediaTypeTransformer extends EntityTypeTransformer implements DataTransformerInterface
 {
     public static function getName()
     {
-        return 'block_content';
+        return 'media';
     }
 
     public static function requires()
@@ -18,6 +18,6 @@ class BlockContentTypeTransformer extends EntityTypeTransformer implements DataT
 
     public function getEntityTypeClassName()
     {
-        return BlockContentEntity::class;
+        return MediaEntity::class;
     }
 }

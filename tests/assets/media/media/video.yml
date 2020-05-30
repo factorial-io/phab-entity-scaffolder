@@ -1,0 +1,20 @@
+label: Sample Video Media
+description: A sample video media example.
+id: video
+source: video
+source_field: video
+fields:
+  video:
+    type: file
+    label: Video
+    file_extensions: 'mp4'
+
+  description:
+    map: description
+    type: text_long
+    label: Description
+    required: true
+    cardinality: 1
+    allowed_formats:
+      - html
+      - plaintext
