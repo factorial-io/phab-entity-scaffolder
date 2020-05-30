@@ -2,6 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers;
 
+use Phabalicious\Exception\TransformFailedException;
 use Phabalicious\Scaffolder\Transformers\Utils\BlockContentEntity;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;

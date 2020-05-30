@@ -9,6 +9,7 @@ class FieldTransformerFactory
 
     protected static $aliases = [
         'link' => 'cta',
+        'select_list' => 'select',
     ];
 
     protected static $storageFactory = [
