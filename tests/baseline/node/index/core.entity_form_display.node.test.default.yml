@@ -1,0 +1,34 @@
+uuid: 73f13725-54eb-63b6-d9b5-9dbbae14ae7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.test.field_test_image
+    - field.field.node.test.field_test_description
+    - node.type.test
+id: node.test.default
+targetEntityType: node
+bundle: test
+mode: default
+content:
+  field_test_image:
+    type: image_focal_point
+    region: content
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
+  field_test_description:
+    weight: 2
+    type: text_textfield
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

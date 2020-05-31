@@ -1,0 +1,26 @@
+uuid: f4932e65-6441-64b4-ae99-19916e9745c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.test
+    - field.storage.node.field_test_description
+  module:
+    - allowed_formats
+    - text
+bundle: test
+label: Description
+description: 'A sample node type.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+field_type: text_long
+id: node.test.field_test_description
+field_name: field_test_description
+entity_type: node
+third_party_settings:
+  allowed_formats:
+    html: html
+    plaintext: plaintext
+settings: {  }

@@ -3,11 +3,24 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils\Plugins;
 
+use Phabalicious\Exception\ValidationFailedException;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Utilities\Utilities;
+use Phabalicious\Validation\ValidationErrorBag;
+use Phabalicious\Validation\ValidationService;
 
 class EntityReferenceFieldField extends FieldField
 {
+
+    public function __construct($entity_type, $data, $parent)
+    {
+        parent::__construct($entity_type, $data, $parent);
+        $service = new ValidationService($data, new ValidationErrorBag(), "entity_reference");
+        $service->hasKey('bundles', 'An entity reference field requires a list of allowed bundles.');
+        if ($service->getErrorBag()->hasErrors()) {
+            throw new ValidationFailedException($service->getErrorBag());
+        }
+    }
 
     protected function getTemplateOverrideData()
     {
