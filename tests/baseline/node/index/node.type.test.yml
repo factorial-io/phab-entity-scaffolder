@@ -1,9 +1,9 @@
 uuid: 0264d22a-cd0d-741e-07bb-571b1d578757
 langcode: en
 status: true
-help: ''
-new_revision: true
-preview_mode: 1
+help: 'Use this node when nothing else fits.'
+new_revision: false
+preview_mode: 0
 display_submitted: false
 id: test
 label: 'A test node'

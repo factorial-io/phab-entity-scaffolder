@@ -1,9 +1,8 @@
-label: A test node
-description: A sample node type.
-help: Use this node when nothing else fits.
-new_revision: false
-id: test
-
+label: Sample Image Media
+description: A sample image media example.
+id: image
+source: image
+source_field: image
 fields:
   image:
     type: image

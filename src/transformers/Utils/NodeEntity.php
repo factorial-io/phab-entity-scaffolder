@@ -37,9 +37,11 @@ class NodeEntity extends EntityBase
         ];
     }
     
-    public function getOverrideData()
+    public function getTemplateOverrideData()
     {
-        $out = [];
+        $out = parent::getTemplateOverrideData();
+        $out['help'] = $this->data['help'] ?? '';
+        $out['new_revision'] = $this->data['new_revision'] ?? true;
         return $out;
     }
 }
