@@ -30,6 +30,7 @@ class FieldStorage extends FieldBase
             'uuid' => PlaceholderService::REUSE_OR_CREATE_VALUE,
             'id' => $this->entity_type . '.' . $this->getFieldName(),
             'field_name' => $this->getFieldName(),
+            'entity_type' => $this->entity_type,
         ];
         if ($this->usesListPredefinedOptions()) {
             $plugin_id = $this->data['plugin_id'] ?? 'us_states';
