@@ -1,0 +1,11 @@
+content:
+  default:
+    weight: 27
+    __|settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    __|third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
