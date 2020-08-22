@@ -15,8 +15,9 @@ default_value_callback: ''
 settings:
   handler: 'default:media'
   handler_settings:
+    target_bundles:
     sort:
-      field: title
+      field: _none
       direction: ASC
     auto_create: false
     auto_create_bundle: ''
