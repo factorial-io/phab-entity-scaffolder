@@ -14,8 +14,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 __|settings: {  }
-__|third_party_settings:
-  allowed_formats:
-    plain_text: plain_text
-    stripped_html: '0'
 field_type: text_long
