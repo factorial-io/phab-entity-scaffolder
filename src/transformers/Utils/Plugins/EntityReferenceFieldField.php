@@ -59,7 +59,14 @@ class EntityReferenceFieldField extends FieldField
                     }
                 }
                 break;
-                
+            case 'block':
+                if ($bundles) {
+                    $data['settings']['handler_settings']['target_bundles'] = $bundles;
+                    foreach ($bundles as $bundle) {
+                        $data['dependencies']['config'][] = 'block_content.type.' . $bundle;
+                    }
+                }
+                break;
             case 'paragraphs':
                 if ($bundles) {
                     $data['settings']['handler_settings']['target_bundles'] = $bundles;

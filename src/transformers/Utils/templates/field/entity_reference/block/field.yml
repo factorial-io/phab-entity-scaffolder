@@ -1,0 +1,26 @@
+uuid: d1cc117e-06cc-4c13-81eb-11497ac9eb44
+langcode: en
+status: true
+dependencies:
+  config:
+  module:
+    - entity_reference
+id: block_content.textarea.field_key_facts
+field_name: field_key_facts
+entity_type: block_content
+bundle: textarea
+label: 'Key Facts'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
