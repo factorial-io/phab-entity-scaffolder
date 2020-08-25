@@ -5,5 +5,5 @@ content:
       size: 60
       placeholder: ''
     __|third_party_settings: {  }
-    type: text_textfield
+    type: text_textarea
     region: content
