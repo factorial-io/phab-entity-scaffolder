@@ -9,5 +9,5 @@ content:
     __|settings:
       link_to_entity: false
     __|third_party_settings: {  }
-    type: string
+    type: basic_string
     region: content
