@@ -10,10 +10,15 @@ let fieldDocs = glob.sync('docs/guide/field/**/*.md').map(cleanPath).sort();
 let imageDocs = glob.sync('docs/guide/image/*.md').map(cleanPath).sort();
 
 module.exports = {
-  title: "Phab entity scaffolder",
-  description: 'Foo Bar boo',
+  base: "/phab-entity-scaffolder",
+  title: "Phab Entity Scaffolder",
+  description: 'Scaffold drupal entities and configuration with ease and fun!',
   theme: require.resolve("@factorial/vuepress-theme"),
   themeConfig: {
+    repo: "factorial-io/phab-etity-scaffolder",
+    editLinks: true,
+    editLinkText: "Help us improve this page!",
+    docsDir: "docs",
     nav: [
       { text: 'Intro', link: introDocs[0] },
       { text: 'Guide', link: entityDocs[0] },
@@ -45,7 +50,7 @@ module.exports = {
       },
     ]
   },
-  
+
   markdown: {
     // options for markdown-it-anchor
     anchor: { permalink: true },
