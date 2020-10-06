@@ -17,6 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:media'
   handler_settings:
     sort:
       field: field_novas_ark_medimg.title
@@ -25,5 +26,4 @@ settings:
     auto_create_bundle: ''
     target_bundles:
       image: image
-  handler: 'default:media'
 field_type: entity_reference

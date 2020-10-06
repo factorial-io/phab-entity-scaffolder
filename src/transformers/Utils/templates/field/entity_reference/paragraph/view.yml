@@ -1,0 +1,9 @@
+content:
+  default:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    __|settings:
+      view_mode: default
+      link: ''
+    __|third_party_settings: {  }
+    region: content

@@ -2,15 +2,11 @@ uuid: __REUSE__
 langcode: en
 status: true
 dependencies:
-id: block_content.field_anchor_label
-field_name: field_anchor_label
-entity_type: block_content
-type: string
-settings:
-  max_length: 255
-  is_ascii: false
-  case_sensitive: false
-module: core
+  module:
+    - text
+type: text
+settings: {}
+module: text
 locked: false
 cardinality: 1
 translatable: true

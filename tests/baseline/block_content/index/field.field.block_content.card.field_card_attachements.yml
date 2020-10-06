@@ -1,0 +1,26 @@
+uuid: f88929a0-e83d-5d1d-1622-dc4625db598b
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_attachements
+default_value_callback: ''
+field_type: file
+id: block_content.card.field_card_attachements
+field_name: field_card_attachements
+bundle: card
+label: Attachements
+description: 'Description of the card.'
+entity_type: block_content
+required: false
+settings:
+  file_directory: 'attachements/[date:custom:Y]-[date:custom:m]'
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+default_value: {  }

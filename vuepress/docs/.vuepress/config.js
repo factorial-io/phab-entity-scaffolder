@@ -1,19 +1,51 @@
 const glob = require('glob');
 
-let markdownFiles = glob.sync('docs/guide/**/*.md').map(function(path) {
+function cleanPath(path) {
   return '/' + path.replace('docs/', "").replace('README.md', "");
-});
-markdownFiles.sort();
+}
+
+let introDocs = glob.sync('docs/intro/*.md').map(cleanPath).sort();
+let entityDocs = glob.sync('docs/guide/entity/*.md').map(cleanPath).sort();
+let fieldDocs = glob.sync('docs/guide/field/**/*.md').map(cleanPath).sort();
+let imageDocs = glob.sync('docs/guide/image/*.md').map(cleanPath).sort();
+
 module.exports = {
   title: "Phab entity scaffolder",
-  description: '',
+  description: 'Foo Bar boo',
+  theme: require.resolve("@factorial/vuepress-theme"),
   themeConfig: {
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Guide', link: markdownFiles[0] },
+      { text: 'Intro', link: introDocs[0] },
+      { text: 'Guide', link: entityDocs[0] },
     ],
-    sidebar: markdownFiles
+    sidebarDepth: 1,
+    sidebar: [
+      {
+        title: 'Intro',
+        collapsable: false,
+        children: introDocs
+      },
+      {
+        title: 'Entity',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: entityDocs
+      },
+      {
+        title: 'Fields',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: fieldDocs
+      },
+      {
+        title: 'Image',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: imageDocs
+      },
+    ]
   },
+  
   markdown: {
     // options for markdown-it-anchor
     anchor: { permalink: true },

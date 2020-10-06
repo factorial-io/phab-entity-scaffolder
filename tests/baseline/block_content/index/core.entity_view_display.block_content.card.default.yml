@@ -1,0 +1,90 @@
+uuid: 2cc37bdf-c361-8885-7e55-f73d7b80d759
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.block_content.card.field_card_label
+    - field.field.block_content.card.field_card_author
+    - field.field.block_content.card.field_card_profile_image
+    - field.field.block_content.card.field_card_job_title
+    - field.field.block_content.card.field_card_job_link
+    - field.field.block_content.card.field_card_codesnippet
+    - field.field.block_content.card.field_card_description
+    - field.field.block_content.card.field_card_attachements
+    - block_content.type.card
+  module:
+    - geshifield
+id: block_content.card.default
+targetEntityType: block_content
+bundle: card
+mode: default
+content:
+  field_card_label:
+    weight: 1
+    label: hidden
+    type: string
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_card_author:
+    weight: 2
+    label: hidden
+    type: string
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_card_profile_image:
+    label: hidden
+    region: content
+    weight: 3
+    settings:
+      image_link: ''
+      responsive_image_style: popup
+    type: responsive_image
+    third_party_settings: {  }
+  field_card_job_title:
+    weight: 4
+    label: hidden
+    type: string
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_card_job_link:
+    label: hidden
+    type: link
+    region: content
+    weight: 5
+    settings:
+      trim_length: 40
+      url_only: false
+      url_plain: false
+      rel: nofollow
+      target: _blank
+    third_party_settings: {  }
+  field_card_codesnippet:
+    label: hidden
+    region: content
+    type: geshifield_default
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+  field_card_description:
+    weight: 7
+    label: hidden
+    type: text_default
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_card_attachements:
+    label: hidden
+    type: file_default
+    region: content
+    weight: 8
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+hidden:
+  langcode: true

@@ -1,0 +1,17 @@
+uuid: __REUSE__
+langcode: en
+status: true
+dependencies:
+  config:
+  module:
+    - allowed_formats
+    - text
+bundle: anchor
+label: Label
+description: 'Will be used as a label for the navigational link.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+__|settings: {  }
+field_type: text_long

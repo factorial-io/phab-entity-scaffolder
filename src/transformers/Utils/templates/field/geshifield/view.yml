@@ -1,2 +1,12 @@
+dependencies:
+  default:
+    module:
+      - geshifield
 content:
   default:
+    label: hidden
+    region: content
+    type: geshifield_default
+    settings: {  }
+    third_party_settings: {  }
+

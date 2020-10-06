@@ -1,0 +1,19 @@
+uuid: df84bead-3419-bb52-ce96-f91e877af6cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - text
+    - node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+id: node.field_test_description
+field_name: field_test_description
+entity_type: node

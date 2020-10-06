@@ -1,0 +1,29 @@
+uuid: 908afc9f-a431-378a-420b-194f10abd0be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.test.field_test_image
+    - field.field.node.test.field_test_description
+    - node.type.test
+id: node.test.default
+targetEntityType: node
+bundle: test
+mode: default
+content:
+  field_test_image:
+    label: hidden
+    region: content
+    weight: 1
+    settings:
+      image_link: ''
+    third_party_settings: {  }
+  field_test_description:
+    weight: 2
+    label: hidden
+    type: text_default
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

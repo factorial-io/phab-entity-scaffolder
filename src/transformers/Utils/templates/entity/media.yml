@@ -1,0 +1,10 @@
+uuid: __REUSE__
+langcode: en
+status: true
+__|dependencies: {  }
+queue_thumbnail_downloads: false
+new_revision: false
+__|source_configuration:
+  source_field: field_media_image
+__|field_map: {  }
+__|third_party_settings: {  }

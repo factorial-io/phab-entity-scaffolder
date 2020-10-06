@@ -16,6 +16,7 @@ mapping:
     # The image would be resized to the dimention provided using focal_point_scale_and_crop effect.
     width: 100
     height: 50
+    fallback: true
   narrow:
     width: 50
     height: 50

@@ -1,0 +1,26 @@
+uuid: 2ecc9702-4afb-8c42-7cfb-ed88e548a766
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.video
+    - field.storage.media.field_video_description
+  module:
+    - allowed_formats
+    - text
+bundle: video
+label: Description
+description: 'A sample video media example.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+field_type: text_long
+id: media.video.field_video_description
+field_name: field_video_description
+entity_type: media
+third_party_settings:
+  allowed_formats:
+    html: html
+    plaintext: plaintext
+settings: {  }

@@ -795,6 +795,13 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@factorial/vuepress-theme@^1.0.0-alpha.1":
+  version "1.0.0-alpha.1"
+  resolved "https://registry.yarnpkg.com/@factorial/vuepress-theme/-/vuepress-theme-1.0.0-alpha.1.tgz#60e4c73a56dc6eab2af2274e02b0fc94620d185e"
+  integrity sha512-C0/HFDWM4Vzd0Vf6nrg9Kr20hcPUx8aEUySnZ1j3pmFIGI84Naxqef7p9W/ewAkwrR22yX0+4Th+XHNoTEBEKQ==
+  dependencies:
+    "@vuepress/theme-default" "^1.1.0"
+
 "@hapi/address@2.x.x":
   version "2.1.4"
   resolved "https://registry.yarnpkg.com/@hapi/address/-/address-2.1.4.tgz#5d67ed43f3fd41a69d4b9ff7b56e7c0d1d0a81e5"
@@ -1245,7 +1252,7 @@
     semver "^6.0.0"
     upath "^1.1.0"
 
-"@vuepress/theme-default@^1.4.0":
+"@vuepress/theme-default@^1.1.0", "@vuepress/theme-default@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@vuepress/theme-default/-/theme-default-1.4.0.tgz#f0f70effa0ee863a2e25c7682612c8a808f3e156"
   integrity sha512-4ywWVfXZTBha+yuvWoa1HRg0vMpT2wZF3zuW0PDXkDzxqP4DkLljJk8mPpepyuPYlSThn+gHNC8kmnNBbGp3Tw==

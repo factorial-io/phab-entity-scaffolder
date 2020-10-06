@@ -2,8 +2,8 @@ content:
   default:
     weight: 1
     label: hidden
-    settings:
+    __|settings:
       use_description_as_link_text: true
-    third_party_settings: {  }
+    __|third_party_settings: {  }
     type: file_default
     region: content

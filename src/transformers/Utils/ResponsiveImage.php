@@ -19,7 +19,7 @@ class ResponsiveImage extends Base
 
     protected function transformImageStyles()
     {
-        $fallback_image_style = '_empty image_';
+        $fallback_image_style = $automatic_fallback_image_style = false;
         $data = $this->data;
         $image_style_mappings = [];
         $styleTransformers = [];
@@ -27,6 +27,7 @@ class ResponsiveImage extends Base
         if (!empty($data['multipliers'])) {
             $multipliers = $data['multipliers'];
         }
+        $max_size = PHP_INT_MAX;
         foreach ($multipliers as $multiplier) {
             if (is_array($data['mapping'])) {
                 foreach ($data['mapping'] as $breakpoint => $style_data) {
@@ -38,14 +39,25 @@ class ResponsiveImage extends Base
                     );
                     $styleTransformers[$multiplier][$breakpoint] = $styleTransformer;
                     $image_style_mappings[] = [
-                    'breakpoint_id' => $this->data['breakpoint_group'] . '.' . $breakpoint,
-                    'multiplier' => $multiplier,
-                    'image_mapping_type' => 'image_style',
-                    'image_mapping' => $styleTransformer->getName(),
+                        'breakpoint_id' => $this->data['breakpoint_group'].'.'.$breakpoint,
+                        'multiplier' => $multiplier,
+                        'image_mapping_type' => 'image_style',
+                        'image_mapping' => $styleTransformer->getName(),
                     ];
-                    $fallback_image_style = $styleTransformer->getName();
+                    if (!empty($style_data['fallback']) && $multiplier == 1) {
+                        $fallback_image_style = $styleTransformer->getName();
+                    }
+                    if ($size = $styleTransformer->getSize()) {
+                        if ($size < $max_size) {
+                            $max_size = $size;
+                            $automatic_fallback_image_style = $styleTransformer->getName();
+                        }
+                    }
                 }
             }
+        }
+        if (!$fallback_image_style) {
+            $fallback_image_style = $automatic_fallback_image_style;
         }
         $this->setFallbackImageStyle($fallback_image_style);
         $this->addImageStyleMappings($image_style_mappings);
@@ -72,7 +84,7 @@ class ResponsiveImage extends Base
 
     public function getConfigName()
     {
-        return 'responsive_image.styles.' . $this->data['id'];
+        return 'responsive_image.styles.'.$this->data['id'];
     }
 
     public function getTemplateOverrideData()

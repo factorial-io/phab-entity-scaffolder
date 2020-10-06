@@ -24,12 +24,12 @@ fields:
   # select
   # text
   label:
-    type: text
+    type: string
     label: Label
     required: true
   # textarea
   body:
-    type: textarea
+    type: string_long
     label: Body
     required: true
   # reference_node

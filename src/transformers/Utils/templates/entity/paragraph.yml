@@ -1,0 +1,10 @@
+uuid: __REUSE__
+langcode: en
+status: true
+dependencies: {  }
+id: poof
+label: poof
+icon_uuid: null
+icon_default: null
+description:  ''
+behavior_plugins: {  }

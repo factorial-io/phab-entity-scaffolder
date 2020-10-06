@@ -1,0 +1,36 @@
+label: Card
+id: card
+description: Description of the card.
+fields:
+  label:
+    map: label
+    type: string
+    label: Card Label
+    required: true
+  author:
+    map: author
+    type: string
+    label: Card Author
+    required: true
+  job_title:
+    map: jobTitle
+    type: string
+    label: Card Job Title
+    required: false
+  job_link:
+    map: jobTitle
+    type: link
+    label: Link
+    required: false
+    cardinality: 3
+    title: 0
+    link_type: EXTERNAL_ONLY
+    rel: noindex
+    target: _top
+    trim_length: 20
+  codesnippet:
+    map: codeSnippet
+    type: geshifield
+    label: Code snippet
+    required: true
+    cardinality: 3

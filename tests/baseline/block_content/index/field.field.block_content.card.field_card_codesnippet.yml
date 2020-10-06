@@ -1,0 +1,21 @@
+uuid: a1f93b29-982f-0c43-5f8b-b3e8e7280249
+langcode: en
+status: true
+dependencies:
+  module:
+    - geshifield
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_card_codesnippet
+id: block_content.card.field_card_codesnippet
+field_name: field_card_codesnippet
+label: 'Code snippet'
+description: 'Description of the card.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: geshifield
+bundle: card
+entity_type: block_content

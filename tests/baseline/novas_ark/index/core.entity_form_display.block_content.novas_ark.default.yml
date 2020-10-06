@@ -18,19 +18,19 @@ bundle: novas_ark
 mode: default
 content:
   field_novas_ark_cbs:
-    settings: {  }
-    third_party_settings: {  }
     type: options_buttons
     region: content
     weight: 1
+    settings: {  }
+    third_party_settings: {  }
   field_novas_ark_cta:
+    type: link_default
+    region: content
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
-    region: content
-    weight: 2
   field_novas_ark_image:
     settings:
       progress_indicator: throbber
@@ -43,47 +43,47 @@ content:
     weight: 3
   field_novas_ark_label:
     weight: 4
+    type: string_textfield
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
-    region: content
   field_novas_ark_body:
+    type: string_textarea
+    region: content
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: string_textarea
-    region: content
-    weight: 5
   field_novas_ark_content:
     weight: 6
+    type: entity_reference_autocomplete
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_novas_ark_groups:
     weight: 7
+    type: entity_reference_autocomplete
+    region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
   field_novas_ark_medimg:
     type: media_library_widget
     weight: 8
+    region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   created: true
   status: true

@@ -3,15 +3,12 @@
 namespace Phabalicious\Scaffolder\Transformers;
 
 use Phabalicious\Scaffolder\Transformers\Utils\ParagraphEntity;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;
-use Phabalicious\Method\TaskContextInterface;
 
-class ParagraphsTypeTransformer extends YamlTransformer implements DataTransformerInterface
+class ParagraphsTypeTransformer extends EntityTypeTransformer implements DataTransformerInterface
 {
     public static function getName()
     {
-        return 'paragraphs';
+        return 'paragraph';
     }
 
     public static function requires()
@@ -19,16 +16,8 @@ class ParagraphsTypeTransformer extends YamlTransformer implements DataTransform
         return "3.4";
     }
 
-    public function transform(TaskContextInterface $context, array $files, $target_path): array
+    public function getEntityTypeClassName()
     {
-        $results = [];
-        $placeholder_service = new PlaceholderService();
-        foreach ($this->iterateOverFiles($context, $files) as $data) {
-            $config_accumulator = new ConfigAccumulator();
-            $transformer = new ParagraphEntity($config_accumulator, $placeholder_service, $data);
-            $results += $transformer->getConfigurations();
-        }
-        $results = $placeholder_service->postTransform($results, $target_path);
-        return $this->asYamlFiles($results);
+        return ParagraphEntity::class;
     }
 }

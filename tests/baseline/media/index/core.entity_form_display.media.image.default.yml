@@ -1,0 +1,34 @@
+uuid: 00ef79cf-14f9-6e56-5d37-b8941950cb9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_image_image
+    - field.field.media.image.field_image_description
+    - media.type.image
+id: media.image.default
+targetEntityType: media
+bundle: image
+mode: default
+content:
+  field_image_image:
+    type: image_focal_point
+    region: content
+    weight: 1
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
+  field_image_description:
+    weight: 2
+    type: text_textfield
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

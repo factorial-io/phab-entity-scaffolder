@@ -8,7 +8,7 @@ dependencies:
     - block_content
 id: block_content.field_novas_ark_image
 field_name: field_novas_ark_image
-entity_type: node
+entity_type: block_content
 type: image
 settings:
   uri_scheme: public

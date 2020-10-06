@@ -1,0 +1,14 @@
+uuid: e8348755-72bf-b855-c25e-134822cec54e
+langcode: en
+status: true
+queue_thumbnail_downloads: false
+new_revision: false
+id: video
+label: 'Sample Video Media'
+description: 'A sample video media example.'
+source: video
+source_configuration:
+  source_field: field_video_video
+dependencies: {  }
+field_map: {  }
+third_party_settings: {  }

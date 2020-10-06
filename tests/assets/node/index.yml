@@ -1,0 +1,9 @@
+requires: 3.4.6
+
+
+plugins:
+  - src/transformers
+
+scaffold:
+  - transform(node, index, tests/results/node/index)
+

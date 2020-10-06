@@ -1,0 +1,21 @@
+label: Popup with automatic fallback
+id: popup_with_fallback
+# Breakpoint group's machine name we have to use.
+breakpoint_group: toolbar
+# Multipliers present in breakpoint group.
+multipliers:
+  - 1x
+  - 2x
+# Define width and height of the images that we need for each breakpoint.
+mapping:
+  # The key would be breakpoint machine_name
+  wide:
+    # If any of the dimention is left empty, then image will be scaled to that dimension.
+    width: 200
+  standard:
+    # The image would be resized to the dimention provided using focal_point_scale_and_crop effect.
+    width: 100
+    height: 50
+  narrow:
+    width: 50
+    height: 50

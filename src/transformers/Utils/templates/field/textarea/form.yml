@@ -1,8 +1,0 @@
-content:
-  default:
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content

@@ -1,5 +1,5 @@
 
-# phab-entity-scaffolder
+# Phab Entity Scaffolder
 
 
 [![factorial-io](https://circleci.com/gh/factorial-io/phab-entity-scaffolder.svg?style=shield)](https://circleci.com/gh/factorial-io/phab-entity-scaffolder)
@@ -21,11 +21,15 @@ As long as this project is not available at packagist.org, add this repo to your
 }
 ```
 
-Then require this project via composer:
+Then require this project via composer as dev dependency:
+
 ```shell
 composer require --dev factorial-io/phab-entity-scaffolder:dev-master
 ```
+
 This should download the project and install it into vendor.
+
+## Configuration
 
 Add this to your yml-file which controls the scaffolding:
 
@@ -35,13 +39,13 @@ assets: []
 
 plugins:
   - vendor/factorial/phab-entity-scaffolder/src/transformers
-image_styles:
-  - path/to/imagestyles-yamls
 
 scaffold:
   # transform yaml files using the ImageStyleTransformer.
   - transform(imagestyles, image_styles, config/sync)
 ```
+
+## Usage
 
 Then you can scaffold the configuration via phabalicious:
 
@@ -53,4 +57,4 @@ phab scaffold <path-to-your-scaffold.yml>
 
 Contribution are more than welcome. Please fork the repo, add a test-case and an
 implementation and create a pull-request. Note that we are using **github-flow** as a
-mergestrategy.
+merge-strategy.

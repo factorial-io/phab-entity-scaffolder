@@ -1,0 +1,19 @@
+uuid: 3c0ed6e3-25f8-4386-b05f-25f82a9fa528
+langcode: en
+status: true
+queue_thumbnail_downloads: false
+new_revision: false
+id: image
+label: 'Sample Image Media'
+description: 'A sample image media example.'
+source: image
+source_configuration:
+  source_field: field_image_image
+dependencies:
+  module:
+    - crop
+field_map:
+  name: name
+third_party_settings:
+  crop:
+    image_field: field_image_image

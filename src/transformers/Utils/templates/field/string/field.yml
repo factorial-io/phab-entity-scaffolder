@@ -1,0 +1,16 @@
+uuid: __REUSE__
+langcode: en
+status: true
+dependencies:
+id: node.foo.field_textarea
+field_name: field_textarea
+entity_type: node
+bundle: foo
+label: Textarea
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+__|settings: {  }
+field_type: string

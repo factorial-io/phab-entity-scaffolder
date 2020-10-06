@@ -5,7 +5,12 @@ dependencies:
   config:
     - field.field.block_content.card.field_card_label
     - field.field.block_content.card.field_card_author
+    - field.field.block_content.card.field_card_profile_image
     - field.field.block_content.card.field_card_job_title
+    - field.field.block_content.card.field_card_job_link
+    - field.field.block_content.card.field_card_codesnippet
+    - field.field.block_content.card.field_card_description
+    - field.field.block_content.card.field_card_attachements
     - block_content.type.card
 id: block_content.card.default
 targetEntityType: block_content
@@ -14,28 +19,68 @@ mode: default
 content:
   field_card_label:
     weight: 1
+    type: string_textfield
+    region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Input a label'
     third_party_settings: {  }
-    type: text_textfield
-    region: content
   field_card_author:
     weight: 2
+    type: string_textfield
+    region: content
     settings:
       size: 60
-      placeholder: ''
+      placeholder: 'Input an author'
     third_party_settings: {  }
-    type: text_textfield
+  field_card_profile_image:
+    type: image_focal_point
     region: content
-  field_card_job_title:
     weight: 3
     settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
+  field_card_job_title:
+    weight: 4
+    type: string_textfield
+    region: content
+    settings:
+      size: 60
+      placeholder: 'Input a title'
+    third_party_settings: {  }
+  field_card_job_link:
+    type: link_default
+    region: content
+    weight: 5
+    settings:
+      placeholder_url: 'Input a url'
+      placeholder_title: 'Input a title for the url'
+    third_party_settings: {  }
+  field_card_codesnippet:
+    weight: 6
+    label: above
+    type: geshifield_default
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_card_description:
+    weight: 7
+    type: text_textfield
+    region: content
+    settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: text_textfield
+  field_card_attachements:
+    type: file_generic
     region: content
+    weight: 8
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
 hidden:
   created: true
   status: true

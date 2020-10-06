@@ -3,10 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.basic_page
+    - node.type.articles
     - block_content.type.novas_ark
     - field.storage.block_content.field_novas_ark_content
-    - node.type.articles
-    - node.type.basic_page
 id: block_content.novas_ark.field_novas_ark_content
 field_name: field_novas_ark_content
 entity_type: block_content
@@ -26,6 +26,6 @@ settings:
     auto_create: false
     auto_create_bundle: ''
     target_bundles:
-      articles: articles
       basic_page: basic_page
+      articles: articles
 field_type: entity_reference

@@ -1,4 +1,12 @@
 content:
   default:
     label: hidden
+    type: link
     region: content
+    __|settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    __|third_party_settings: {  }

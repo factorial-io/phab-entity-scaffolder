@@ -4,16 +4,55 @@ description: Description of the card.
 fields:
   label:
     map: label
-    type: text
+    type: string
     label: Card Label
     required: true
   author:
     map: author
-    type: text
+    type: string
     label: Card Author
     required: true
+  profile_image:
+    map: profile_image
+    type: image
+    label: Profile Image
+    responsive_image_style: popup
   job_title:
     map: jobTitle
-    type: text
+    type: string
     label: Card Job Title
     required: false
+  job_link:
+    map: jobTitle
+    type: link
+    label: Link
+    required: false
+    cardinality: 3
+    title: 0
+    link_type: EXTERNAL_ONLY
+    rel: nofollow
+    target: _blank
+    trim_length: 40
+  codesnippet:
+    map: codeSnippet
+    type: geshifield
+    label: Code snippet
+    required: false
+    cardinality: 5
+  description:
+    map: description
+    type: text_long
+    label: Description
+    required: true
+    cardinality: 1
+    allowed_formats:
+      - html
+      - plaintext
+  attachements:
+    map: attachements
+    type: file
+    label: Attachements
+    required: false
+    cardinality: 0
+    file_extensions: "pdf"
+    file_directory: "attachements/[date:custom:Y]-[date:custom:m]"

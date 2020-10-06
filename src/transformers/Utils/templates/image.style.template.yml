@@ -1,8 +1,7 @@
 uuid: __REUSE__
 langcode: en
 status: true
-dependencies:
-  module:
+dependencies: {}
 name: gets_replaced
 label: 'gets replaced'
 effects: []

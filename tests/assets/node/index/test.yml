@@ -1,0 +1,20 @@
+label: A test node
+description: A sample node type.
+help: Use this node when nothing else fits.
+new_revision: false
+id: test
+
+fields:
+  image:
+    type: image
+    label: Image
+
+  description:
+    map: description
+    type: text_long
+    label: Description
+    required: true
+    cardinality: 1
+    allowed_formats:
+      - html
+      - plaintext

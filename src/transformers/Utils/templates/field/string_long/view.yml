@@ -1,0 +1,9 @@
+content:
+  default:
+    weight: 0
+    label: hidden
+    __|settings:
+      link_to_entity: false
+    __|third_party_settings: {  }
+    type: string
+    region: content

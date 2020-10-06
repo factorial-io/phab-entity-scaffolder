@@ -1,0 +1,13 @@
+uuid: 17366738-0f1b-4d96-a44f-05c055b22d40
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+__|settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: {}
+    target_bundles_drag_drop: {}
+field_type: entity_reference_revisions

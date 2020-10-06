@@ -6,16 +6,6 @@ use Symfony\Component\Console\Tester\CommandTester;
 
 class ScaffoldImageStyleTest extends BaseScaffoldingTest
 {
-    private static $filenames = [
-        'image.style.image_card__large__1x.yml',
-        'image.style.image_card__large__2x.yml',
-        'image.style.image_card__medium__1x.yml',
-        'image.style.image_card__medium__2x.yml',
-        'image.style.image_card__small__1x.yml',
-        'image.style.image_card__small__2x.yml',
-        'image.style.image_card__xsmall__1x.yml',
-        'image.style.image_card__xsmall__2x.yml',
-    ];
 
 
     public function testImageStyleScaffolding()
@@ -23,7 +13,7 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
         $this->copyBaseline(
             'baseline/image_styles/index',
             'results/image_styles/index',
-            self::$filenames
+            []
         );
 
         $command = $this->application->find('scaffold');
@@ -43,8 +33,7 @@ class ScaffoldImageStyleTest extends BaseScaffoldingTest
         $this->assertEqualContents(
             'baseline/image_styles/index',
             'results/image_styles/index',
-            self::$filenames,
-            1
+            []
         );
     }
 }

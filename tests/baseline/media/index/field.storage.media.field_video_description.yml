@@ -1,0 +1,19 @@
+uuid: 1c4ba4ae-11be-1977-05bc-583ffc7f8889
+langcode: en
+status: true
+dependencies:
+  module:
+    - text
+    - media
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
+id: media.field_video_description
+field_name: field_video_description
+entity_type: media

@@ -2,11 +2,7 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Method\TaskContextInterface;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldBase;
-use Symfony\Component\Yaml\Yaml;
 
 class ImageEffect extends EntityPropertyBase
 {
@@ -16,13 +12,16 @@ class ImageEffect extends EntityPropertyBase
     protected $data;
     protected $config;
 
-    public function __construct($data)
+    protected $position;
+
+    public function __construct($data, $position)
     {
+        $this->position = $position;
         $this->effect = $data['effect'];
         $this->height = $data['effective_height'];
         $this->width = $data['effective_width'];
         $this->placeholderService = new PlaceholderService();
-        $this->template = Yaml::parseFile($this->getTemplateFile())['effects'][$this->effect];
+        $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile())['effects'][$this->effect];
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         $this->setConfig($config);
     }
@@ -34,7 +33,7 @@ class ImageEffect extends EntityPropertyBase
 
     protected function getTemplateOverrideData()
     {
-        $data['uuid'] = PlaceholderService::REUSE_OR_CREATE_VALUE;
+        $data['uuid'] = PlaceholderService::createAbsoluteReuseReference(['effects', $this->position, 'uuid']);
         if (!empty($this->height)) {
             $data['data']['height'] = $this->height;
         }

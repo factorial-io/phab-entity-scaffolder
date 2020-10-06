@@ -1,11 +1,9 @@
-requires: 3.4
+requires: 3.4.6
 
-paragraphs:
-  - paragraphs
 
 plugins:
   - src/transformers
 
 scaffold:
-  - transform(paragraphs, paragraphs, tests/results/paragraphs/index)
+  - transform(paragraph, paragraphs, tests/results/paragraphs/index)
 

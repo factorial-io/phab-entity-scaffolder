@@ -1,7 +1,4 @@
-requires: 3.4
-
-block_content:
-  - block_content
+requires: 3.4.6
 
 plugins:
   - src/transformers

@@ -1,7 +1,7 @@
 uuid: 011f2d83-82f8-07ef-a3a2-ff05891b7384
 langcode: de
 status: true
-dependencies: null
+dependencies: {}
 id: popup
 label: Popup
 image_style_mappings:
@@ -36,4 +36,4 @@ image_style_mappings:
     image_mapping_type: image_style
     image_mapping: esimg_100x100
 breakpoint_group: toolbar
-fallback_image_style: 'esimg_100x100'
+fallback_image_style: 'esimg_100x50'
