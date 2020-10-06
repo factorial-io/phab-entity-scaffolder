@@ -10,7 +10,7 @@ let fieldDocs = glob.sync('docs/guide/field/**/*.md').map(cleanPath).sort();
 let imageDocs = glob.sync('docs/guide/image/*.md').map(cleanPath).sort();
 
 module.exports = {
-  base: "/phab-entity-scaffolder",
+  base: "/phab-entity-scaffolder/",
   title: "Phab Entity Scaffolder",
   description: 'Scaffold drupal entities and configuration with ease and fun!',
   theme: require.resolve("@factorial/vuepress-theme"),
