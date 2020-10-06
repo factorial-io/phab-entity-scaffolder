@@ -37,7 +37,7 @@ plugins:
   - vendor/factorial/phab-entity-scaffolder/src/transformers
 image_styles:
   - path/to/imagestyles-yamls
-  
+
 scaffold:
   # transform yaml files using the ImageStyleTransformer.
   - transform(imagestyles, image_styles, config/sync)
@@ -47,3 +47,10 @@ Then you can scaffold the configuration via phabalicious:
 
 ```
 phab scaffold <path-to-your-scaffold.yml>
+```
+
+### Contribute
+
+Contribution are more than welcome. Please fork the repo, add a test-case and an
+implementation and create a pull-request. Note that we are using **github-flow** as a
+mergestrategy.
