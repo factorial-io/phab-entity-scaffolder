@@ -47,6 +47,7 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
                       'effects' => [],
                     ]);
 
+                    $result_effect = [];
                     foreach ($style['effects'] as $weight => $effect) {
                         $result_effect['uuid'] = PlaceholderService::createAbsoluteReuseReference(
                             ['effects', count($result['effects']), 'uuid']
@@ -76,6 +77,11 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
                         $result['effects'][PlaceholderService::createChildReference('uuid')] = $result_effect;
                     }
 
+                    // Image optimise pipeline support.
+                    if (isset($style['pipeline'])) {
+                        // $result['dependencies']['module'][] = 'focal_point';
+                        $result['pipeline'] = $style['pipeline'];
+                    }
                     $results['image.style.' . $result['name'] . '.yml'] = $result;
                 }
             }
