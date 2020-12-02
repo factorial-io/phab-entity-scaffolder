@@ -15,3 +15,4 @@ effects:
     uuid: be8f0daa-13f4-ae32-b0ae-dfcf4a3df3d4
     id: focal_point_scale_and_crop
     weight: 0
+pipeline: image_optimise_pipeline

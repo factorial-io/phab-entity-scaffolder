@@ -9,6 +9,7 @@ multiplier:
 image_styles:
   -
     machine_name: xsmall
+    pipeline: image_optimise_pipeline
     effects:
       -
         name: focal_point_scale_and_crop
