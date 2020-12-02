@@ -79,7 +79,6 @@ class ImageStyleTransformer extends YamlTransformer implements DataTransformerIn
 
                     // Image optimise pipeline support.
                     if (isset($style['pipeline'])) {
-                        // $result['dependencies']['module'][] = 'focal_point';
                         $result['pipeline'] = $style['pipeline'];
                     }
                     $results['image.style.' . $result['name'] . '.yml'] = $result;
