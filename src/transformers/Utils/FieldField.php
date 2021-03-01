@@ -28,7 +28,7 @@ class FieldField extends FieldBase
             'field_name' => $this->getFieldName(),
             'bundle' => $this->parent['id'],
             'label' => !empty($this->data['label']) ? $this->data['label'] : $this->data['id'],
-            'description' => !empty($this->parent['description']) ? $this->parent['description'] : '',
+            'description' => !empty($this->getDataValue('description', '')) ? $this->getDataValue('description', '') : $this->parent['description'],
             'entity_type' => $this->entity_type,
             'required' => $this->getDataValue('required', false),
         ];
