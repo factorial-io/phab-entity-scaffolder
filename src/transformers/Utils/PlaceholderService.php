@@ -2,7 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Utilities\Utilities;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Yaml;
@@ -37,7 +36,7 @@ class PlaceholderService
 
     protected $placeholders;
 
-    public static function createChildReference(string $key)
+    public static function createChildReference(string $key): string
     {
         static $counter = 0;
         $counter++;
@@ -59,7 +58,7 @@ class PlaceholderService
      * There's one big exception. If a subkey is numerig it will also lookup the nth element in that array, regardless
      * of the key.
      *
-     * @param $data
+     * @param array $data
      *   The array.
      * @param string $key
      *   A key for the wnated value. Dots will separate hierachylevels. eg. root.level1.level2.level3.value
@@ -68,7 +67,7 @@ class PlaceholderService
      * @return mixed
      *   the found value.
      */
-    public static function lookupValue($data, string $key, $default_value = null)
+    public static function lookupValue(array $data, string $key, $default_value = null)
     {
         $value = $default_value;
         $keys = explode('.', $key);
@@ -101,13 +100,13 @@ class PlaceholderService
         return $value;
     }
 
-    public static function createAbsoluteReuseReference(array $keys)
+    public static function createAbsoluteReuseReference(array $keys): string
     {
         return self::CREATE_OR_REUSE_ABSOLUTE_REFERENCE . "|" . implode(".", $keys);
     }
 
 
-    public function postTransform($items, $target_path)
+    public function postTransform($items, $target_path): array
     {
         $return = [];
         foreach ($items as $file => $results) {
@@ -125,7 +124,7 @@ class PlaceholderService
         return $return;
     }
 
-    protected function postTransformValues($values, $existing, $existing_haystack)
+    protected function postTransformValues($values, $existing, $existing_haystack): array
     {
         $results = [];
         foreach ($values as $key => $value) {
@@ -190,13 +189,13 @@ class PlaceholderService
     /**
      * Decode the placeholder strategy and parameters in the given key.
      *
-     * @param $key
+     * @param mixed $key
      *  Array key.
      *
      * @return array
      *  An array with strategy as first item, followed by parameters.
      */
-    private function getPlaceholderStrategyForKey($key)
+    private function getPlaceholderStrategyForKey($key): array
     {
         $values = explode('|', $key);
         // Probably the case when $key doesn't have a strategy mentioned.
@@ -217,15 +216,15 @@ class PlaceholderService
     /**
      * Replace values base don encoded strategy in array keys.
      *
-     * @param $values
+     * @param array $values
      *  Incoming values.
-     * @param $existing
+     * @param array $existing
      *  Values in existing configuration.
      *
      * @return mixed
      *  Adjusted values after corresponding replacement strategy has been done.
      */
-    private function adjustValuesFromExistingConfig($values, $existing)
+    private function adjustValuesFromExistingConfig(array $values, array $existing)
     {
         $values_copy = $values;
         // Traverse over each high level keys and prepare
