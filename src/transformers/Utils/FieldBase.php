@@ -82,13 +82,8 @@ abstract class FieldBase extends EntityPropertyBase
         return $this->data[$key] ?? $this->template[$key] ?? $default;
     }
 
-    public function getDescValue()
+    public function getDataValueOptionalFromParent($key, $default)
     {
-        $desc_parent = !empty($this->parent['description']) ? $this->parent['description'] : '';
-        $desc_field = $this->getDataValue('description', $desc_parent);
-        if (empty($desc_field)) {
-            $desc_field = $desc_parent;
-        }
-        return $desc_field;
+        return $this->data[$key] ?? $this->parent[$key] ?? $this->template[$key] ?? $default;
     }
 }
