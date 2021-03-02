@@ -224,7 +224,7 @@ class PlaceholderService
      * @return mixed
      *  Adjusted values after corresponding replacement strategy has been done.
      */
-    private function adjustValuesFromExistingConfig(array $values, array $existing)
+    private function adjustValuesFromExistingConfig(array $values, $existing)
     {
         $values_copy = $values;
         // Traverse over each high level keys and prepare
