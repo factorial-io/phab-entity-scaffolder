@@ -81,4 +81,9 @@ abstract class FieldBase extends EntityPropertyBase
     {
         return $this->data[$key] ?? $this->template[$key] ?? $default;
     }
+
+    public function getDataValueOptionalFromParent($key, $default)
+    {
+        return $this->data[$key] ?? $this->parent[$key] ?? $this->template[$key] ?? $default;
+    }
 }
