@@ -49,8 +49,13 @@ abstract class FieldBase extends EntityPropertyBase
 
     public function getFieldName()
     {
-        // @TODO Check if field_ prefix can be dropped in D8 too.
-        $field_name = 'field_' . $this->parent['id'] . '_' . $this->data['id'];
+        // Get fieldname from yaml to support fields on existing entities.
+        if (isset($this->data['field_name'])) {
+            $field_name = $this->data['field_name'];
+        } else {
+            $field_name = 'field_' . $this->parent['id'] . '_' . $this->data['id'];
+        }
+
         if (strlen($field_name) > 32) {
             $a = explode('_', $field_name);
             for ($i = 2; $i < count($a) - 1; $i++) {
