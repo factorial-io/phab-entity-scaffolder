@@ -7,11 +7,11 @@ id: node.test_node.field_string_example
 field_name: field_string_example
 entity_type: node
 bundle: test_node
-label: string_example
+label: Copy
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 __|settings: {  }
-field_type: string
+field_type: string_long

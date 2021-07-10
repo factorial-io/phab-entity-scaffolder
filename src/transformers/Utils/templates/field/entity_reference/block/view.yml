@@ -1,0 +1,10 @@
+content:
+  default:
+    weight: 2
+    label: hidden
+    __|settings:
+      view_mode: default
+      link: false
+    __|third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content

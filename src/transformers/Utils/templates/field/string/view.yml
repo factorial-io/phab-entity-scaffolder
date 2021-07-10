@@ -1,3 +1,7 @@
+dependencies:
+  default:
+    module:
+      - text
 content:
   default:
     weight: 0

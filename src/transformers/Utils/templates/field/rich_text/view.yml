@@ -1,4 +1,11 @@
+dependencies:
+  default:
+    module:
+      - text
 content:
   default:
     label: hidden
     region: content
+    type: text_default
+    __|settings: { }
+    __|third_party_settings: {  }
