@@ -3,14 +3,13 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils\Plugins;
 
-use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldFormatter;
 use Phabalicious\Utilities\Utilities;
 
 class CtaFieldFormatter extends FieldFormatter
 {
 
-    protected function getTemplateOverrideData()
+    protected function getTemplateOverrideData(): array
     {
         return Utilities::mergeData(
             parent::getTemplateOverrideData(),

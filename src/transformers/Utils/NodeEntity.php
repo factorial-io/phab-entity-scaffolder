@@ -3,7 +3,6 @@
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Exception\ValidationFailedException;
-use Phabalicious\Utilities\Utilities;
 use Phabalicious\Validation\ValidationErrorBag;
 use Phabalicious\Validation\ValidationService;
 
@@ -23,12 +22,12 @@ class NodeEntity extends EntityBase
         parent::__construct($config_accumulator, $placeholder_service, $data);
     }
 
-    public function getEntityType()
+    public function getEntityType(): string
     {
         return 'node';
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             'module' => [
@@ -37,7 +36,7 @@ class NodeEntity extends EntityBase
         ];
     }
     
-    public function getTemplateOverrideData()
+    public function getTemplateOverrideData(): array
     {
         $out = parent::getTemplateOverrideData();
         $out['help'] = $this->data['help'] ?? '';

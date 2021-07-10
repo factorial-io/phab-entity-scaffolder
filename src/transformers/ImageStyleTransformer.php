@@ -5,7 +5,6 @@ namespace Phabalicious\Scaffolder\Transformers;
 use Phabalicious\Method\TaskContextInterface;
 use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
 use Phabalicious\Utilities\Utilities;
-use Symfony\Component\Yaml\Yaml;
 
 class ImageStyleTransformer extends YamlTransformer implements DataTransformerInterface
 {

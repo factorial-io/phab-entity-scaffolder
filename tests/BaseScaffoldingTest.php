@@ -7,7 +7,6 @@ use Phabalicious\Configuration\ConfigurationService;
 use Phabalicious\Method\MethodFactory;
 use Phabalicious\Method\ScriptMethod;
 use Phabalicious\Utilities\Utilities;
-use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Application;

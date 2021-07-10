@@ -36,12 +36,12 @@ class MediaEntity extends EntityBase
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
     }
 
-    public function getEntityType()
+    public function getEntityType(): string
     {
         return 'media';
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [
             'module' => [
@@ -50,7 +50,7 @@ class MediaEntity extends EntityBase
         ];
     }
     
-    public function getOverrideData()
+    public function getOverrideData(): array
     {
         $out = [];
         $out['source'] = $this->data['source'];

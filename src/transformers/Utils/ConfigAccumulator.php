@@ -2,10 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use \Symfony\Component\Yaml\Yaml;
-
 class ConfigAccumulator
 {
 
@@ -16,7 +12,7 @@ class ConfigAccumulator
         $this->config = [];
     }
 
-    public function get()
+    public function get(): array
     {
         $config = $this->getRaw();
         $output = [];
@@ -33,7 +29,7 @@ class ConfigAccumulator
         return $output;
     }
 
-    public function getRaw()
+    public function getRaw(): array
     {
         return $this->config;
     }

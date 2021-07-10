@@ -2,8 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Utilities\PluginDiscovery;
-
 class FieldTransformerFactory
 {
 
@@ -42,13 +40,13 @@ class FieldTransformerFactory
     /**
      * Create all necessary transformers for a given field type.
      *
-     * @param $entity_type
+     * @param  string $entity_type
      * @param  array  $field
      * @param  array  $data
      *
      * @return FieldTransformerContainer
      */
-    public static function create($entity_type, array $field, array $data)
+    public static function create(string $entity_type, array $field, array $data)
     {
         $field['type'] = self::resolveAlias($field['type']);
         $field_base_type = self::getFieldBaseType($field['type']);
@@ -69,7 +67,7 @@ class FieldTransformerFactory
         return $classes[$field_type] ?? $classes['default'];
     }
 
-    protected static function resolveAlias($field_type)
+    protected static function resolveAlias($field_type): string
     {
 
         $base = self::getFieldBaseType($field_type);
@@ -80,13 +78,13 @@ class FieldTransformerFactory
         return $sub ? "$base/$sub" : $base;
     }
 
-    public static function getFieldBaseType(string $field_type)
+    public static function getFieldBaseType(string $field_type): string
     {
         list($base, ) = array_pad(explode('/', $field_type), 2, null);
         return $base;
     }
     
-    public static function getFieldSubType(string $field_type, $default = 'default')
+    public static function getFieldSubType(string $field_type, $default = 'default'): string
     {
         list(, $sub) = array_pad(explode('/', $field_type), 2, $default);
         return $sub;
