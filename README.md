@@ -38,7 +38,7 @@ questions: []
 assets: []
 
 plugins:
-  - vendor/factorial/phab-entity-scaffolder/src/transformers
+  - vendor/factorial-io/phab-entity-scaffolder/src/transformers
 
 scaffold:
   # transform yaml files using the ImageStyleTransformer.
