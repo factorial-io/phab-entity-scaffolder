@@ -5,7 +5,6 @@ namespace Phabalicious\Scaffolder\Transformers\Utils\Plugins;
 
 use Phabalicious\Exception\ValidationFailedException;
 use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
-use Phabalicious\Utilities\Utilities;
 use Phabalicious\Validation\ValidationErrorBag;
 use Phabalicious\Validation\ValidationService;
 
@@ -22,7 +21,7 @@ class EntityReferenceFieldField extends FieldField
         }
     }
 
-    protected function getTemplateOverrideData()
+    protected function getTemplateOverrideData(): array
     {
         $data = parent::getTemplateOverrideData();
 

@@ -3,32 +3,16 @@
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
 use Phabalicious\Exception\ValidationFailedException;
-use Phabalicious\Method\TaskContextInterface;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldWidget;
 use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Scaffolder\Transformers\Utils\Base;
-use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldField;
-use Phabalicious\Scaffolder\Transformers\Utils\FieldStorage;
 use Phabalicious\Validation\ValidationErrorBag;
 use Phabalicious\Validation\ValidationService;
 
-abstract class EntityBase extends Base
+abstract class EntityBase extends Base implements EntityBaseInterface
 {
     protected $bundle;
     protected $fields = [];
 
-    public function getEntityType()
-    {
-        throw new \Exception('Missing getEntityType method in concrete class');
-    }
 
-    public function getTemplateFileName()
-    {
-        return 'entity/' . $this->getEntityType() . '.yml';
-    }
 
     public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
@@ -55,12 +39,17 @@ abstract class EntityBase extends Base
         }
     }
 
-    public function getConfigName()
+    public function getTemplateFileName(): string
+    {
+        return 'entity/' . $this->getEntityType() . '.yml';
+    }
+
+    public function getConfigName(): string
     {
         return $this->getEntityType() . '.type.' . $this->bundle;
     }
 
-    protected function transformFields()
+    protected function transformFields(): array
     {
         $data = $this->data;
         $field_configs = [];

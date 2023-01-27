@@ -2,8 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Scaffolder\Transformers\Utils\Base;
-use Phabalicious\Scaffolder\Transformers\Utils\ImageEffect;
 use Phabalicious\Utilities\Utilities;
 
 class ImageStyle extends Base
@@ -67,7 +65,7 @@ class ImageStyle extends Base
         return $this->data['name'];
     }
 
-    protected function generateStyleName($data)
+    protected function generateStyleName($data): string
     {
         $prefix = 'esimg_';
         $width = $data['effective_width'];
@@ -82,17 +80,17 @@ class ImageStyle extends Base
         return $prefix . $name;
     }
 
-    protected function getTemplateFileName()
+    public function getTemplateFileName(): string
     {
         return 'image/style.template.yml';
     }
 
-    protected function getConfigName()
+    protected function getConfigName(): string
     {
         return 'image.style.' . $this->getName();
     }
 
-    protected function getTemplateOverrideData()
+    protected function getTemplateOverrideData(): array
     {
         // @TODO Fill $data with existing template data.
         $out = [];
@@ -102,7 +100,7 @@ class ImageStyle extends Base
         return $out;
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return $this->imageEffect->getDependencies();
     }

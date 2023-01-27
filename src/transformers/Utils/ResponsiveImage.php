@@ -2,8 +2,6 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Scaffolder\Transformers\Utils\Base;
-use Phabalicious\Scaffolder\Transformers\Utils\ImageEffect;
 use Phabalicious\Utilities\Utilities;
 
 class ResponsiveImage extends Base
@@ -77,17 +75,17 @@ class ResponsiveImage extends Base
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
     }
 
-    public function getTemplateFileName()
+    public function getTemplateFileName(): string
     {
         return 'image/responsive_image.styles.template.yml';
     }
 
-    public function getConfigName()
+    public function getConfigName(): string
     {
         return 'responsive_image.styles.'.$this->data['id'];
     }
 
-    public function getTemplateOverrideData()
+    public function getTemplateOverrideData(): array
     {
         $data = parent::getTemplateOverrideData();
         $data['breakpoint_group'] = $this->data['breakpoint_group'];

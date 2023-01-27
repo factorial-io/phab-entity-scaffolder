@@ -3,7 +3,6 @@
 namespace Phabalicious\Scaffolder\Tests;
 
 use Symfony\Component\Console\Tester\CommandTester;
-use Symfony\Component\Yaml\Yaml;
 
 class BlockContentTest extends BaseScaffoldingTest
 {

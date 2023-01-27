@@ -2,25 +2,37 @@
 
 namespace Phabalicious\Scaffolder\Transformers\Utils;
 
-use Phabalicious\Method\TaskContextInterface;
-use Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator;
-use Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService;
-use Phabalicious\Utilities\Utilities;
-use Phabalicious\Scaffolder\Transformers\Utils\EntityForm;
-
-abstract class Base
+abstract class Base implements BaseInterface
 {
 
     protected $template = [];
 
+    /**
+     * @var \Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService
+     */
     protected $placeholderService;
 
+    /**
+     * @var \Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator
+     */
     protected $configAccumulator;
 
     protected $data = [];
 
-    public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
-    {
+    /**
+     * Base constructor.
+     *
+     * @param \Phabalicious\Scaffolder\Transformers\Utils\ConfigAccumulator $config_accumulator
+     * @param \Phabalicious\Scaffolder\Transformers\Utils\PlaceholderService $placeholder_service
+     * @param array $data
+     *
+     * @throws \Phabalicious\Scaffolder\Transformers\Utils\UnknownScaffoldTypeException
+     */
+    public function __construct(
+        ConfigAccumulator $config_accumulator,
+        PlaceholderService $placeholder_service,
+        array $data
+    ) {
         $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile());
         $this->configAccumulator = $config_accumulator;
         $this->placeholderService = $placeholder_service;
@@ -28,52 +40,45 @@ abstract class Base
     }
 
     /**
-     * {@inheritDoc}
+     * Get template file.
      */
-    protected function getTemplateFile()
+    protected function getTemplateFile(): string
     {
         return $this->getTemplateDir() . '/' . $this->getTemplateFileName();
     }
 
-    /**
-     * Get the corresponding template file name relative to template directory.
-     */
-    protected function getTemplateFileName()
-    {
-        throw new \Exception('getTemplateFileName method not implemented.');
-    }
 
     /**
-     * {@inheritDoc}
+     * Get template dir.
      */
-    protected function getTemplateDir()
+    protected function getTemplateDir(): string
     {
         return __DIR__ . '/templates';
     }
 
     /**
-     * {@inheritDoc}
+     * Get configurations.
      */
-    public function getConfigurations()
+    public function getConfigurations(): array
     {
         return $this->configAccumulator->get();
     }
 
-    public function getDependencies()
+    public function getDependencies(): array
     {
         return [];
     }
 
-    protected function getTemplateOverrideData()
+    protected function getTemplateOverrideData(): array
     {
         // @TODO Fill $data with existing template data.
         $data = $this->data;
         $out = [];
-        $manddatory_keys_map = [
-        'id' => 'id',
-        'label' => 'label',
+        $mandatory_key_names = [
+            'id' => 'id',
+            'label' => 'label',
         ];
-        foreach ($manddatory_keys_map as $key => $target) {
+        foreach ($mandatory_key_names as $key => $target) {
             $out[$key] = $data[$target];
         }
         $optional_keys_map = [
