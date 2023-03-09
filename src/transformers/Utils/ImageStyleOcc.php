@@ -6,10 +6,11 @@ use Phabalicious\Scaffolder\Transformers\Utils\Base;
 use Phabalicious\Scaffolder\Transformers\Utils\ImageEffect;
 use Phabalicious\Utilities\Utilities;
 
-class ImageStyle extends Base
+class ImageStyleOcc extends Base
 {
 
     protected $imageEffect;
+    protected $imageEffects = [];
 
     public function __construct(ConfigAccumulator $config_accumulator, PlaceholderService $placeholder_service, $data)
     {
@@ -32,28 +33,32 @@ class ImageStyle extends Base
             $height = $data['height'];
             $effective_height = intval($height * $multiplier, 10);
         }
-
-        if (!(empty($width) || empty($height))) {
-            $effect = 'focal_point_scale_and_crop';
-        } else {
-            $effect = 'image_scale';
-        }
-
         $data = [
-          'width' => $width,
-          'height' => $height,
-          'effect' => $effect,
-          'multiplier' => $multiplier,
-          'effective_width' => $effective_width,
-          'effective_height' => $effective_height,
+            'effect' => 'crop_crop',
+            'crop_type' => $data['crop_type'],
+            'style_id' => $data['style_id'],
+            'width' => $width,
+            'height' => $height,
+            'multiplier' => $multiplier,
+            'effective_width' => $effective_width,
+            'effective_height' => $effective_height,
         ];
-        $data['name'] = $this->generateStyleName($data);
+        $data['name'] =  $this->generateStyleName($data);
+        $this->data = $data;
+        $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
         parent::__construct($config_accumulator, $placeholder_service, $data);
         // We can hrdcode the position to 0, as we will only have one imageeffect per style.
-        $this->imageEffect = new ImageEffect($data, 0);
-        $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
-        $config['effects'][PlaceholderService::createChildReference('uuid')] = $this->imageEffect->getConfig();
+        $effect = new ImageEffect($data, 0);
+        $config['effects'][PlaceholderService::createChildReference('uuid')] =$effect->getConfig();
+        $this->imageEffects[] = $effect;
+        $this->addDependencyFromImageEffects();
+        $data['effect'] = 'image_scale_and_crop';
+        $this->data = $data;
+        // We can hrdcode the position to 0, as we will only have one imageeffect per style.
+        $effect = new ImageEffect($data, 1);
+        $config['effects'][PlaceholderService::createChildReference('uuid')] = $effect->getConfig();
         $this->configAccumulator->setConfig($this->getConfigName(), $config);
+        $this->imageEffects[] = $effect;
         $this->addDependencyFromImageEffects();
     }
     
@@ -69,20 +74,7 @@ class ImageStyle extends Base
 
     protected function generateStyleName($data)
     {
-        if (!empty($data['style_id'])) {
-            return $data['style_id'];
-        }
-        $prefix = 'esimg_';
-        $width = $data['effective_width'];
-        $height = $data['effective_height'];
-        if (empty($width) & !empty($height)) {
-            $name = $height . 'h';
-        } elseif (!empty($width) & empty($height)) {
-            $name = $width . 'w';
-        } else {
-            $name = $width . 'x' . $height;
-        }
-        return $prefix . $name;
+        return $data['style_id'];
     }
 
     protected function getTemplateFileName()
@@ -107,17 +99,24 @@ class ImageStyle extends Base
 
     public function getDependencies()
     {
-        return $this->imageEffect->getDependencies();
+        $d = [];
+        foreach ($this->imageEffects as $effect) {
+            $d += $effect->getDependencies();
+        }
+        return $d;
     }
 
     private function addDependencyFromImageEffects()
     {
-        if ($this->imageEffect->getDependencies()) {
-            foreach ($this->imageEffect->getDependencies() as $category => $dependencies) {
-                foreach ($dependencies as $dependency) {
-                    $this->configAccumulator->addDependency($this->getConfigName(), $category, $dependency);
+        foreach ($this->imageEffects as $effect) {
+            if ($effect->getDependencies()) {
+                foreach ($effect->getDependencies() as $category => $dependencies) {
+                    foreach ($dependencies as $dependency) {
+                        $this->configAccumulator->addDependency($this->getConfigName(), $category, $dependency);
+                    }
                 }
             }
         }
+
     }
 }

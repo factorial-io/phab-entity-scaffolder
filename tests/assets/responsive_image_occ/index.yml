@@ -1,0 +1,8 @@
+requires: 3.4.6
+
+plugins:
+  - src/transformers
+
+scaffold:
+  - transform(responsive_image_occ, responsive_image_occ, tests/results/responsive_image_occ/index)
+

@@ -1,0 +1,17 @@
+uuid: 46f4ee27-ec73-9030-f7c7-c6d0986c7d37
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_fp__lg__1x
+label: '16:9 (Focal Point) lg @ 1x'
+effects:
+  d252809e-c44a-ff6c-d76b-20bf12c138ce:
+    uuid: d252809e-c44a-ff6c-d76b-20bf12c138ce
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 1584
+      height: 891
+      crop_type: focal_point

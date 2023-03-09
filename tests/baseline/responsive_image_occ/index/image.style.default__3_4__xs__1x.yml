@@ -1,0 +1,22 @@
+uuid: 16a6c9ae-650c-5608-ec9c-cecb44275adb
+langcode: en
+status: true
+dependencies: {  }
+name: 3_4__xs__1x
+label: '3:4 xs @ 1x'
+effects:
+  87a07252-de4b-f948-fded-d334bb00626a:
+    uuid: 87a07252-de4b-f948-fded-d334bb00626a
+    id: crop_crop
+    weight: 0
+    data:
+      crop_type: 3x4
+      automatic_crop_provider: null
+  f576908d-7d1a-2aa8-dab7-92cf3819e845:
+    uuid: f576908d-7d1a-2aa8-dab7-92cf3819e845
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 569
+      height: 759
+      anchor: center-center

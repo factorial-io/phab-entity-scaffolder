@@ -1,0 +1,17 @@
+uuid: 14a0b755-f3c8-2bfd-3580-0d4868cc04a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 8_9_fp__md__1x
+label: '8:9 (Focal Point) md @ 1x'
+effects:
+  9432f0f8-da66-ac37-89bf-219d4462676a:
+    uuid: 9432f0f8-da66-ac37-89bf-219d4462676a
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 1023
+      height: 1151
+      crop_type: focal_point

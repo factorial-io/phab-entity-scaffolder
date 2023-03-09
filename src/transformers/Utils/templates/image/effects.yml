@@ -13,3 +13,16 @@ effects:
     weight: 0
     data:
       upscale: false
+  crop_crop:
+    uuid: __REUSE__
+    id: crop_crop
+    weight: 0
+    data:
+      crop_type: 1x1
+      automatic_crop_provider: null
+  image_scale_and_crop:
+    uuid: __REUSE__
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      upscale: false

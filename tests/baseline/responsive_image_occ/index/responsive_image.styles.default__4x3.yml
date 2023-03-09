@@ -1,0 +1,72 @@
+uuid: 529c537b-bc99-4d18-9737-d0775e951fb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.4_3__lg__1x
+    - image.style.4_3__lg__2x
+    - image.style.4_3__md__1x
+    - image.style.4_3__md__2x
+    - image.style.4_3__sm__1x
+    - image.style.4_3__sm__2x
+    - image.style.4_3__xl__1x
+    - image.style.4_3__xl__2x
+    - image.style.4_3__xs__1x
+    - image.style.4_3__xs__2x
+  theme:
+    - occhio_front
+id: responsive_image_4x3
+label: 'Responsive Image 4x3'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__xl__1x
+    breakpoint_id: occhio_front.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__xl__2x
+    breakpoint_id: occhio_front.xl
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__lg__1x
+    breakpoint_id: occhio_front.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__lg__2x
+    breakpoint_id: occhio_front.lg
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__md__1x
+    breakpoint_id: occhio_front.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__md__2x
+    breakpoint_id: occhio_front.md
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__sm__1x
+    breakpoint_id: occhio_front.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__sm__2x
+    breakpoint_id: occhio_front.sm
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__xs__1x
+    breakpoint_id: occhio_front.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 4_3__xs__2x
+    breakpoint_id: occhio_front.xs
+    multiplier: 2x
+breakpoint_group: occhio_front
+fallback_image_style: 4_3__xs__1x

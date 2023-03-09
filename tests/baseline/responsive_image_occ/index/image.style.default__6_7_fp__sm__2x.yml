@@ -1,0 +1,17 @@
+uuid: 21b451c6-742d-d37f-337c-2131cfdb6a9e
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 6_7_fp__sm__2x
+label: '6:7 (Focal Point) sm @ 2x'
+effects:
+  dce6927b-d919-6004-9792-d301551f9bfc:
+    uuid: dce6927b-d919-6004-9792-d301551f9bfc
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 1536
+      height: 1792
+      crop_type: focal_point

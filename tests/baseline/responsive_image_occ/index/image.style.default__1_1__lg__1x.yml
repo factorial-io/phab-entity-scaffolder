@@ -1,0 +1,22 @@
+uuid: 17c7ad5f-46aa-650f-7805-ad0d057f3db6
+langcode: en
+status: true
+dependencies: {  }
+name: 1_1__lg__1x
+label: '1:1 lg @ 1x'
+effects:
+  926100c6-a5b7-7d49-72f1-e1cf4cd6c5db:
+    uuid: 926100c6-a5b7-7d49-72f1-e1cf4cd6c5db
+    id: crop_crop
+    weight: 0
+    data:
+      crop_type: 1x1
+      automatic_crop_provider: null
+  03543482-763c-c517-741a-9f361d06b8d5:
+    uuid: 03543482-763c-c517-741a-9f361d06b8d5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1584
+      height: 1584
+      anchor: center-center

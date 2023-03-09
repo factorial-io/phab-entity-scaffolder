@@ -1,0 +1,17 @@
+uuid: 5247dcde-1e68-4491-55db-fa5b10a7d93b
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 6_7_fp__sm__1x
+label: '6:7 (Focal Point) sm @ 1x'
+effects:
+  31931205-8c6a-8c3f-6349-4f20c4cbd0ce:
+    uuid: 31931205-8c6a-8c3f-6349-4f20c4cbd0ce
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 768
+      height: 896
+      crop_type: focal_point

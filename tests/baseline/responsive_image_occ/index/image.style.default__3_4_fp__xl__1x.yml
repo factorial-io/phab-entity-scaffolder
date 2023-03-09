@@ -1,0 +1,17 @@
+uuid: 052e1a35-d98f-4fd6-f78a-8e4681e53126
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 3_4_fp__xl__1x
+label: '3:4 (Focal Point) xl @ 1x'
+effects:
+  2861d1be-c5a0-ffdb-256a-d4592bde9fa6:
+    uuid: 2861d1be-c5a0-ffdb-256a-d4592bde9fa6
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 1584
+      height: 2112
+      crop_type: focal_point

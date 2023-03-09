@@ -1,0 +1,17 @@
+uuid: 764eebe5-4e4f-06de-3738-b03d733f010a
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_1_fp__xs__1x
+label: '1:1 (Focal Point) xs @ 1x'
+effects:
+  79fbecae-fadd-9bc8-33cf-73232eafc5b6:
+    uuid: 79fbecae-fadd-9bc8-33cf-73232eafc5b6
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 569
+      height: 569
+      crop_type: focal_point

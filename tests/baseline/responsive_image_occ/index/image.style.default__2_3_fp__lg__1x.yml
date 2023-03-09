@@ -1,0 +1,17 @@
+uuid: 4220607e-6882-a611-e41c-b9170795dfd5
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 2_3_fp__lg__1x
+label: '2:3 (Focal Point) lg @ 1x'
+effects:
+  70069834-d3ef-7788-cfba-48f1652ae87e:
+    uuid: 70069834-d3ef-7788-cfba-48f1652ae87e
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 1584
+      height: 2376
+      crop_type: focal_point

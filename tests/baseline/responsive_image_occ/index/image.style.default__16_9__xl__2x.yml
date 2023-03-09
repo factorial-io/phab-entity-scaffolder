@@ -1,0 +1,22 @@
+uuid: f490f790-74c8-8cdd-d586-a13858e81176
+langcode: en
+status: true
+dependencies: {  }
+name: 16_9__xl__2x
+label: '16:9 xl @ 2x'
+effects:
+  061c96de-2aee-8172-587e-6105f8489edc:
+    uuid: 061c96de-2aee-8172-587e-6105f8489edc
+    id: crop_crop
+    weight: 0
+    data:
+      crop_type: 16x9
+      automatic_crop_provider: null
+  1f4cd2d3-3462-60ed-6682-509d68ba8324:
+    uuid: 1f4cd2d3-3462-60ed-6682-509d68ba8324
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 3168
+      height: 1782
+      anchor: center-center

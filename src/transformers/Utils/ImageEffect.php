@@ -18,8 +18,9 @@ class ImageEffect extends EntityPropertyBase
     {
         $this->position = $position;
         $this->effect = $data['effect'];
-        $this->height = $data['effective_height'];
-        $this->width = $data['effective_width'];
+        $this->height =  empty($data['effective_height']) ? NULL : $data['effective_height'];
+        $this->width =  empty($data['effective_width']) ? NULL : $data['effective_width'];
+        $this->crop_type = empty($data['crop_type']) ? NULL : $data['crop_type'];
         $this->placeholderService = new PlaceholderService();
         $this->template = PlaceholderService::parseTemplateFile($this->getTemplateFile())['effects'][$this->effect];
         $config = Utilities::mergeData($this->template, $this->getTemplateOverrideData());
@@ -40,6 +41,9 @@ class ImageEffect extends EntityPropertyBase
         if (!empty($this->width)) {
             $data['data']['width'] = $this->width;
         }
+        if (!empty($this->crop_type)) {
+            $data['data']['crop_type'] = $this->crop_type;
+        }
         return $data;
     }
 
@@ -52,7 +56,15 @@ class ImageEffect extends EntityPropertyBase
                     'focal_point'
                 ]
             ];
-        } else {
+        }
+        else if ($this->effect == 'crop_crop') {
+            return [
+                'module' => [
+                    'crop'
+                ]
+            ];
+        }
+        else {
             return [];
         }
     }

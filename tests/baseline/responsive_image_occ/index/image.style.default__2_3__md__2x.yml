@@ -1,0 +1,22 @@
+uuid: 9887927c-3b5d-9086-d0b0-b5643fe13f72
+langcode: en
+status: true
+dependencies: {  }
+name: 2_3__md__2x
+label: '2:3 md @ 2x'
+effects:
+  c43b2881-9e10-9896-5afc-9416f797e508:
+    uuid: c43b2881-9e10-9896-5afc-9416f797e508
+    id: crop_crop
+    weight: 0
+    data:
+      crop_type: 2x3
+      automatic_crop_provider: null
+  f5d85642-e6ac-d8d2-fca6-d1d87a4c9f0f:
+    uuid: f5d85642-e6ac-d8d2-fca6-d1d87a4c9f0f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 2046
+      height: 3070
+      anchor: center-center

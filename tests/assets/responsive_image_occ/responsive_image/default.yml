@@ -1,0 +1,32 @@
+label: Default
+id: default
+# Breakpoint group's machine name we have to use.
+breakpoint_group: occhio_front
+# Multipliers present in breakpoint group.
+crops:
+  - 1x1
+  - 2x1
+  - 2x3
+  - 3x2
+  - 3x4
+  - 4x3
+  - 4x5
+  - 6x7
+  - 8x9
+  - 9x16
+  - 16x9
+multipliers:
+  - 1x
+  - 2x
+# Define width and height of the images that we need for each breakpoint.
+mapping:
+  xs:
+    width: 200
+  sm:
+    width: 200
+  md:
+    width: 200
+  lg:
+    width: 300
+  xl:
+    width: 800

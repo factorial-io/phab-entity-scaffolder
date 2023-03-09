@@ -1,0 +1,17 @@
+uuid: ef9daf7c-d709-b1e7-d55d-1442d26d8a07
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_fp__xs__2x
+label: '16:9 (Focal Point) xs @ 2x'
+effects:
+  34f02dc0-9fbe-e155-ad87-857ca2a6d243:
+    uuid: 34f02dc0-9fbe-e155-ad87-857ca2a6d243
+    id: focal_point_scale_and_crop
+    weight: 0
+    data:
+      width: 1138
+      height: 640
+      crop_type: focal_point
