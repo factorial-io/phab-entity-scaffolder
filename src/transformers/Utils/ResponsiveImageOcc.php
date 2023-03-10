@@ -29,7 +29,7 @@ class ResponsiveImageOcc extends Base
         }
         $max_size = PHP_INT_MAX;
         $crop = $data['crop'];
-        [$ratio_h, $ratio_w] = explode('x', $crop);
+        [$ratio_w, $ratio_h] = explode('x', $crop);
         foreach ($multipliers as $multiplier) {
             if (is_array($data['mapping'])) {
                 foreach ($data['mapping'] as $breakpoint => $style_data) {
