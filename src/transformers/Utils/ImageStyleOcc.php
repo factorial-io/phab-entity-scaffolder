@@ -49,7 +49,7 @@ class ImageStyleOcc extends Base
         parent::__construct($config_accumulator, $placeholder_service, $data);
         // We can hrdcode the position to 0, as we will only have one imageeffect per style.
         $effect = new ImageEffect($data, 0);
-        $config['effects'][PlaceholderService::createChildReference('uuid')] =$effect->getConfig();
+        $config['effects'][PlaceholderService::createChildReference('uuid')] = $effect->getConfig();
         $this->imageEffects[] = $effect;
         $this->addDependencyFromImageEffects();
         $data['effect'] = 'image_scale_and_crop';

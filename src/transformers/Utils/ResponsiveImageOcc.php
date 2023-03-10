@@ -52,9 +52,6 @@ class ResponsiveImageOcc extends Base
                             $style_data
                         );
                     }
-
-
-
                     $styleTransformers[$multiplier][$breakpoint] = $styleTransformer;
                     $image_style_mappings[] = [
                         'breakpoint_id' => $this->data['breakpoint_group'].'.'.$breakpoint,
@@ -62,7 +59,7 @@ class ResponsiveImageOcc extends Base
                         'image_mapping_type' => 'image_style',
                         'image_mapping' => $styleTransformer->getName(),
                     ];
-                    if (!empty($style_data['fallback']) && $multiplier == 1) {
+                    if (empty($style_data['fallback']) && $multiplier == 1) {
                         $fallback_image_style = $styleTransformer->getName();
                     }
                 }

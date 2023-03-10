@@ -17,7 +17,6 @@ class ResponsiveImageGroupOcc extends Base
 
     protected function transformResponsiveImageGroup()
     {
-        $fallback_image_style = $automatic_fallback_image_style = false;
         $data = $this->data;
         $crops = $data['crops'];
         $id = $data['id'];
@@ -43,7 +42,6 @@ class ResponsiveImageGroupOcc extends Base
                 $group_data
             );
         }
-
     }
     public function getTemplateFileName()
     {
