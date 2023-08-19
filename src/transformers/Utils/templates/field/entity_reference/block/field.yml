@@ -1,24 +1,26 @@
-uuid: e8664aa0-a5c0-4804-8ee1-6132f175942d
+uuid: d1cc117e-06cc-4c13-81eb-11497ac9eb44
 langcode: en
 status: true
 dependencies:
-id: block_content.anchor.field_ref_content
-field_name: field_ref_content
+  config:
+  module:
+    - entity_reference
+id: block_content.textarea.field_key_facts
+field_name: field_key_facts
 entity_type: block_content
-bundle: anchor
-label: 'Ref Content'
+bundle: textarea
+label: 'Key Facts'
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
+  handler: 'default:block_content'
   handler_settings:
     target_bundles:
     sort:
       field: _none
-      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

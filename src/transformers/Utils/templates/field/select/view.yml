@@ -1,4 +1,13 @@
+dependencies:
+  default:
+    module:
+      - link
+      - options
+
 content:
   default:
     label: hidden
     region: content
+    type: list_default
+    __|settings: {  }
+    __|third_party_settings: {  }
